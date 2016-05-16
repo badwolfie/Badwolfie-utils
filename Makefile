@@ -1,11 +1,11 @@
-output = bdw-utils.a
-object = bdw-utils.o
+OUTPUT = bdw-utils.a
+OBJECT = bdw-utils.o
 
-$(output): $(object)
-	ar rcs $(output) $(object)
+$(OUTPUT): $(OBJECT)
+	ar rcs $(OUTPUT) $(OBJECT)
 
-$(object): bdw-utils.c bdw-utils.h
+$(OBJECT): bdw-utils.c bdw-utils.h
 	gcc -c bdw-utils.c
 
 clean:
-	rm -f $(output) $(object)
+	rm -f $(OUTPUT) $(OBJECT)
