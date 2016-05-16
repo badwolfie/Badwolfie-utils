@@ -44,7 +44,7 @@ bdw_util_strcopy (const char * arg)
   return output;
 }
 
-bool
+Bool
 bdw_util_strequals (const char * arg1, const char * arg2)
 {
   if (strcmp (arg1, arg2) == 0)
@@ -53,10 +53,23 @@ bdw_util_strequals (const char * arg1, const char * arg2)
 }
 
 void
-bdw_util_strchrappend (char * dest, char c)
+bdw_util_strappendchr (char * dest, char c)
 {
   unsigned short len = strlen (dest);
   dest = realloc (dest, len + 2);
   dest[len + 1] = (char) 0;
   dest[len] = c;
+}
+
+int 
+bdw_util_arraylen (pointer array)
+{
+  int len = 0;
+  if (array) {
+    while (((pointer *) array)[len]) {
+      len++;
+    }
+  }
+
+  return len;
 }

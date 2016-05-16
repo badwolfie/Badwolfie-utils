@@ -12,9 +12,10 @@
 #endif
 
 /**  */
-#ifndef bool
-#define bool unsigned char
-#endif
+typedef unsigned char Bool;
+
+/**  */
+typedef void* pointer;
 
 /**
  *
@@ -29,11 +30,16 @@ char * bdw_utils_strcopy (const char * arg);
 /**
  *
  */
-bool bdw_utils_strequals (const char * arg1, const char * arg2);
+Bool bdw_utils_strequals (const char * arg1, const char * arg2);
 
 /**
  *
  */
 void bdw_utils_strchrappend (char * dest, char c);
 
-#endif
+/**
+ *
+ */
+int bdw_utils_array_len (pointer array);
+
+#endif /* UTIL__H */
