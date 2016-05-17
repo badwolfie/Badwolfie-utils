@@ -24,16 +24,19 @@
 
 #include "bdw-utils.h"
 
-char *
+
+/* String utilities. */
+
+string
 bdw_util_strconcat (const char * arg, ...)
 {
-  char * output, * aux;
+  string output, aux;
   unsigned int len, current_len;
 
   va_list arglist;
   va_start (arglist, arg);
 
-  output = (char *) malloc (1);
+  output = (string) malloc (1);
   memset (output, 0x00, 1);
   current_len = 0;
 
@@ -43,37 +46,49 @@ bdw_util_strconcat (const char * arg, ...)
     current_len = strlen (output);
 
     aux = output;
-    output = (char *) malloc (current_len + len + 1);
+    output = (string) malloc (current_len + len + 1);
 
     strcpy (output, aux);
     strcat (output, arg);
 
-    arg = va_arg (arglist, const char *);
+    arg = va_arg (arglist, const string);
     free (aux);
   }
 
   return output;
 }
 
-char *
-bdw_util_strcopy (const char * arg)
+string
+bdw_util_strcopy (const string arg)
 {
   unsigned int len = strlen (arg);
-  char * output = (char *) malloc (len + 1);
+  string output = (string) malloc (len + 1);
   strcpy (output, arg);
   return output;
 }
 
-Bool
-bdw_util_strequals (const char * arg1, const char * arg2)
+bool
+bdw_util_strequals (const string arg1, const string arg2)
 {
   if (strcmp (arg1, arg2) == 0)
-    return TRUE;
-  return FALSE;
+    return true;
+  return false;
 }
 
 void
-bdw_util_strappendchr (char * dest, char c)
+bdw_utils_strtrim (const string str, char delim)
+{
+  char * newline = NULL;
+
+  newline = strchr (str, delim);
+  if (newline != NULL)
+  {
+    *newline = (char) 0;
+  }
+}
+
+void
+bdw_utils_strappendchr (string dest, char c)
 {
   unsigned short len = strlen (dest);
   dest = realloc (dest, len + 2);
@@ -81,15 +96,79 @@ bdw_util_strappendchr (char * dest, char c)
   dest[len] = c;
 }
 
-int 
-bdw_util_arraylen (pointer array)
+string *
+bdw_utils_strsplit (const string str, const string delim)
+{
+  short array_len = 1, i = 0;
+
+  string * str_array = (string *) malloc (sizeof (string));
+  string token = strtok (str, delim);
+
+  while (token != NULL) {
+    str_array[i++] = token;
+    array_len++;
+
+    str_array = (string *) realloc (str_array, array_len * sizeof (string));
+    token = strtok (NULL, delim);
+  }
+
+  str_array[i] = NULL;
+  return str_array;
+}
+
+
+/* Array utilities. */
+
+int
+bdw_utils_nullarraylen (pointer array)
 {
   int len = 0;
-  if (array) {
-    while (((pointer *) array)[len]) {
+  if (array)
+  {
+    while (((pointer *) array)[len])
+    {
       len++;
     }
   }
 
   return len;
+}
+
+BdwArray *
+bdw_array_new (void)
+{
+  BdwArray * self = (BdwArray *) malloc (sizeof (BdwArray));
+  self->elements = NULL;
+  self->len = 0;
+  return self;
+}
+
+void
+bdw_array_destroy (BdwArray * self)
+{
+  if (self == NULL)
+    return ;
+
+  if (self->elements != NULL)
+    free (self->elements);
+  free (self);
+}
+
+
+/* File utilities. */
+
+string
+bdw_utils_filegetline (FILE * file)
+{
+  size_t size = 0;
+  string str_line = NULL;
+
+  int status = getline (&str_line, &size, file);
+  if (status == -1)
+  {
+    return NULL;
+  }
+
+  bdw_utils_strtrim (str_line, '\n');
+  return str_line;
 }

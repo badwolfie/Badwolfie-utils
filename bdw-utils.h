@@ -21,45 +21,105 @@
 #ifndef UTIL__H
 #define UTIL__H
 
-/**  */
-#ifndef TRUE
-#define TRUE 0x01
-#endif
+#include <stdbool.h>
+#include <stdio.h>
 
-/**  */
-#ifndef FALSE
-#define FALSE 0x00
-#endif
+/** Definition of the generic pointer data-type. */
+typedef void * pointer;
 
-/**  */
-typedef unsigned char Bool;
+/** Definition of the character string data-type. */
+typedef char * string;
 
-/**  */
-typedef void* pointer;
+/** Struct that stores an array of elements and its length. */
+typedef struct _BdwArray
+{
+  pointer elements; /**< Elements of the array. */
+  unsigned int len; /**< Array's length. */
+} BdwArray;
 
-/**
- *
- */
-char * bdw_utils_strconcat (const char * arg, ...);
 
 /**
+ * Function used to concatenate the given strings.
  *
+ * @param arg NULL-terminated series of strings.
+ * @return The concatenation of the strings given.
  */
-char * bdw_utils_strcopy (const char * arg);
+string bdw_utils_strconcat (const char * arg, ...);
 
 /**
+ * Function that creates a copy of the given string.
  *
+ * @param arg String to be copied.
+ * @return An exact copy of the given string.
  */
-Bool bdw_utils_strequals (const char * arg1, const char * arg2);
+string bdw_utils_strcopy (const string arg);
 
 /**
+ * Function that compares two strings.
  *
+ * @param arg1 One of string to be compared.
+ * @param arg2 The string to be compared with arg1.
+ * @return
+ *    - @ref true if the strings are the same.
+ *    - @ref false otherwise.
  */
-void bdw_utils_strchrappend (char * dest, char c);
+bool bdw_utils_strequals (const string arg1, const string arg2);
 
 /**
+ * Function that trims a string at the first occurrence of a given character.
  *
+ * @param str String to be trimmed.
+ * @param delim Character used as delimiter for the trimming.
  */
-int bdw_utils_array_len (pointer array);
+void bdw_utils_strtrim (const string str, char delim);
+
+/**
+ * Function that appends a character to a given string.
+ *
+ * @param dest String to be processed.
+ * @param c Character to be appended.
+ */
+void bdw_utils_strappendchr (string dest, char c);
+
+/**
+ * Function used to tokenize (or split) a given string by a given delimiter.
+ *
+ * @param str String to be tokenized (split).
+ * @param delim String used as a delimiter for the tokenization.
+ * @return The NULL-terminated array of strings result of the tokenization.
+ */
+string * bdw_utils_strsplit (const string str, const string delim);
+
+
+/**
+ * Function that obtains the length of a NULL-terminated array of elements.
+ *
+ * @param array Pointer to the NULL-terminated array to be processed.
+ * @return The length of the given array.
+ */
+int bdw_utils_nullarraylen (pointer array);
+
+/**
+ * Function that creates and initializes a new BdwArray struct.
+ *
+ * @return A pointer to the newly created BdwArray struct.
+ */
+BdwArray * bdw_array_new (void);
+
+/**
+ * Function that destroys and existing BdwArray struct.
+ *
+ * @param self Pointer to the BdwArray struct to be destroyed.
+ */
+void bdw_array_destroy (BdwArray * self);
+
+
+/**
+ * Function that reads a line from a text file.
+ *
+ * @param file Text file from which the line will be read.
+ * @return The line of text that was read from the file.
+ */
+string bdw_utils_filegetline (FILE * file);
 
 #endif /* UTIL__H */
