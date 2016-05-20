@@ -4,6 +4,7 @@ Generic utility functions written in C.
 ### Data-types included
 * `pointer` - Generic pointer (`void *`)
 * `string` - Character string (`char *`)
+* `cstring` - Constant character string (`const char *`)
 
 ### Data structures included
 * `BdwArray` - Struct that stores an array of elements and its length.

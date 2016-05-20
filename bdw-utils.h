@@ -27,6 +27,9 @@
 /** Definition of the generic pointer data-type. */
 typedef void * pointer;
 
+/** Definition of the constant character string data-type. */
+typedef const char * cstring;
+
 /** Definition of the character string data-type. */
 typedef char * string;
 
@@ -44,7 +47,7 @@ typedef struct _BdwArray
  * @param arg NULL-terminated series of strings.
  * @return The concatenation of the strings given.
  */
-string bdw_utils_strconcat (const char * arg, ...);
+string bdw_utils_strconcat (cstring arg, ...);
 
 /**
  * Function that creates a copy of the given string.
@@ -52,7 +55,7 @@ string bdw_utils_strconcat (const char * arg, ...);
  * @param arg String to be copied.
  * @return An exact copy of the given string.
  */
-string bdw_utils_strcopy (const string arg);
+string bdw_utils_strcopy (cstring arg);
 
 /**
  * Function that compares two strings.
@@ -63,7 +66,7 @@ string bdw_utils_strcopy (const string arg);
  *    - @ref true if the strings are the same.
  *    - @ref false otherwise.
  */
-bool bdw_utils_strequals (const string arg1, const string arg2);
+bool bdw_utils_strequals (cstring arg1, cstring arg2);
 
 /**
  * Function that trims a string at the first occurrence of a given character.
@@ -71,7 +74,7 @@ bool bdw_utils_strequals (const string arg1, const string arg2);
  * @param str String to be trimmed.
  * @param delim Character used as delimiter for the trimming.
  */
-void bdw_utils_strtrim (const string str, char delim);
+void bdw_utils_strtrim (cstring str, char delim);
 
 /**
  * Function that appends a character to a given string.
@@ -88,7 +91,7 @@ void bdw_utils_strappendchr (string dest, char c);
  * @param delim String used as a delimiter for the tokenization.
  * @return The NULL-terminated array of strings result of the tokenization.
  */
-string * bdw_utils_strsplit (const string str, const string delim);
+string * bdw_utils_strsplit (cstring str, cstring delim);
 
 
 /**

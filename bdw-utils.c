@@ -28,7 +28,7 @@
 /* String utilities. */
 
 string
-bdw_util_strconcat (const char * arg, ...)
+bdw_util_strconcat (cstring arg, ...)
 {
   string output, aux;
   unsigned int len, current_len;
@@ -51,7 +51,7 @@ bdw_util_strconcat (const char * arg, ...)
     strcpy (output, aux);
     strcat (output, arg);
 
-    arg = va_arg (arglist, const string);
+    arg = va_arg (arglist, cstring);
     free (aux);
   }
 
@@ -59,7 +59,7 @@ bdw_util_strconcat (const char * arg, ...)
 }
 
 string
-bdw_util_strcopy (const string arg)
+bdw_util_strcopy (cstring arg)
 {
   unsigned int len = strlen (arg);
   string output = (string) malloc (len + 1);
@@ -68,7 +68,7 @@ bdw_util_strcopy (const string arg)
 }
 
 bool
-bdw_util_strequals (const string arg1, const string arg2)
+bdw_util_strequals (cstring arg1, cstring arg2)
 {
   if (strcmp (arg1, arg2) == 0)
     return true;
@@ -76,7 +76,7 @@ bdw_util_strequals (const string arg1, const string arg2)
 }
 
 void
-bdw_utils_strtrim (const string str, char delim)
+bdw_utils_strtrim (cstring str, char delim)
 {
   char * newline = NULL;
 
@@ -97,12 +97,12 @@ bdw_utils_strappendchr (string dest, char c)
 }
 
 string *
-bdw_utils_strsplit (const string str, const string delim)
+bdw_utils_strsplit (cstring str, cstring delim)
 {
   short array_len = 1, i = 0;
 
   string * str_array = (string *) malloc (sizeof (string));
-  string token = strtok (str, delim);
+  string token = strtok ((string) str, delim);
 
   while (token != NULL) {
     str_array[i++] = token;
