@@ -1,0 +1,38 @@
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns="http://usefulinc.com/ns/doap#">
+    <name xml:lang="en">bdwlib</name>
+
+    <shortdesc xml:lang="en">
+      A general purpose library written in C.
+    </shortdesc>
+
+    <description>
+      bdwlib is a general purpose library written in C, it provides some utility
+      functions for strings, files and the most commonly used data structures
+      like simple and doubly-linked Lists, Stacks and Queues.
+
+      The source code for bdwlib is available for anyone who whishes to build
+      its package and try it. If your interested in building bdwlib from
+      source simply download it and use the building script we provide at:
+
+        https://github.com/badwolfie/bdwlib
+    </description>
+
+    <homepage rdf:resource="https://github.com/badwolfie/bdwlib"/>
+
+    <download-page rdf:resource="https://github.com/badwolfie/bdwlib/releases"/>
+
+    <bug-database rdf:resource="https://github.com/badwolfie/bdwlib/issues"/>
+
+    <license rdf:resource="http://www.gnu.org/licenses/gpl-3.0.html"/>
+
+    <programming-language>C</programming-language>
+
+    <maintainer>
+      <foaf:Person>
+        <foaf:name>Ian Hernandez</foaf:name>
+      </foaf:Person>
+    </maintainer>
+</Project>
