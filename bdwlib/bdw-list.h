@@ -32,80 +32,16 @@
  * both the previuos and next nodes in the list, which means you can iterate  
  * this lists in both directions.
  **/
+
+/**
+ * BdwList:
+ * @data: Holds the node's data, which can be a pointer to any kind of data.
+ * @prev: Contains the link to the previuos node in the list.
+ * @next: Contains the link to the next node in the list.
+ *
+ * The #BdwList struct used for each node in a doubly-linked list.
+ **/
 typedef struct _BdwList BdwList;
-
-/**
- * CompareFunction:
- * @a: A value.
- * @b: A value to compare @a with.
- * @param_data: Additional data needed for the comparison.
- *
- * Specifies the type of a comparison function used to compare two values.
- * The function should return a negative integer if the first value comes before
- * the second, 0 if they are equal, or a positive integer if the first value
- * comes after the second.
- * 
- * It's used internally by bdw_list_find_custom().
- * 
- * Returns: A negative value if @a < @b, zero if @a = @b, positive value if
- *          @a > @b.
- **/
-typedef int (*CompareFunction) (constpointer a, 
-                                constpointer b, 
-                                pointer param_data);
-
-/**
- * CopyFunction:
- * @original: A pointer to the data to be copied.
- * @param_data: Additional data needed for the copying process.
- * 
- * Specifies the type of a copy function used to copy the node data when doing a
- * full-copy of a list.
- *
- * It's used internally by bdw_list_full_copy().
- *
- * Returns: A pointer to the copy.
- **/
-typedef pointer (*CopyFunction) (constpointer original, pointer param_data);
-
-/**
- * ForeachFunction:
- * @node_data: The list node data.
- * @param_data: Additional data used by the #ForeachFunction when its called.
- * 
- * Specifies the type of a function that will be executed once for every node in
- * the list, it can do anything that the user wants.
- *
- * It's used internally by bdw_list_foreach().
- **/
-typedef void (*ForeachFunction) (pointer node_data, pointer param_data);
-
-/**
- * ToStringFunction:
- * @node_data: The list node data.
- * @param_data: Additional data needed for string formatting, it can be
- *              %NULL if none is needed.
- *
- * Specifies the type of a function that takes the data from a #BdwList node and
- * creates a printable string from it.
- *
- * It's used internally by bdw_list_node_to_string().
- *
- * Returns: The list node data string representation.
- **/
-typedef conststring (*ToStringFunction) (pointer node_data, pointer param_data);
-
-/**
- * DestroyFunction:
- * @node_data: The data element.
- * 
- * Specifies the type of function which is called when a node's data is
- * destroyed. It is passed the pointer to the data element and should free any
- * memory and resources allocated for it.
- *
- * It's used internally by bdw_list_full_destroy().
- **/
-typedef void (*DestroyFunction) (pointer node_data);
 
 
 /*    Function prototypes    */
@@ -135,7 +71,7 @@ BdwList * bdw_list_node_alloc (void);
  * @self: A pointer to a #BdwList.
  *
  * Frees all of the memory used by a #BdwList. If list nodes contain
- * dynamically-allocated memory, you should either use bdw_list_full_destroy() 
+ * dynamically-allocated memory, you should either use bdw_list_full_destroy()
  * or free them manually first.
  **/
 void bdw_list_destroy (BdwList * self);
@@ -144,8 +80,8 @@ void bdw_list_destroy (BdwList * self);
  * bdw_list_full_destroy:
  * @self: A pointer to a #BdwList.
  * @free_func: The function to be called to free each node's data.
- * 
- * Frees all the memory used by a #BdwList, and calls @free_func on every node's 
+ *
+ * Frees all the memory used by a #BdwList, and calls @free_func on every node's
  * data.
  **/
 void bdw_list_full_destroy (BdwList * self, DestroyFunction free_func);
@@ -154,7 +90,7 @@ void bdw_list_full_destroy (BdwList * self, DestroyFunction free_func);
  * bdw_list_append:
  * @self: A pointer to a #BdwList.
  * @node_data: The data of the new node.
- * 
+ *
  * Adds a new node on to the end of the list. Note that the return value is
  * the new start of the list, if list was empty; make sure you store the new
  * value.
@@ -167,7 +103,7 @@ BdwList * bdw_list_append (BdwList * self, pointer node_data);
  * bdw_list_prepend:
  * @self: A pointer to a #BdwList, this must point to the top of the list.
  * @node_data: The data of the new node.
- * 
+ *
  * Prepends a new node on to the start of the list. Note that the return
  * value is the new start of the list, which will have changed, so make sure you
  * store the new value.
@@ -436,7 +372,7 @@ pointer bdw_list_get_data (const BdwList * self);
 /**
  * bdw_list_is_empty:
  * @self: A pointer to a #BdwList, this must point to the top of the list.
- * 
+ *
  * Checks if @self is an empty list, calling this is optional since you could 
  * just compare a #BdwList* to %NULL to see if it's empty.
  *
@@ -447,7 +383,7 @@ bool bdw_list_is_empty (const BdwList * self);
 /**
  * bdw_list_is_first:
  * @self: A pointer to a #BdwList node.
- * 
+ *
  * Checks if @self is the first node in a list.
  *
  * Returns: Whether or not the node is the first in the list.
@@ -486,3 +422,4 @@ conststring bdw_list_node_to_string (const BdwList * self,
 #endif
 
 #endif /* LIST__H */
+

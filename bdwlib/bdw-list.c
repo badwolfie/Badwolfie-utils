@@ -19,14 +19,6 @@
 
 #include "bdw-list.h"
 
-/** 
- * BdwList:
- * @data: Holds the node's data, which can be a pointer to any kind of data.
- * @prev: Contains the link to the previuos node in the list.
- * @next: Contains the link to the next node in the list.
- * 
- * The #BdwList struct used for each node in a doubly-linked list. 
- **/
 struct _BdwList
 {
   pointer data;
@@ -436,3 +428,4 @@ bdw_list_node_to_string (const BdwList * self,
 
   return func (self->data, param_data);
 }
+
