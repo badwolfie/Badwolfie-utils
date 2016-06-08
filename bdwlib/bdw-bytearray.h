@@ -20,21 +20,40 @@
 
 #include "bdw-types.h"
 
-/** Struct that stores an array of bytes and the number of elements it holds. */
+/**
+ * BdwByteArray:
+ * @data: Elements of the array.
+ * @length: Array's length.
+ *
+ * The #BdwByteArray struct that stores an array of bytes and the number of
+ * elements it holds.
+ **/
 typedef struct _BdwByteArray BdwByteArray;
 
+/*    Function prototypes    */
+#ifdef __cplusplus /*    C++ support    */
+extern "C" {
+#endif
+
 /**
- * Creates and initializes a new BdwByteArray struct.
+ * bdw_byte_array_new:
+ * Creates and initializes a new #BdwByteArray struct.
  *
- * @return A pointer to the newly created BdwByteArray struct.
+ * Returns: A pointer to the newly created #BdwByteArray struct.
  */
 BdwByteArray * bdw_byte_array_new (void);
 
 /**
- * Destroys an existing BdwByteArray struct.
+ * bdw_byte_array_destroy:
+ * @self: Pointer to the #BdwByteArray struct to be destroyed.
  *
- * @param self Pointer to the BdwByteArray struct to be destroyed.
+ * Destroys an existing #BdwByteArray struct.
  */
 void bdw_byte_array_destroy (BdwByteArray * self);
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif /* BDW_BYTEARRAY__H */
+

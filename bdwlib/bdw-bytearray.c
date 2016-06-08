@@ -21,10 +21,7 @@
 
 struct _BdwByteArray
 {
-  /** Elements of the array. */
   byte * data;
-
-  /** Array's length. */
   uint length;
 };
 

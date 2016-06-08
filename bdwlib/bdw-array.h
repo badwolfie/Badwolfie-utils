@@ -21,23 +21,39 @@
 #include "bdw-types.h"
 
 /**
- * Struct that stores an array of elements and the number of elements it holds.
- */
+ * BdwArray:
+ * @data: Elements of the array.
+ * @length: Array's length.
+ *
+ * The #BdwArray struct that stores an array of elements and the number of
+ * elements it holds.
+ **/
 typedef struct _BdwArray BdwArray;
 
+/*    Function prototypes    */
+#ifdef __cplusplus /*    C++ support    */
+extern "C" {
+#endif
+
 /**
- * Creates and initializes a new BdwArray struct.
+ * bdw_array_new:
+ * Creates and initializes a new #BdwArray struct.
  *
- * @return A pointer to the newly created BdwArray struct.
+ * Returns: A pointer to the newly created #BdwArray struct.
  */
 BdwArray * bdw_array_new (void);
 
 /**
- * Destroys an existing BdwArray struct.
+ * bdw_array_destroy:
+ * @self: Pointer to the #BdwArray struct to be destroyed.
  *
- * @param self Pointer to the BdwArray struct to be destroyed.
+ * Destroys an existing #BdwArray struct.
  */
 void bdw_array_destroy (BdwArray * self);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* BDW_ARRAY__H */
 
