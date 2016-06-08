@@ -30,3 +30,15 @@
 
 # Debug files
 *.dSYM/
+
+# Autotools generated files
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache/
+build*/
+configure
+config.*
+gtk-doc.make
+version.xml
+

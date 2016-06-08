@@ -2,7 +2,7 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 SUBDIRS = . docs
 
-EXTRA_DIST += \
+EXTRA_DIST = \
   autogen.sh \
   bdwlib.doap \
   ChangeLog \
@@ -12,7 +12,7 @@ EXTRA_DIST += \
   README.md \
   $(NULL)
 
-BUILT_EXTRA_DIST += \
+BUILT_EXTRA_DIST = \
   ChangeLog \
   INSTALL \
   README \

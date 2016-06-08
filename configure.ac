@@ -9,14 +9,15 @@ m4_define([bdwlib_micro_version], [0])
 m4_define([bdwlib_version],
           [bdwlib_major_version.bdwlib_minor_version.bdwlib_micro_version])
 
-AC_INIT (bdwlib, [bdwlib_version], [https://github.com/badwolfie/bdwlib/issues])
+AC_INIT([BdwLib], [bdwlib_version],
+		 [https://github.com/badwolfie/bdwlib/issues], [bdwlib])
 
 # AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_SRCDIR([bdwlib/bdwlib.h])
+AC_CONFIG_SRCDIR([bdwlib])
 AC_CONFIG_MACRO_DIR([m4])
-# AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_AUX_DIR([build-aux])
 
-AM_INIT_AUTOMAKE([1.11 -Wno-portability no-define no-dist-gzip dist-xz tar-ustar])
+AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz])
 AM_MAINTAINER_MODE([enable])
 
 AM_SILENT_RULES([yes])
@@ -51,12 +52,12 @@ AC_SUBST(bdwlib_INCLUDES)
 
 AC_CONFIG_FILES([
   Makefile
-  bdwlib/Makefile
   docs/Makefile
   docs/reference/Makefile
   docs/reference/bdwlib/Makefile
   docs/reference/bdwlib/version.xml
 ])
 
+#  bdwlib/Makefile
 AC_OUTPUT
 
