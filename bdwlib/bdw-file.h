@@ -20,99 +20,117 @@
 
 #include "bdw-types.h"
 
+/**
+ * BdwFileMode:
+ * @BDW_FILE_MODE_NONE: Undefined opening mode. Placeholder only, not meant for
+ *                      real usage.
+ * @BDW_FILE_MODE_READ: Open text file for reading. The stream is positioned at
+ *                      the beginning of the file.
+ * @BDW_FILE_MODE_READ_PLUS: Open for reading and writing. The stream is
+ *                           positioned at the beginning of the file.
+ * @BDW_FILE_MODE_WRITE: Truncate file to zero length or create text file for
+ *                       writing. The stream is positioned at the beginning of
+ *                       the file.
+ * @BDW_FILE_MODE_WRITE_PLUS: Open for reading and writing. The file is created
+ *                            if it does not exist, otherwise it is truncated.
+ *                            The stream is positioned at the beginning of the
+ *                            file.
+ * @BDW_FILE_MODE_APPEND: Open for appending (writing at end of file). The file
+ *                        is created if it does not exist. The stream is
+ *                        positioned at the end of the file.
+ * @BDW_FILE_MODE_APPEND_PLUS: Open for reading and appending (writing at end of
+ *                             file). The file is created if it does not exist.
+ *                             The initial file position for reading is at the
+ *                             beginning of the file, but output is always
+ *                             appended to the end of the file.
+ *
+ * Specifies the opening mode for a #BdwFile.
+ **/
 typedef enum
 {
-  /** Undefined opening mode. Placeholder only, not meant for real usage. */
   BDW_FILE_MODE_NONE,
-
-  /**
-   * Open text file for reading. The stream is positioned at the beginning of
-   * the file.
-   */
   BDW_FILE_MODE_READ,
-
-  /**
-   * Open for reading and writing. The stream is positioned at the beginning of
-   * the file.
-   */
   BDW_FILE_MODE_READ_PLUS,
-
-  /**
-   * Truncate file to zero length or create text file for writing. The stream
-   * is positioned at the beginning of the file.
-   */
   BDW_FILE_MODE_WRITE,
-
-  /**
-   * Open for reading and writing. The file is created if it does not exist,
-   * otherwise it is truncated. The stream is positioned at the beginning of the
-   * file.
-   */
   BDW_FILE_MODE_WRITE_PLUS,
-
-  /**
-   * Open for appending (writing at end of file). The file is created if it does
-   * not exist. The stream is positioned at the end of the file.
-   */
   BDW_FILE_MODE_APPEND,
-
-  /**
-   * Open for reading and appending (writing at end of file). The file is
-   * created if it does not exist. The initial file position for reading is at
-   * the beginning of the file, but output is always appended to the end of the
-   * file.
-   */
   BDW_FILE_MODE_APPEND_PLUS
 } BdwFileMode;
 
+/**
+ * BdwFileType:
+ * @BDW_FILE_TYPE_NONE: Undefined file type. Placeholder only, not meant for
+ *                      real usage.
+ * @BDW_FILE_TYPE_BINARY: The opened file is a binary file.
+ * @BDW_FILE_TYPE_TEXT: The opened file is a text file.
+ *
+ * Specifies the opening type for a #BdwFile.
+ **/
 typedef enum
 {
-  /** Undefined file type. Placeholder only, not meant for real usage. */
   BDW_FILE_TYPE_NONE,
-
-  /** The opened file is a binary file. */
   BDW_FILE_TYPE_BINARY,
-
-  /** The opened file is a text file. */
   BDW_FILE_TYPE_TEXT
 } BdwFileType;
 
-/** Struct that stores file data and auxiliary information. */
+/**
+ * BdwFile:
+ * @file: %FILE pointer that stores the file's data.
+ * @location: Location of the file in the disk.
+ * @mode: Opening mode for a #BdwFile.
+ * @type: Opening type for a #BdwFile.
+ *
+ * The #BdwFile struct that stores a file's data and auxiliary information.
+ **/
 typedef struct _BdwFile BdwFile;
 
 /**
- * Creates and initializes a new BdwFile struct.
+ * bdw_file_new:
+ * @location: Location of the file in the disk.
  *
- * @return A pointer to the newly created BdwFile struct.
- */
+ * Creates and initializes a new #BdwFile struct.
+ *
+ * Returns: A pointer to the newly created #BdwFile struct.
+ **/
 BdwFile * bdw_file_new (conststring location);
 
 /**
- * Destroys an existing BdwFile struct.
+ * bdw_file_destroy:
+ * @self: Pointer to the #BdwFile struct to be destroyed.
  *
- * @param self Pointer to the BdwFile struct to be destroyed.
- */
+ * Destroys an existing #BdwFile struct.
+ **/
 void bdw_file_destroy (BdwFile * self);
 
 /**
+ * bdw_file_open:
+ * @self:
+ * @type:
+ * @mode:
  *
- */
+ *
+ * Returns:
+ **/
 bool bdw_file_open (BdwFile * self, BdwFileType type, BdwFileMode mode);
 
 /**
+ * bdw_file_getline:
+ * @self: Text file from which the line will be read.
+ *
  * Reads a line from a text file.
  *
- * @param file Text file from which the line will be read.
- * @return The line of text that was read from the file.
- */
+ * Returns: The line of text that was read from the file.
+ **/
 string bdw_file_getline (BdwFile * self);
 
 /**
+ * bdw_file_getcontent:
+ * @self: Text file from which the content will be read.
+ *
  * Reads the content from a text file.
  *
- * @param file Text file from which the content will be read.
- * @return The content of the text file.
- */
+ * Returns: The content of the text file.
+ **/
 string bdw_file_getcontent (BdwFile * self);
 
 #endif /* BDW_FILE__H */

@@ -61,7 +61,7 @@ string
 bdw_file_getline (BdwFile * self)
 {
   string str_line = NULL;
-  size_t size = 0;
+  sizetype size = 0;
 
   int status = getline (&str_line, &size, self->file);
   if (status == -1)
