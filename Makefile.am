@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-SUBDIRS = . bdwlib docs
+SUBDIRS = . docs
 
 EXTRA_DIST += \
   autogen.sh \
