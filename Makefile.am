@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-SUBDIRS = . docs
+SUBDIRS = docs bdwlib
 
 EXTRA_DIST = \
   autogen.sh \
@@ -10,6 +10,7 @@ EXTRA_DIST = \
   NEWS \
   README \
   README.md \
+  gtk-doc.make \
   $(NULL)
 
 BUILT_EXTRA_DIST = \

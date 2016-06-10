@@ -2,7 +2,7 @@
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
          xmlns="http://usefulinc.com/ns/doap#">
-    <name xml:lang="en">bdwlib</name>
+    <name xml:lang="en">BdwLib</name>
 
     <shortdesc xml:lang="en">
       A general purpose library written in C.
