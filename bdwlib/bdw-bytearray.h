@@ -29,6 +29,12 @@
  * elements it holds.
  **/
 typedef struct _BdwByteArray BdwByteArray;
+struct _BdwByteArray
+{
+  byte * data;
+  uint length;
+};
+
 
 /*    Function prototypes    */
 #ifdef __cplusplus /*    C++ support    */
@@ -37,6 +43,7 @@ extern "C" {
 
 /**
  * bdw_byte_array_new:
+ *
  * Creates and initializes a new #BdwByteArray struct.
  *
  * Returns: A pointer to the newly created #BdwByteArray struct.

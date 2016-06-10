@@ -19,12 +19,6 @@
 
 #include "bdw-array.h"
 
-struct _BdwArray
-{
-  pointer data;
-  uint length;
-};
-
 BdwArray *
 bdw_array_new (void)
 {

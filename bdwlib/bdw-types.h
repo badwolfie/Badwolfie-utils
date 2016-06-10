@@ -19,44 +19,54 @@
 #define BDW_TYPES__H
 
 /**
+ * SECTION:bdw-types
+ * @title: BdwLib data-types
+ * @short_description: Custom data-types, convenience aliases and functions.
+ *
+ * BdwLib types and functions.
+ **/
+
+/**
  * FALSE:
+ *
  * Specifies the "false" value for a boolean type.
  **/
-#ifndef FALSE
 #define FALSE 0x00
-#endif
 
 /**
  * TRUE:
+ *
  * Specifies the "true" value for a boolean type.
  **/
-#ifndef TRUE
 #define TRUE 0x01
-#endif
 
 
 /*    Custom data-types    */
 
 /**
  * pointer:
+ *
  * Specifies the data-type for a pointer to any kind of data.
  **/
 typedef void * pointer;
 
 /**
  * constpointer:
+ *
  * Specifies the data-type for a pointer to any kind of constant data.
  **/
 typedef const void * constpointer;
 
 /**
  * string:
+ *
  * Specifies the data-type for a character string.
  **/
 typedef char * string;
 
 /**
  * conststring:
+ *
  * Specifies the data-type for a constant character string.
  **/
 typedef const char * conststring;
@@ -76,8 +86,6 @@ typedef const char * conststring;
  * the second, 0 if they are equal, or a positive integer if the first value
  * comes after the second.
  *
- * It's used internally by bdw_list_find_custom().
- *
  * Returns: A negative value if @a < @b, zero if @a = @b, positive value if
  *          @a > @b.
  **/
@@ -93,8 +101,6 @@ typedef int (*CompareFunction) (constpointer a,
  * Specifies the type of a copy function used to copy the node data when doing a
  * full-copy of a list.
  *
- * It's used internally by bdw_list_full_copy().
- *
  * Returns: A pointer to the copy.
  **/
 typedef pointer (*CopyFunction) (constpointer original, pointer param_data);
@@ -107,8 +113,6 @@ typedef pointer (*CopyFunction) (constpointer original, pointer param_data);
  *
  * Specifies the type of a function that will be executed once for every node in
  * the list, it can do anything that the user wants.
- *
- * It's used internally by bdw_list_foreach().
  **/
 typedef void (*ForeachFunction) (pointer node_data, pointer param_data);
 
@@ -121,8 +125,6 @@ typedef void (*ForeachFunction) (pointer node_data, pointer param_data);
  * Specifies the type of a function that takes the data from a #BdwList node and
  * creates a printable string from it.
  *
- * It's used internally by bdw_list_node_to_string().
- *
  * Returns: The list node data string representation.
  **/
 typedef conststring (*ToStringFunction) (pointer node_data, pointer param_data);
@@ -134,8 +136,6 @@ typedef conststring (*ToStringFunction) (pointer node_data, pointer param_data);
  * Specifies the type of function which is called when a node's data is
  * destroyed. It is passed the pointer to the data element and should free any
  * memory and resources allocated for it.
- *
- * It's used internally by bdw_list_full_destroy().
  **/
 typedef void (*DestroyFunction) (pointer node_data);
 
@@ -144,90 +144,105 @@ typedef void (*DestroyFunction) (pointer node_data);
 
 /**
  * uchar:
+ *
  * Specifies a convenience alias for unsigned char data-type.
  **/
 typedef unsigned char uchar;
 
 /**
  * ushort:
+ *
  * Specifies a convenience alias for unsigned short integer data-type.
  **/
 typedef unsigned short ushort;
 
 /**
  * uint:
+ *
  * Specifies a convenience alias for unsigned integer data-type.
  **/
 typedef unsigned int uint;
 
 /**
  * ulong:
+ *
  * Specifies a convenience alias for unsigned long integer data-type.
  **/
 typedef unsigned long ulong;
 
 /**
  * uint8:
+ *
  * Specifies a convenience alias for unsigned 8 bit integer data-type.
  **/
 typedef unsigned char uint8;
 
 /**
  * uint16:
+ *
  * Specifies a convenience alias for unsigned 16 bit integer data-type.
  **/
 typedef unsigned short uint16;
 
 /**
  * uint32:
+ *
  * Specifies a convenience alias for unsigned 32 bit integer data-type.
  **/
 typedef unsigned int uint32;
 
 /**
  * uint64:
+ *
  * Specifies a convenience alias for unsigned 64 bit integer data-type.
  **/
 typedef unsigned long uint64;
 
 /**
  * int8:
+ *
  * Specifies a convenience alias for unsigned 8 bit integer data-type.
  **/
 typedef signed char int8;
 
 /**
  * int16:
+ *
  * Specifies a convenience alias for unsigned 16 bit integer data-type.
  **/
 typedef signed short int16;
 
 /**
  * int32:
+ *
  * Specifies a convenience alias for unsigned 32 bit integer data-type.
  **/
 typedef signed int int32;
 
 /**
  * int64:
+ *
  * Specifies a convenience alias for unsigned 64 bit integer data-type.
  **/
 typedef signed long int64;
 
 /**
  * sizetype:
+ *
  * Specifies a convenience alias for a data-type used for sizes.
  **/
 typedef unsigned long sizetype;
 
 /**
  * byte:
+ *
  * Specifies a convenience alias for an unsigned byte (8 bit) data-type.
  **/
 typedef unsigned char byte;
 
 /**
  * bool:
+ *
  * Specifies a convenience alias for a boolean data-type.
  **/
 typedef unsigned char bool;

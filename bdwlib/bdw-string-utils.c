@@ -185,7 +185,7 @@ bdw_strstrip_trailing (string str)
   if (str == NULL)
     return NULL;
 
-  sizetype len = strlen (str) - 1;
+  long len = strlen (str) - 1;
   while ((len >= 0) && ((str[len] == ' ') || (str[len] == '\t')))
       str[len--] = (char) 0;
   return str;

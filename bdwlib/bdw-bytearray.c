@@ -19,12 +19,6 @@
 
 #include "bdw-bytearray.h"
 
-struct _BdwByteArray
-{
-  byte * data;
-  uint length;
-};
-
 BdwByteArray *
 bdw_byte_array_new (void)
 {

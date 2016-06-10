@@ -30,6 +30,13 @@
  **/
 typedef struct _BdwArray BdwArray;
 
+struct _BdwArray
+{
+  pointer data;
+  uint length;
+};
+
+
 /*    Function prototypes    */
 #ifdef __cplusplus /*    C++ support    */
 extern "C" {
@@ -37,6 +44,7 @@ extern "C" {
 
 /**
  * bdw_array_new:
+ *
  * Creates and initializes a new #BdwArray struct.
  *
  * Returns: A pointer to the newly created #BdwArray struct.

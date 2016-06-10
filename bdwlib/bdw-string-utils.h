@@ -20,6 +20,14 @@
 
 #include "bdw-types.h"
 
+/**
+ * SECTION:bdw-string-utils
+ * @title: String utilities
+ * @short_description: String utility functions.
+ *
+ * BdwLib strings.
+ **/
+
 /*    Function prototypes    */
 #ifdef __cplusplus /*    C++ support    */
 extern "C" {
@@ -132,7 +140,7 @@ string bdw_strjoin (conststring separator, conststring arg, ...);
 bool bdw_str_has_prefix (conststring str, conststring prefix);
 
 /**
- * bdw_str_has_sufix:
+ * bdw_str_has_suffix:
  * @str: A string.
  * @suffix: The suffix to look for in @str.
  *
