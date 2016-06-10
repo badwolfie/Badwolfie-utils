@@ -18,7 +18,34 @@
 #ifndef BDW_FILE__H
 #define BDW_FILE__H
 
+#include <stdio.h>
+
 #include "bdw-types.h"
+
+/**
+ * SECTION:bdw-file
+ * @title: File utilities
+ * @short_description: File handling and utility functions.
+ *
+ * The #BdwFile is a data structure designed to hold some basic information of a
+ * system file, this structure and its associated functions are meant to make
+ * file and directory operations easier to handle and implement.
+ **/
+
+/**
+ * BdwFile:
+ * @file: %FILE pointer that stores the file's data.
+ * @location: Location of the file in the disk.
+ *
+ * The #BdwFile struct that stores a file's data and auxiliary information.
+ **/
+typedef struct _BdwFile BdwFile;
+struct _BdwFile
+{
+  FILE * file;
+  string location;
+};
+
 
 /**
  * BdwFileMode:
@@ -48,7 +75,7 @@
  **/
 typedef enum
 {
-  BDW_FILE_MODE_NONE,
+  BDW_FILE_MODE_NONE = -1,
   BDW_FILE_MODE_READ,
   BDW_FILE_MODE_READ_PLUS,
   BDW_FILE_MODE_WRITE,
@@ -68,21 +95,41 @@ typedef enum
  **/
 typedef enum
 {
-  BDW_FILE_TYPE_NONE,
+  BDW_FILE_TYPE_NONE = -1,
   BDW_FILE_TYPE_BINARY,
   BDW_FILE_TYPE_TEXT
 } BdwFileType;
 
 /**
- * BdwFile:
- * @file: %FILE pointer that stores the file's data.
- * @location: Location of the file in the disk.
- * @mode: Opening mode for a #BdwFile.
- * @type: Opening type for a #BdwFile.
+ * BdwFileError:
+ * @BDW_FILE_ERROR_OK: Result OK, no errors.
+ * @BDW_FILE_ERROR_ALREADY_OPENED: The file stream contained in the #BdwFile
+ *                                 struct is already opened.
+ * @BDW_FILE_ERROR_NOT_INITIALIZED: The #BdwFile struct is not initialized.
+ * @BDW_FILE_ERROR_BAD_ARGUMENTS: Either @mode or @type arguments in a #BdwFile
+ *                                struct are invalid.
+ * @BDW_FILE_ERROR_INVALID_LOCATION: The #BdwFile struct file location is an
+ *                                   invalid path, or %NULL.
+ * @BDW_FILE_ERROR_FATAL: The file stream contained in the #BdwFile could not be
+ *                        opened correctly.
  *
- * The #BdwFile struct that stores a file's data and auxiliary information.
+ * Specifies errors occurring during operations on a #BdwFile.
  **/
-typedef struct _BdwFile BdwFile;
+typedef enum
+{
+  BDW_FILE_ERROR_OK = 0,
+  BDW_FILE_ERROR_ALREADY_OPENED,
+  BDW_FILE_ERROR_NOT_INITIALIZED,
+  BDW_FILE_ERROR_BAD_ARGUMENTS,
+  BDW_FILE_ERROR_INVALID_LOCATION,
+  BDW_FILE_ERROR_FATAL
+} BdwFileError;
+
+
+/*    Function prototypes    */
+#ifdef __cplusplus /*    C++ support    */
+extern "C" {
+#endif
 
 /**
  * bdw_file_new:
@@ -104,14 +151,16 @@ void bdw_file_destroy (BdwFile * self);
 
 /**
  * bdw_file_open:
- * @self:
- * @type:
- * @mode:
+ * @self: The #BdwFile containing the file stream to be opened.
+ * @type: #BdwFileType, representation of the file type.
+ * @mode: #BdwFileType, representation of the file opening mode.
  *
+ * Used to open the file stream contained in a #BdwFile struct.
  *
- * Returns:
+ * Returns: %BDW_FILE_ERROR_OK if the file was opened correctly, any other
+ * #BdwFileError value otherwise.
  **/
-bool bdw_file_open (BdwFile * self, BdwFileType type, BdwFileMode mode);
+BdwFileError bdw_file_open (BdwFile * self, BdwFileType type, BdwFileMode mode);
 
 /**
  * bdw_file_getline:
@@ -132,6 +181,28 @@ string bdw_file_getline (BdwFile * self);
  * Returns: The content of the text file.
  **/
 string bdw_file_getcontent (BdwFile * self);
+
+/**
+ * bdw_file_putline:
+ * @self: Text file where @line will be written.
+ * @line: Line of text to be written to the file.
+ *
+ * Writes a line to a text file.
+ **/
+void bdw_file_putline (BdwFile * self, conststring line);
+
+/**
+ * bdw_file_putcontent:
+ * @self: Text file to set its content.
+ * @content: Content to be written to the file.
+ *
+ * Writes the content of a text file.
+ **/
+void bdw_file_putcontent (BdwFile * self, conststring content);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* BDW_FILE__H */
 
