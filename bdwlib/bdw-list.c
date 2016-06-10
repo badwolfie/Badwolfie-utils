@@ -19,13 +19,6 @@
 
 #include "bdw-list.h"
 
-struct _BdwList
-{
-  pointer data;
-  BdwList * prev;
-  BdwList * next;
-};
-
 BdwList *
 bdw_list_new (void)
 {
@@ -35,7 +28,7 @@ bdw_list_new (void)
 BdwList *
 bdw_list_node_alloc (void)
 {
-  BdwList * self = (BdwList *) malloc (sizeof(BdwList));
+  BdwList * self = (BdwList *) malloc (sizeof (BdwList));
   self->data = NULL;
   self->prev = NULL;
   self->next = NULL;
@@ -265,7 +258,7 @@ bdw_list_get_node_at (const BdwList * self, uint n)
 {
   BdwList * iterator = (BdwList *) self;
 
-  while ( ( (n--) > 0) && (iterator != NULL)) {
+  while (((n--) > 0) && (iterator != NULL)) {
     iterator = iterator->next;
   }
 
@@ -345,7 +338,7 @@ bdw_list_concat (BdwList * list1, BdwList * list2)
     if (last != NULL)
       last->next = list2;
     else
-      last = list2;
+      list1 = list2;
     list2->prev = last;
   }
 

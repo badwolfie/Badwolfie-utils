@@ -1,4 +1,4 @@
-/* list.h
+/* bdw-list.h
  *
  * Copyright (C) 2016 Ian Hernandez <ihernandezs@openmailbox.org>
  *
@@ -21,15 +21,17 @@
 #include "bdw-types.h"
 
 /**
- * SECTION:linked_lists_double
+ * SECTION:bdw-list
  * @title: Doubly-Linked Lists
+ * @short_description: Standard doubly-linked list implementation.
  *
- * The #BdwList is a standard doubly-linked list based on the GLib implementation 
- * of doubly-linked lists, the [GList](https://developer.gnome.org/glib/stable/glib-Doubly-Linked-Lists.html)
+ * The #BdwList is a standard doubly-linked list based on the GLib
+ * implementation of doubly-linked lists, the
+ * [GList](https://developer.gnome.org/glib/stable/glib-Doubly-Linked-Lists.html)
  * structure and its associated functions.
- * 
- * Each node in the list has a #pointer to any kind of data and its linked to 
- * both the previuos and next nodes in the list, which means you can iterate  
+ *
+ * Each node in the list has a #pointer to any kind of data and its linked to
+ * both the previuos and next nodes in the list, which means you can iterate
  * this lists in both directions.
  **/
 
@@ -42,6 +44,12 @@
  * The #BdwList struct used for each node in a doubly-linked list.
  **/
 typedef struct _BdwList BdwList;
+struct _BdwList
+{
+  pointer data;
+  BdwList * prev;
+  BdwList * next;
+};
 
 
 /*    Function prototypes    */
@@ -51,6 +59,7 @@ extern "C" {
 
 /**
  * bdw_list_new:
+ *
  * "Creates" a list, calling this is optional since %NULL is considered to be a
  * valid empty list, you could simply set a #BdwList* to %NULL to initialize it.
  *
@@ -60,6 +69,7 @@ BdwList * bdw_list_new (void);
 
 /**
  * bdw_list_node_alloc:
+ *
  * Allocates space for one #BdwList node.
  *
  * Returns: A pointer to the newly-allocated #BdwList node.
@@ -189,7 +199,7 @@ BdwList * bdw_list_remove_all (BdwList * self, constpointer node_data);
  * @link: An element in the #BdwList.
  * 
  * Removes a node from a #BdwList, without freeing the node. The removed node's 
- * prev and next links are set to %NULL, so that it becomes a self-contained 
+ * @prev and @next links are set to %NULL, so that it becomes a self-contained
  * list with one node.
  *
  * Returns: The (possibly changed) start of the #BdwList.
@@ -328,10 +338,9 @@ BdwList * bdw_list_concat (BdwList * list1, BdwList * list2);
  * bdw_list_foreach:
  * @self: A pointer to a #BdwList, this must point to the top of the list.
  * @func: The function to call with each node's data.
- * 
- * Calls a function for each element of a #BdwList.
- *
  * @param_data: Extra data that the function may need, or %NULL.
+ *
+ * Calls a function for each element of a #BdwList.
  **/
 void bdw_list_foreach (const BdwList * self, 
                        ForeachFunction func, 
@@ -345,7 +354,7 @@ void bdw_list_foreach (const BdwList * self,
  * Gets the position of the node containing the given data (starting from zero).
  *
  * Returns: The index of the node containing the data, or -1 if the data is not 
- *      found.
+ *          found.
  **/
 int bdw_list_get_index (const BdwList * self, constpointer data);
 
