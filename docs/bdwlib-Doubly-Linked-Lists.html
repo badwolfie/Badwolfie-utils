@@ -1,0 +1,1326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Doubly-Linked Lists: bdwlib Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="index.html" title="bdwlib Reference Manual">
+<link rel="up" href="ch01.html" title="Package Overview">
+<link rel="prev" href="bdwlib-File-utilities.html" title="File utilities">
+<link rel="next" href="bdwlib-Singly-Linked-Lists.html" title="Singly-Linked Lists">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#bdwlib-Doubly-Linked-Lists.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="bdwlib-File-utilities.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="bdwlib-Singly-Linked-Lists.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="bdwlib-Doubly-Linked-Lists"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="bdwlib-Doubly-Linked-Lists.top_of_page"></a>Doubly-Linked Lists</span></h2>
+<p>Doubly-Linked Lists — Standard doubly-linked list implementation.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="bdwlib-Doubly-Linked-Lists.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-new" title="bdw_list_new ()">bdw_list_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-node-alloc" title="bdw_list_node_alloc ()">bdw_list_node_alloc</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-destroy" title="bdw_list_destroy ()">bdw_list_destroy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-full-destroy" title="bdw_list_full_destroy ()">bdw_list_full_destroy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-append" title="bdw_list_append ()">bdw_list_append</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-prepend" title="bdw_list_prepend ()">bdw_list_prepend</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-insert" title="bdw_list_insert ()">bdw_list_insert</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-insert-before" title="bdw_list_insert_before ()">bdw_list_insert_before</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-insert-after" title="bdw_list_insert_after ()">bdw_list_insert_after</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-remove" title="bdw_list_remove ()">bdw_list_remove</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-remove-all" title="bdw_list_remove_all ()">bdw_list_remove_all</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-remove-link" title="bdw_list_remove_link ()">bdw_list_remove_link</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-get-first" title="bdw_list_get_first ()">bdw_list_get_first</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-get-last" title="bdw_list_get_last ()">bdw_list_get_last</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-get-previous" title="bdw_list_get_previous ()">bdw_list_get_previous</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-get-next" title="bdw_list_get_next ()">bdw_list_get_next</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-get-node-at" title="bdw_list_get_node_at ()">bdw_list_get_node_at</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-find" title="bdw_list_find ()">bdw_list_find</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-find-custom" title="bdw_list_find_custom ()">bdw_list_find_custom</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-copy" title="bdw_list_copy ()">bdw_list_copy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-full-copy" title="bdw_list_full_copy ()">bdw_list_full_copy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-concat" title="bdw_list_concat ()">bdw_list_concat</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-foreach" title="bdw_list_foreach ()">bdw_list_foreach</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-get-index" title="bdw_list_get_index ()">bdw_list_get_index</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#uint" title="uint"><span class="returnvalue">uint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-get-length" title="bdw_list_get_length ()">bdw_list_get_length</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="returnvalue">pointer</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-get-data" title="bdw_list_get_data ()">bdw_list_get_data</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#bool" title="bool"><span class="returnvalue">bool</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-is-empty" title="bdw_list_is_empty ()">bdw_list_is_empty</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#bool" title="bool"><span class="returnvalue">bool</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-is-first" title="bdw_list_is_first ()">bdw_list_is_first</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#bool" title="bool"><span class="returnvalue">bool</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-is-last" title="bdw_list_is_last ()">bdw_list_is_last</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#conststring" title="conststring"><span class="returnvalue">conststring</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-node-to-string" title="bdw_list_node_to_string ()">bdw_list_node_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-Doubly-Linked-Lists.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList">BdwList</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-Doubly-Linked-Lists.description"></a><h2>Description</h2>
+<p>The <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> is a standard doubly-linked list based on the GLib
+implementation of doubly-linked lists, the
+<a class="ulink" href="https://developer.gnome.org/glib/stable/glib-Doubly-Linked-Lists.html" target="_top">GList</a>
+structure and its associated functions.</p>
+<p>Each node in the list has a <a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> to any kind of data and its linked to
+both the previuos and next nodes in the list, which means you can iterate
+this lists in both directions.</p>
+</div>
+<div class="refsect1">
+<a name="bdwlib-Doubly-Linked-Lists.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="bdw-list-new"></a><h3>bdw_list_new ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>"Creates" a list, calling this is optional since <code class="literal">NULL</code> is considered to be a
+valid empty list, you could simply set a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>* to <code class="literal">NULL</code> to initialize it.</p>
+<div class="refsect3">
+<a name="bdw-list-new.returns"></a><h4>Returns</h4>
+<p> <code class="literal">NULL</code></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-node-alloc"></a><h3>bdw_list_node_alloc ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_node_alloc (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Allocates space for one <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node.</p>
+<div class="refsect3">
+<a name="bdw-list-node-alloc.returns"></a><h4>Returns</h4>
+<p> A pointer to the newly-allocated <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-destroy"></a><h3>bdw_list_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+bdw_list_destroy (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Frees all of the memory used by a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>. If list nodes contain
+dynamically-allocated memory, you should either use <a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-full-destroy" title="bdw_list_full_destroy ()"><code class="function">bdw_list_full_destroy()</code></a>
+or free them manually first.</p>
+<div class="refsect3">
+<a name="bdw-list-destroy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-full-destroy"></a><h3>bdw_list_full_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+bdw_list_full_destroy (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                       <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#DestroyFunction" title="DestroyFunction ()"><span class="type">DestroyFunction</span></a> free_func</code></em>);</pre>
+<p>Frees all the memory used by a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, and calls <em class="parameter"><code>free_func</code></em>
+ on every node's
+data.</p>
+<div class="refsect3">
+<a name="bdw-list-full-destroy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>free_func</p></td>
+<td class="parameter_description"><p>The function to be called to free each node's data.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-append"></a><h3>bdw_list_append ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_append (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                 <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> node_data</code></em>);</pre>
+<p>Adds a new node on to the end of the list. Note that the return value is
+the new start of the list, if list was empty; make sure you store the new
+value.</p>
+<div class="refsect3">
+<a name="bdw-list-append.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The data of the new node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-append.returns"></a><h4>Returns</h4>
+<p> Either <em class="parameter"><code>self</code></em>
+or the new start of the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> if <em class="parameter"><code>self</code></em>
+was <code class="literal">NULL</code>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-prepend"></a><h3>bdw_list_prepend ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_prepend (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                  <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> node_data</code></em>);</pre>
+<p>Prepends a new node on to the start of the list. Note that the return
+value is the new start of the list, which will have changed, so make sure you
+store the new value.</p>
+<div class="refsect3">
+<a name="bdw-list-prepend.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The data of the new node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-prepend.returns"></a><h4>Returns</h4>
+<p> A pointer to the newly prepended node, which is the new start of
+the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-insert"></a><h3>bdw_list_insert ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_insert (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                 <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> node_data</code></em>,
+                 <em class="parameter"><code><span class="type">int</span> position</code></em>);</pre>
+<p>Inserts a new node into the list at the given position.</p>
+<div class="refsect3">
+<a name="bdw-list-insert.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The data of the new node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>position</p></td>
+<td class="parameter_description"><p>The position to insert the node. If this is negative, or is larger
+than the number of nodes in the list, the new node is added on to
+the end of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-insert.returns"></a><h4>Returns</h4>
+<p> The (possibly changed) start of the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-insert-before"></a><h3>bdw_list_insert_before ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_insert_before (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                        <em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *node</code></em>,
+                        <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> node_data</code></em>);</pre>
+<p>Inserts a new node into the list before the given position.</p>
+<div class="refsect3">
+<a name="bdw-list-insert-before.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node</p></td>
+<td class="parameter_description"><p>The list node before which the new node is inserted or <code class="literal">NULL</code> to insert
+at the end of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The data of the new node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-insert-before.returns"></a><h4>Returns</h4>
+<p> The (possibly changed) start of the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-insert-after"></a><h3>bdw_list_insert_after ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_insert_after (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                       <em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *node</code></em>,
+                       <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> node_data</code></em>);</pre>
+<p>Inserts a new node into the list after the given position.</p>
+<div class="refsect3">
+<a name="bdw-list-insert-after.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node</p></td>
+<td class="parameter_description"><p>The list node after which the new node is inserted or <code class="literal">NULL</code> to insert
+at the start of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The data of the new node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-insert-after.returns"></a><h4>Returns</h4>
+<p> The (possibly changed) start of the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-remove"></a><h3>bdw_list_remove ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_remove (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                 <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> node_data</code></em>);</pre>
+<p>Removes a node from a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>. If two nodes contain the same data, only
+the first is removed. If none of the nodes contain the data, the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> is
+unchanged.</p>
+<div class="refsect3">
+<a name="bdw-list-remove.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The data of the node to remove.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-remove.returns"></a><h4>Returns</h4>
+<p> The (possibly changed) start of the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-remove-all"></a><h3>bdw_list_remove_all ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_remove_all (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                     <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> node_data</code></em>);</pre>
+<p>Removes all list nodes with data equal to <em class="parameter"><code>node_data</code></em>
+. Returns the new head of 
+the list. Contrast with <a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-remove" title="bdw_list_remove ()"><code class="function">bdw_list_remove()</code></a> which removes only the first node
+matching the given data.</p>
+<div class="refsect3">
+<a name="bdw-list-remove-all.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The data to remove.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-remove-all.returns"></a><h4>Returns</h4>
+<p> The (possibly changed) start of the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-remove-link"></a><h3>bdw_list_remove_link ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_remove_link (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                      <em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *link</code></em>);</pre>
+<p>Removes a node from a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, without freeing the node. The removed node's 
+<em class="parameter"><code>prev</code></em>
+ and <em class="parameter"><code>next</code></em>
+ links are set to <code class="literal">NULL</code>, so that it becomes a self-contained
+list with one node.</p>
+<div class="refsect3">
+<a name="bdw-list-remove-link.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>link</p></td>
+<td class="parameter_description"><p>An element in the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-remove-link.returns"></a><h4>Returns</h4>
+<p> The (possibly changed) start of the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-get-first"></a><h3>bdw_list_get_first ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_get_first (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Gets the first node in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+<div class="refsect3">
+<a name="bdw-list-get-first.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to any node in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-get-first.returns"></a><h4>Returns</h4>
+<p> The first node in the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, or <code class="literal">NULL</code> if the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> has no
+nodes.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-get-last"></a><h3>bdw_list_get_last ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_get_last (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Gets the last node in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+<div class="refsect3">
+<a name="bdw-list-get-last.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to any node in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-get-last.returns"></a><h4>Returns</h4>
+<p> The last node in the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, or <code class="literal">NULL</code> if the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> has no nodes.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-get-previous"></a><h3>bdw_list_get_previous ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_get_previous (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Gets the previous node in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+<div class="refsect3">
+<a name="bdw-list-get-previous.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-get-previous.returns"></a><h4>Returns</h4>
+<p> The previous node, or <code class="literal">NULL</code> if there are no previous nodes.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-get-next"></a><h3>bdw_list_get_next ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_get_next (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Gets the next node in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+<div class="refsect3">
+<a name="bdw-list-get-next.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-get-next.returns"></a><h4>Returns</h4>
+<p> The next node, or <code class="literal">NULL</code> if there are no more nodes.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-get-node-at"></a><h3>bdw_list_get_node_at ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_get_node_at (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                      <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#uint" title="uint"><span class="type">uint</span></a> n</code></em>);</pre>
+<p>Gets the node at the given position in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+<div class="refsect3">
+<a name="bdw-list-get-node-at.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n</p></td>
+<td class="parameter_description"><p>The position of the node, counting from zero.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-get-node-at.returns"></a><h4>Returns</h4>
+<p> The node, or <code class="literal">NULL</code> if the position is off the end of the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-find"></a><h3>bdw_list_find ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_find (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+               <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> node_data</code></em>);</pre>
+<p>Finds the node in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> which contains the given data.</p>
+<div class="refsect3">
+<a name="bdw-list-find.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The node data to be found.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-find.returns"></a><h4>Returns</h4>
+<p> The found <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node, or <code class="literal">NULL</code> if it's not found.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-find-custom"></a><h3>bdw_list_find_custom ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_find_custom (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                      <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> node_data</code></em>,
+                      <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#CompareFunction" title="CompareFunction ()"><span class="type">CompareFunction</span></a> func</code></em>);</pre>
+<p>Finds a node in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, using a supplied function to find the desired
+node. It iterates over the list, calling the given function which should
+return 0 when the desired node is found. The function takes two arguments,
+the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node's data as the first argument and the given user data.</p>
+<div class="refsect3">
+<a name="bdw-list-find-custom.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The node data to be found.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p>The function to call for each node. It should return 0 when the
+desired node is found.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-find-custom.returns"></a><h4>Returns</h4>
+<p> The found <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node, or <code class="literal">NULL</code> if it's not found.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-copy"></a><h3>bdw_list_copy ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_copy (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Copies a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.
+Note that this is a "shallow" copy. If the list nodes consist of pointers to
+data, the pointers are copied but the actual data is not. See 
+<a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-full-copy" title="bdw_list_full_copy ()"><code class="function">bdw_list_full_copy()</code></a> if you need to copy the data as well.</p>
+<div class="refsect3">
+<a name="bdw-list-copy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-copy.returns"></a><h4>Returns</h4>
+<p> The start of the new list that holds the same data as <em class="parameter"><code>self</code></em>
+.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-full-copy"></a><h3>bdw_list_full_copy ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_full_copy (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                    <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#CopyFunction" title="CopyFunction ()"><span class="type">CopyFunction</span></a> func</code></em>,
+                    <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> param_data</code></em>);</pre>
+<p>Makes a full copy of a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.
+In contrast with <a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-copy" title="bdw_list_copy ()"><code class="function">bdw_list_copy()</code></a>, this function uses <em class="parameter"><code>func</code></em>
+ to make a copy of
+each list node, in addition to copying the list container itself.</p>
+<p><em class="parameter"><code>func</code></em>
+, as a CopyFunction, takes two arguments: the data to be copied and a
+<em class="parameter"><code>param_data</code></em>
+ pointer. It's safe to pass <code class="literal">NULL</code> as param_data, if the copy
+function takes only one argument.</p>
+<div class="refsect3">
+<a name="bdw-list-full-copy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p>A copy function used to copy every node in the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>param_data</p></td>
+<td class="parameter_description"><p>Extra data needed by the copy function <em class="parameter"><code>func</code></em>
+, or <code class="literal">NULL</code>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-full-copy.returns"></a><h4>Returns</h4>
+<p> The start of the new list that holds a full copy of <em class="parameter"><code>self</code></em>
+, you
+should use <a class="link" href="bdwlib-Doubly-Linked-Lists.html#bdw-list-full-destroy" title="bdw_list_full_destroy ()"><code class="function">bdw_list_full_destroy()</code></a> to free it.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-concat"></a><h3>bdw_list_concat ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="returnvalue">BdwList</span></a> *
+bdw_list_concat (<em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *list1</code></em>,
+                 <em class="parameter"><code><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *list2</code></em>);</pre>
+<p>Adds the second <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> onto the end of the first <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>. Note that the 
+nodes of the second BdwList are not copied, they are used directly.</p>
+<div class="refsect3">
+<a name="bdw-list-concat.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list1</p></td>
+<td class="parameter_description"><p>A <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>list2</p></td>
+<td class="parameter_description"><p>The <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> to add to the end of the first <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point
+to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-concat.returns"></a><h4>Returns</h4>
+<p> The start of the new <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, which equals <em class="parameter"><code>list1</code></em>
+if not <code class="literal">NULL</code>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-foreach"></a><h3>bdw_list_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+bdw_list_foreach (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                  <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#ForeachFunction" title="ForeachFunction ()"><span class="type">ForeachFunction</span></a> func</code></em>,
+                  <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> param_data</code></em>);</pre>
+<p>Calls a function for each element of a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+<div class="refsect3">
+<a name="bdw-list-foreach.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p>The function to call with each node's data.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>param_data</p></td>
+<td class="parameter_description"><p>Extra data that the function may need, or <code class="literal">NULL</code>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-get-index"></a><h3>bdw_list_get_index ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>
+bdw_list_get_index (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                    <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> data</code></em>);</pre>
+<p>Gets the position of the node containing the given data (starting from zero).</p>
+<div class="refsect3">
+<a name="bdw-list-get-index.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data</p></td>
+<td class="parameter_description"><p>The data to find.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-get-index.returns"></a><h4>Returns</h4>
+<p> The index of the node containing the data, or -1 if the data is not
+found.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-get-length"></a><h3>bdw_list_get_length ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#uint" title="uint"><span class="returnvalue">uint</span></a>
+bdw_list_get_length (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Gets the number of nodes in a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+<div class="refsect3">
+<a name="bdw-list-get-length.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-get-length.returns"></a><h4>Returns</h4>
+<p> The number of nodes in the <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-get-data"></a><h3>bdw_list_get_data ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="returnvalue">pointer</span></a>
+bdw_list_get_data (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Gets the data of the given node.</p>
+<div class="refsect3">
+<a name="bdw-list-get-data.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-get-data.returns"></a><h4>Returns</h4>
+<p> The node's data.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-is-empty"></a><h3>bdw_list_is_empty ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#bool" title="bool"><span class="returnvalue">bool</span></a>
+bdw_list_is_empty (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Checks if <em class="parameter"><code>self</code></em>
+ is an empty list, calling this is optional since you could 
+just compare a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>* to <code class="literal">NULL</code> to see if it's empty.</p>
+<div class="refsect3">
+<a name="bdw-list-is-empty.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a>, this must point to the top of the list.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-is-empty.returns"></a><h4>Returns</h4>
+<p> Whether or not the list is empty.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-is-first"></a><h3>bdw_list_is_first ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#bool" title="bool"><span class="returnvalue">bool</span></a>
+bdw_list_is_first (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Checks if <em class="parameter"><code>self</code></em>
+ is the first node in a list.</p>
+<div class="refsect3">
+<a name="bdw-list-is-first.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-is-first.returns"></a><h4>Returns</h4>
+<p> Whether or not the node is the first in the list.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-is-last"></a><h3>bdw_list_is_last ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#bool" title="bool"><span class="returnvalue">bool</span></a>
+bdw_list_is_last (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>);</pre>
+<p>Checks if <em class="parameter"><code>self</code></em>
+ is the last node in a list.</p>
+<div class="refsect3">
+<a name="bdw-list-is-last.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-is-last.returns"></a><h4>Returns</h4>
+<p> Whether or not the node is the last in the list.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-list-node-to-string"></a><h3>bdw_list_node_to_string ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#conststring" title="conststring"><span class="returnvalue">conststring</span></a>
+bdw_list_node_to_string (<em class="parameter"><code>const <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *self</code></em>,
+                         <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#ToStringFunction" title="ToStringFunction ()"><span class="type">ToStringFunction</span></a> func</code></em>,
+                         <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> param_data</code></em>);</pre>
+<p>Gets the string representation of the node's data, it could be used to print
+the contents of the list nodes for debugging.</p>
+<div class="refsect3">
+<a name="bdw-list-node-to-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>A pointer to a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p>"To-string" function, it must take the data from the node and create a
+string representation for it.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>param_data</p></td>
+<td class="parameter_description"><p>Additional data needed for string formatting, it can be <code class="literal">NULL</code> if
+none needed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-list-node-to-string.returns"></a><h4>Returns</h4>
+<p> The node's data string representation.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-Doubly-Linked-Lists.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="BdwList"></a><h3>struct BdwList</h3>
+<pre class="programlisting">struct BdwList {
+  pointer data;
+  BdwList * prev;
+  BdwList * next;
+};
+</pre>
+<p>The <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> struct used for each node in a doubly-linked list.</p>
+<div class="refsect3">
+<a name="BdwList.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="struct_members_name">
+<col class="struct_members_description">
+<col width="200px" class="struct_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> <em class="structfield"><code><a name="BdwList.data"></a>data</code></em>;</p></td>
+<td class="struct_member_description"><p>Holds the node's data, which can be a pointer to any kind of data.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *<em class="structfield"><code><a name="BdwList.prev"></a>prev</code></em>;</p></td>
+<td class="struct_member_description"><p>Contains the link to the previuos node in the list.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> *<em class="structfield"><code><a name="BdwList.next"></a>next</code></em>;</p></td>
+<td class="struct_member_description"><p>Contains the link to the next node in the list.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.25</div>
+</body>
+</html>

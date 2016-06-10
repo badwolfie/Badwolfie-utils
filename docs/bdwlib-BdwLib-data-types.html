@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BdwLib data-types: bdwlib Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="index.html" title="bdwlib Reference Manual">
+<link rel="up" href="ch01.html" title="Package Overview">
+<link rel="prev" href="bdwlib-String-utilities.html" title="String utilities">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#bdwlib-BdwLib-data-types.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="bdwlib-String-utilities.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="bdwlib-BdwLib-data-types"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="bdwlib-BdwLib-data-types.top_of_page"></a>BdwLib data-types</span></h2>
+<p>BdwLib data-types — Custom data-types, convenience aliases and functions.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="bdwlib-BdwLib-data-types.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="bdwlib-BdwLib-data-types.html#CompareFunction" title="CompareFunction ()">*CompareFunction</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="returnvalue">pointer</span></a>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="bdwlib-BdwLib-data-types.html#CopyFunction" title="CopyFunction ()">*CopyFunction</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="bdwlib-BdwLib-data-types.html#ForeachFunction" title="ForeachFunction ()">*ForeachFunction</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#conststring" title="conststring"><span class="returnvalue">conststring</span></a>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="bdwlib-BdwLib-data-types.html#ToStringFunction" title="ToStringFunction ()">*ToStringFunction</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="bdwlib-BdwLib-data-types.html#DestroyFunction" title="DestroyFunction ()">*DestroyFunction</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-BdwLib-data-types.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer">pointer</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer">constpointer</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#string" title="string">string</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#conststring" title="conststring">conststring</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#uchar" title="uchar">uchar</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#ushort" title="ushort">ushort</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#uint" title="uint">uint</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#ulong" title="ulong">ulong</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#uint8" title="uint8">uint8</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#uint16" title="uint16">uint16</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#uint32" title="uint32">uint32</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#uint64" title="uint64">uint64</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#int8" title="int8">int8</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#int16" title="int16">int16</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#int32" title="int32">int32</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#int64" title="int64">int64</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#sizetype" title="sizetype">sizetype</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#byte" title="byte">byte</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="bdwlib-BdwLib-data-types.html#bool" title="bool">bool</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-BdwLib-data-types.description"></a><h2>Description</h2>
+<p>BdwLib types and functions.</p>
+</div>
+<div class="refsect1">
+<a name="bdwlib-BdwLib-data-types.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="CompareFunction"></a><h3>CompareFunction ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>
+<span class="c_punctuation">(</span>*CompareFunction<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> a</code></em>,
+                    <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> b</code></em>,
+                    <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> param_data</code></em>);</pre>
+<p>Specifies the type of a comparison function used to compare two values.
+The function should return a negative integer if the first value comes before
+the second, 0 if they are equal, or a positive integer if the first value
+comes after the second.</p>
+<div class="refsect3">
+<a name="CompareFunction.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>a</p></td>
+<td class="parameter_description"><p>A value.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>b</p></td>
+<td class="parameter_description"><p>A value to compare <em class="parameter"><code>a</code></em>
+with.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>param_data</p></td>
+<td class="parameter_description"><p>Additional data needed for the comparison, can be <code class="literal">NULL</code> if none
+is needed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="CompareFunction.returns"></a><h4>Returns</h4>
+<p> A negative value if <em class="parameter"><code>a</code></em>
+&lt; <em class="parameter"><code>b</code></em>
+, zero if <em class="parameter"><code>a</code></em>
+= <em class="parameter"><code>b</code></em>
+, positive value if
+<em class="parameter"><code>a</code></em>
+&gt; <em class="parameter"><code>b</code></em>
+.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CopyFunction"></a><h3>CopyFunction ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="returnvalue">pointer</span></a>
+<span class="c_punctuation">(</span>*CopyFunction<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> original</code></em>,
+                 <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> param_data</code></em>);</pre>
+<p>Specifies the type of a copy function used to copy the node data when doing a
+full-copy of a list.</p>
+<div class="refsect3">
+<a name="CopyFunction.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>original</p></td>
+<td class="parameter_description"><p>A pointer to the data to be copied.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>param_data</p></td>
+<td class="parameter_description"><p>Additional data needed for the copying process.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="CopyFunction.returns"></a><h4>Returns</h4>
+<p> A pointer to the copy.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ForeachFunction"></a><h3>ForeachFunction ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*ForeachFunction<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> node_data</code></em>,
+                    <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> param_data</code></em>);</pre>
+<p>Specifies the type of a function that will be executed once for every node in
+the list, it can do anything that the user wants.</p>
+<div class="refsect3">
+<a name="ForeachFunction.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The list node data.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>param_data</p></td>
+<td class="parameter_description"><p>Additional data used by the <a class="link" href="bdwlib-BdwLib-data-types.html#ForeachFunction" title="ForeachFunction ()"><span class="type">ForeachFunction</span></a> when its called, it
+can be <code class="literal">NULL</code> if none is needed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ToStringFunction"></a><h3>ToStringFunction ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#conststring" title="conststring"><span class="returnvalue">conststring</span></a>
+<span class="c_punctuation">(</span>*ToStringFunction<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> node_data</code></em>,
+                     <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> param_data</code></em>);</pre>
+<p>Specifies the type of a function that takes the data from a <a class="link" href="bdwlib-Doubly-Linked-Lists.html#BdwList" title="struct BdwList"><span class="type">BdwList</span></a> node and
+creates a printable string from it.</p>
+<div class="refsect3">
+<a name="ToStringFunction.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The list node data.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>param_data</p></td>
+<td class="parameter_description"><p>Additional data needed for string formatting, it can be
+<code class="literal">NULL</code> if none is needed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="ToStringFunction.returns"></a><h4>Returns</h4>
+<p> The list node data string representation.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DestroyFunction"></a><h3>DestroyFunction ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*DestroyFunction<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#pointer" title="pointer"><span class="type">pointer</span></a> node_data</code></em>);</pre>
+<p>Specifies the type of function which is called when a node's data is
+destroyed. It is passed the pointer to the data element and should free any
+memory and resources allocated for it.</p>
+<div class="refsect3">
+<a name="DestroyFunction.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>node_data</p></td>
+<td class="parameter_description"><p>The data element.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-BdwLib-data-types.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="pointer"></a><h3>pointer</h3>
+<pre class="programlisting">typedef void * pointer;
+</pre>
+<p>Specifies the data-type for a pointer to any kind of data.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="constpointer"></a><h3>constpointer</h3>
+<pre class="programlisting">typedef const void * constpointer;
+</pre>
+<p>Specifies the data-type for a pointer to any kind of constant data.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="string"></a><h3>string</h3>
+<pre class="programlisting">typedef char * string;
+</pre>
+<p>Specifies the data-type for a character string.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="conststring"></a><h3>conststring</h3>
+<pre class="programlisting">typedef const char * conststring;
+</pre>
+<p>Specifies the data-type for a constant character string.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="uchar"></a><h3>uchar</h3>
+<pre class="programlisting">typedef unsigned char uchar;
+</pre>
+<p>Specifies a convenience alias for unsigned char data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ushort"></a><h3>ushort</h3>
+<pre class="programlisting">typedef unsigned short ushort;
+</pre>
+<p>Specifies a convenience alias for unsigned short integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="uint"></a><h3>uint</h3>
+<pre class="programlisting">typedef unsigned int uint;
+</pre>
+<p>Specifies a convenience alias for unsigned integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ulong"></a><h3>ulong</h3>
+<pre class="programlisting">typedef unsigned long ulong;
+</pre>
+<p>Specifies a convenience alias for unsigned long integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="uint8"></a><h3>uint8</h3>
+<pre class="programlisting">typedef unsigned char uint8;
+</pre>
+<p>Specifies a convenience alias for unsigned 8 bit integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="uint16"></a><h3>uint16</h3>
+<pre class="programlisting">typedef unsigned short uint16;
+</pre>
+<p>Specifies a convenience alias for unsigned 16 bit integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="uint32"></a><h3>uint32</h3>
+<pre class="programlisting">typedef unsigned int uint32;
+</pre>
+<p>Specifies a convenience alias for unsigned 32 bit integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="uint64"></a><h3>uint64</h3>
+<pre class="programlisting">typedef unsigned long uint64;
+</pre>
+<p>Specifies a convenience alias for unsigned 64 bit integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="int8"></a><h3>int8</h3>
+<pre class="programlisting">typedef signed char int8;
+</pre>
+<p>Specifies a convenience alias for unsigned 8 bit integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="int16"></a><h3>int16</h3>
+<pre class="programlisting">typedef signed short int16;
+</pre>
+<p>Specifies a convenience alias for unsigned 16 bit integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="int32"></a><h3>int32</h3>
+<pre class="programlisting">typedef signed int int32;
+</pre>
+<p>Specifies a convenience alias for unsigned 32 bit integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="int64"></a><h3>int64</h3>
+<pre class="programlisting">typedef signed long int64;
+</pre>
+<p>Specifies a convenience alias for unsigned 64 bit integer data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="sizetype"></a><h3>sizetype</h3>
+<pre class="programlisting">typedef unsigned long sizetype;
+</pre>
+<p>Specifies a convenience alias for a data-type used for sizes.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="byte"></a><h3>byte</h3>
+<pre class="programlisting">typedef unsigned char byte;
+</pre>
+<p>Specifies a convenience alias for an unsigned byte (8 bit) data-type.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bool"></a><h3>bool</h3>
+<pre class="programlisting">typedef unsigned char bool;
+</pre>
+<p>Specifies a convenience alias for a boolean data-type.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.25</div>
+</body>
+</html>

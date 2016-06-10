@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>File utilities: bdwlib Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="index.html" title="bdwlib Reference Manual">
+<link rel="up" href="ch01.html" title="Package Overview">
+<link rel="prev" href="bdwlib-bdw-bytearray.html" title="bdw-bytearray">
+<link rel="next" href="bdwlib-Doubly-Linked-Lists.html" title="Doubly-Linked Lists">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#bdwlib-File-utilities.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="bdwlib-bdw-bytearray.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="bdwlib-Doubly-Linked-Lists.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="bdwlib-File-utilities"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="bdwlib-File-utilities.top_of_page"></a>File utilities</span></h2>
+<p>File utilities — File handling and utility functions.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="bdwlib-File-utilities.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="returnvalue">BdwFile</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-File-utilities.html#bdw-file-new" title="bdw_file_new ()">bdw_file_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-File-utilities.html#bdw-file-destroy" title="bdw_file_destroy ()">bdw_file_destroy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-File-utilities.html#BdwFileError" title="enum BdwFileError"><span class="returnvalue">BdwFileError</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-File-utilities.html#bdw-file-open" title="bdw_file_open ()">bdw_file_open</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#string" title="string"><span class="returnvalue">string</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-File-utilities.html#bdw-file-getline" title="bdw_file_getline ()">bdw_file_getline</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="bdwlib-BdwLib-data-types.html#string" title="string"><span class="returnvalue">string</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-File-utilities.html#bdw-file-getcontent" title="bdw_file_getcontent ()">bdw_file_getcontent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-File-utilities.html#bdw-file-putline" title="bdw_file_putline ()">bdw_file_putline</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="bdwlib-File-utilities.html#bdw-file-putcontent" title="bdw_file_putcontent ()">bdw_file_putcontent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-File-utilities.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile">BdwFile</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="bdwlib-File-utilities.html#BdwFileMode" title="enum BdwFileMode">BdwFileMode</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="bdwlib-File-utilities.html#BdwFileType" title="enum BdwFileType">BdwFileType</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="bdwlib-File-utilities.html#BdwFileError" title="enum BdwFileError">BdwFileError</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-File-utilities.description"></a><h2>Description</h2>
+<p>The <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> is a data structure designed to hold some basic information of a
+system file, this structure and its associated functions are meant to make
+file and directory operations easier to handle and implement.</p>
+</div>
+<div class="refsect1">
+<a name="bdwlib-File-utilities.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="bdw-file-new"></a><h3>bdw_file_new ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="returnvalue">BdwFile</span></a> *
+bdw_file_new (<em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#conststring" title="conststring"><span class="type">conststring</span></a> location</code></em>);</pre>
+<p>Creates and initializes a new <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct.</p>
+<div class="refsect3">
+<a name="bdw-file-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>location</p></td>
+<td class="parameter_description"><p>Location of the file in the disk.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-file-new.returns"></a><h4>Returns</h4>
+<p> A pointer to the newly created <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-file-destroy"></a><h3>bdw_file_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+bdw_file_destroy (<em class="parameter"><code><a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> *self</code></em>);</pre>
+<p>Destroys an existing <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct.</p>
+<div class="refsect3">
+<a name="bdw-file-destroy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>Pointer to the <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct to be destroyed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-file-open"></a><h3>bdw_file_open ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-File-utilities.html#BdwFileError" title="enum BdwFileError"><span class="returnvalue">BdwFileError</span></a>
+bdw_file_open (<em class="parameter"><code><a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> *self</code></em>,
+               <em class="parameter"><code><a class="link" href="bdwlib-File-utilities.html#BdwFileType" title="enum BdwFileType"><span class="type">BdwFileType</span></a> type</code></em>,
+               <em class="parameter"><code><a class="link" href="bdwlib-File-utilities.html#BdwFileMode" title="enum BdwFileMode"><span class="type">BdwFileMode</span></a> mode</code></em>);</pre>
+<p>Used to open the file stream contained in a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct.</p>
+<div class="refsect3">
+<a name="bdw-file-open.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>The <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> containing the file stream to be opened.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>type</p></td>
+<td class="parameter_description"><p><a class="link" href="bdwlib-File-utilities.html#BdwFileType" title="enum BdwFileType"><span class="type">BdwFileType</span></a>, representation of the file type.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>mode</p></td>
+<td class="parameter_description"><p><a class="link" href="bdwlib-File-utilities.html#BdwFileType" title="enum BdwFileType"><span class="type">BdwFileType</span></a>, representation of the file opening mode.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-file-open.returns"></a><h4>Returns</h4>
+<p> <a class="link" href="bdwlib-File-utilities.html#BDW-FILE-ERROR-OK:CAPS"><code class="literal">BDW_FILE_ERROR_OK</code></a> if the file was opened correctly, any other
+<a class="link" href="bdwlib-File-utilities.html#BdwFileError" title="enum BdwFileError"><span class="type">BdwFileError</span></a> value otherwise.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-file-getline"></a><h3>bdw_file_getline ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#string" title="string"><span class="returnvalue">string</span></a>
+bdw_file_getline (<em class="parameter"><code><a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> *self</code></em>);</pre>
+<p>Reads a line from a text file.</p>
+<div class="refsect3">
+<a name="bdw-file-getline.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>Text file from which the line will be read.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-file-getline.returns"></a><h4>Returns</h4>
+<p> The line of text that was read from the file.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-file-getcontent"></a><h3>bdw_file_getcontent ()</h3>
+<pre class="programlisting"><a class="link" href="bdwlib-BdwLib-data-types.html#string" title="string"><span class="returnvalue">string</span></a>
+bdw_file_getcontent (<em class="parameter"><code><a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> *self</code></em>);</pre>
+<p>Reads the content from a text file.</p>
+<div class="refsect3">
+<a name="bdw-file-getcontent.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>Text file from which the content will be read.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-file-getcontent.returns"></a><h4>Returns</h4>
+<p> The content of the text file.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-file-putline"></a><h3>bdw_file_putline ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+bdw_file_putline (<em class="parameter"><code><a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> *self</code></em>,
+                  <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#conststring" title="conststring"><span class="type">conststring</span></a> line</code></em>);</pre>
+<p>Writes a line to a text file.</p>
+<div class="refsect3">
+<a name="bdw-file-putline.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>Text file where <em class="parameter"><code>line</code></em>
+will be written.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>line</p></td>
+<td class="parameter_description"><p>Line of text to be written to the file.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-file-putcontent"></a><h3>bdw_file_putcontent ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+bdw_file_putcontent (<em class="parameter"><code><a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> *self</code></em>,
+                     <em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#conststring" title="conststring"><span class="type">conststring</span></a> content</code></em>);</pre>
+<p>Writes the content of a text file.</p>
+<div class="refsect3">
+<a name="bdw-file-putcontent.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>Text file to set its content.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>content</p></td>
+<td class="parameter_description"><p>Content to be written to the file.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="bdwlib-File-utilities.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="BdwFile"></a><h3>struct BdwFile</h3>
+<pre class="programlisting">struct BdwFile {
+  FILE * file;
+  string location;
+};
+</pre>
+<p>The <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct that stores a file's data and auxiliary information.</p>
+<div class="refsect3">
+<a name="BdwFile.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="struct_members_name">
+<col class="struct_members_description">
+<col width="200px" class="struct_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><span class="type">FILE</span> *<em class="structfield"><code><a name="BdwFile.file"></a>file</code></em>;</p></td>
+<td class="struct_member_description"><p><code class="literal">FILE</code> pointer that stores the file's data.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="bdwlib-BdwLib-data-types.html#string" title="string"><span class="type">string</span></a> <em class="structfield"><code><a name="BdwFile.location"></a>location</code></em>;</p></td>
+<td class="struct_member_description"><p>Location of the file in the disk.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BdwFileMode"></a><h3>enum BdwFileMode</h3>
+<p>Specifies the opening mode for a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a>.</p>
+<div class="refsect3">
+<a name="BdwFileMode.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-MODE-NONE:CAPS"></a>BDW_FILE_MODE_NONE</p></td>
+<td class="enum_member_description">
+<p>Undefined opening mode. Placeholder only, not meant for
+                     real usage.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-MODE-READ:CAPS"></a>BDW_FILE_MODE_READ</p></td>
+<td class="enum_member_description">
+<p>Open text file for reading. The stream is positioned at
+                     the beginning of the file.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-MODE-READ-PLUS:CAPS"></a>BDW_FILE_MODE_READ_PLUS</p></td>
+<td class="enum_member_description">
+<p>Open for reading and writing. The stream is
+                          positioned at the beginning of the file.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-MODE-WRITE:CAPS"></a>BDW_FILE_MODE_WRITE</p></td>
+<td class="enum_member_description">
+<p>Truncate file to zero length or create text file for
+                      writing. The stream is positioned at the beginning of
+                      the file.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-MODE-WRITE-PLUS:CAPS"></a>BDW_FILE_MODE_WRITE_PLUS</p></td>
+<td class="enum_member_description">
+<p>Open for reading and writing. The file is created
+                           if it does not exist, otherwise it is truncated.
+                           The stream is positioned at the beginning of the
+                           file.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-MODE-APPEND:CAPS"></a>BDW_FILE_MODE_APPEND</p></td>
+<td class="enum_member_description">
+<p>Open for appending (writing at end of file). The file
+                       is created if it does not exist. The stream is
+                       positioned at the end of the file.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-MODE-APPEND-PLUS:CAPS"></a>BDW_FILE_MODE_APPEND_PLUS</p></td>
+<td class="enum_member_description">
+<p>Open for reading and appending (writing at end of
+                            file). The file is created if it does not exist.
+                            The initial file position for reading is at the
+                            beginning of the file, but output is always
+                            appended to the end of the file.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BdwFileType"></a><h3>enum BdwFileType</h3>
+<p>Specifies the opening type for a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a>.</p>
+<div class="refsect3">
+<a name="BdwFileType.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-TYPE-NONE:CAPS"></a>BDW_FILE_TYPE_NONE</p></td>
+<td class="enum_member_description">
+<p>Undefined file type. Placeholder only, not meant for
+                     real usage.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-TYPE-BINARY:CAPS"></a>BDW_FILE_TYPE_BINARY</p></td>
+<td class="enum_member_description">
+<p>The opened file is a binary file.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-TYPE-TEXT:CAPS"></a>BDW_FILE_TYPE_TEXT</p></td>
+<td class="enum_member_description">
+<p>The opened file is a text file.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BdwFileError"></a><h3>enum BdwFileError</h3>
+<p>Specifies errors occurring during operations on a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a>.</p>
+<div class="refsect3">
+<a name="BdwFileError.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-ERROR-OK:CAPS"></a>BDW_FILE_ERROR_OK</p></td>
+<td class="enum_member_description">
+<p>Result OK, no errors.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-ERROR-ALREADY-OPENED:CAPS"></a>BDW_FILE_ERROR_ALREADY_OPENED</p></td>
+<td class="enum_member_description">
+<p>The file stream contained in the <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a>
+                                struct is already opened.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-ERROR-NOT-INITIALIZED:CAPS"></a>BDW_FILE_ERROR_NOT_INITIALIZED</p></td>
+<td class="enum_member_description">
+<p>The <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct is not initialized.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-ERROR-BAD-ARGUMENTS:CAPS"></a>BDW_FILE_ERROR_BAD_ARGUMENTS</p></td>
+<td class="enum_member_description">
+<p>Either <em class="parameter"><code>mode</code></em>
+ or <em class="parameter"><code>type</code></em>
+ arguments in a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a>
+                               struct are invalid.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-ERROR-INVALID-LOCATION:CAPS"></a>BDW_FILE_ERROR_INVALID_LOCATION</p></td>
+<td class="enum_member_description">
+<p>The <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct file location is an
+                                  invalid path, or <code class="literal">NULL</code>.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BDW-FILE-ERROR-FATAL:CAPS"></a>BDW_FILE_ERROR_FATAL</p></td>
+<td class="enum_member_description">
+<p>The file stream contained in the <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> could not be
+                       opened correctly.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.25</div>
+</body>
+</html>
