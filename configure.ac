@@ -40,6 +40,8 @@ AC_DEFINE(BDWLIB_MICRO_VERSION, [bdwlib_micro_version],
           [Define to the BdwLib micro version])
 
 AC_PROG_CC
+AC_PROG_CC_STDC
+AC_PROG_INSTALL
 
 LT_PREREQ([2.2])
 LT_INIT([disable-static])

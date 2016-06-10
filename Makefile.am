@@ -18,10 +18,10 @@ BUILT_EXTRA_DIST = \
   INSTALL \
   README \
   $(NULL)
- 
+
 ChangeLog:
 	$(AM_V_GEN) if test -d "$(srcdir)/.git"; then \
-	  (GIT_DIR=$(top_srcdir)/.git ./missing --run git log GLIB_2_20_0^^.. --stat) | fmt --split-only > $@.tmp \
+	  cd $(srcdir) && git log --stat --name-only --date=short --abbrev-commit > $@.tmp \
 	  && mv -f $@.tmp $@ \
 	  || ($(RM) $@.tmp; \
 	      echo Failed to generate ChangeLog, your ChangeLog may be outdated >&2; \
