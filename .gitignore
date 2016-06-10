@@ -45,4 +45,5 @@ gtk-doc.make
 libtool
 tags
 version.xml
+.libs
 
