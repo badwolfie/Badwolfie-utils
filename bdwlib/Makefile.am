@@ -15,7 +15,11 @@ libbdwlib_la_SOURCES = \
 	bdw-static-stack.c \
 	bdw-string-utils.c
 
-include_HEADERS = \
+includedir=$(includedir)/bdwlib-1.0
+include_HEADERS = bdwlib.h
+
+subincludedir=$(includedir)/bdwlib-1.0/bdwlib
+subinclude_HEADERS = \
 	bdw-array.h \
 	bdw-bytearray.h \
 	bdw-file.h \
@@ -26,6 +30,5 @@ include_HEADERS = \
 	bdw-static-queue.h \
 	bdw-static-stack.h \
 	bdw-string-utils.h \
-	bdw-types.h \
-	bdwlib.h
+	bdw-types.h
 
