@@ -84,7 +84,7 @@ endif
 
 # -include $(top_srcdir)/git.mk
 
-CLEANFILES = \
+CLEANFILES += \
 	$(DOC_MAIN_SGML_FILE) \
 	$(DOC_MODULE).* \
 	html/* \
