@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<book xmlns="http://www.devhelp.net/book" title="bdwlib Reference Manual" link="index.html" author="" name="bdwlib" version="2" language="c" online="https://badwolfie.github.io/bdwlib/docs">
+<book xmlns="http://www.devhelp.net/book" title="bdwlib Reference Manual" link="index.html" author="" name="bdwlib" version="2" language="c" online="http://[SERVER]/bdwlib/index.html">
   <chapters>
-    <sub name="Package Overview" link="ch01.html">
+    <sub name="[Insert title here]" link="ch01.html">
       <sub name="bdw-array" link="bdwlib-bdw-array.html"/>
       <sub name="bdw-bytearray" link="bdwlib-bdw-bytearray.html"/>
       <sub name="File utilities" link="bdwlib-File-utilities.html"/>
@@ -9,6 +9,7 @@
       <sub name="Singly-Linked Lists" link="bdwlib-Singly-Linked-Lists.html"/>
       <sub name="String utilities" link="bdwlib-String-utilities.html"/>
       <sub name="BdwLib data-types" link="bdwlib-BdwLib-data-types.html"/>
+      <sub name="bdw-version" link="bdwlib-bdw-version.html"/>
     </sub>
     <sub name="Object Hierarchy" link="object-tree.html"/>
     <sub name="API Index" link="api-index-full.html"/>
@@ -129,6 +130,7 @@
     <keyword type="typedef" name="sizetype" link="bdwlib-BdwLib-data-types.html#sizetype"/>
     <keyword type="typedef" name="byte" link="bdwlib-BdwLib-data-types.html#byte"/>
     <keyword type="typedef" name="bool" link="bdwlib-BdwLib-data-types.html#bool"/>
+    <keyword type="macro" name="bdwlib_check_version()" link="bdwlib-bdw-version.html#bdwlib-check-version"/>
     <keyword type="constant" name="BDW_FILE_MODE_NONE" link="bdwlib-File-utilities.html#BDW-FILE-MODE-NONE:CAPS"/>
     <keyword type="constant" name="BDW_FILE_MODE_READ" link="bdwlib-File-utilities.html#BDW-FILE-MODE-READ:CAPS"/>
     <keyword type="constant" name="BDW_FILE_MODE_READ_PLUS" link="bdwlib-File-utilities.html#BDW-FILE-MODE-READ-PLUS:CAPS"/>
