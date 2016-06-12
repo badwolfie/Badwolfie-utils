@@ -18,6 +18,10 @@
 #ifndef BDW_TYPES__H
 #define BDW_TYPES__H
 
+#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#error "Only <bdwlib.h> can be included directly."
+#endif
+
 /**
  * SECTION:bdw-types
  * @title: BdwLib data-types

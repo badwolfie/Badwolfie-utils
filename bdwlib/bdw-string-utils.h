@@ -15,8 +15,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef UTIL__H
-#define UTIL__H
+#ifndef BDW_STRING_UTILS__H
+#define BDW_STRING_UTILS__H
+
+#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#error "Only <bdwlib.h> can be included directly."
+#endif
 
 #include "bdw-types.h"
 
@@ -202,5 +206,5 @@ sizetype bdw_arraylen (pointer array);
 }
 #endif
 
-#endif /* UTIL__H */
+#endif /* BDW_STRING_UTILS__H */
 

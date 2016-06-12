@@ -1,4 +1,4 @@
-/* bdw-static-queue.h
+/* bdw-version.h
  *
  * Copyright (C) 2016 Ian Hernandez <ihernandezs@openmailbox.org>
  *
@@ -15,11 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef BDW_STATIC_QUEUE__H
-#define BDW_STATIC_QUEUE__H
+#ifndef BDW_VERSION__H
+#define BDW_VERSION__H
 
 #if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
-#endif /* BDW_STATIC_QUEUE__H */
+#define bdwlib_check_version(major, minor, micro) (\
+    (BDWLIB_MAJOR_VERSION > major) || \
+    ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION > minor)) || \
+    ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION == minor) && (BDWLIB_MICRO_VERSION >= micro)) \
+)
+
+#endif /* BDW_VERSION__H */
+

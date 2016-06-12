@@ -15,4 +15,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#ifndef BDW_QUEUE__H
+#define BDW_QUEUE__H
 
+#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#error "Only <bdwlib.h> can be included directly."
+#endif
+
+#endif /* BDW_QUEUE__H */

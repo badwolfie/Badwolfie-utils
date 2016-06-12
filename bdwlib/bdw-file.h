@@ -18,6 +18,10 @@
 #ifndef BDW_FILE__H
 #define BDW_FILE__H
 
+#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#error "Only <bdwlib.h> can be included directly."
+#endif
+
 #include <stdio.h>
 
 #include "bdw-types.h"

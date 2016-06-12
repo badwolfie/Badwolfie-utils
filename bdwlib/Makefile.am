@@ -1,7 +1,12 @@
 lib_LTLIBRARIES = libbdwlib.la
 
 AM_CFLAGS = \
-	$(WARN_CFLAGS)
+	$(WARN_CFLAGS) \
+	-DBDWLIB_MAJOR_VERSION=@BDWLIB_MAJOR_VERSION@ \
+	-DBDWLIB_MINOR_VERSION=@BDWLIB_MINOR_VERSION@ \
+	-DBDWLIB_MICRO_VERSION=@BDWLIB_MICRO_VERSION@ \
+	-DBDWLIB_VERSION=@BDWLIB_VERSION@ \
+	-DBDWLIB_COMPILATION
 
 libbdwlib_la_SOURCES = \
 	bdw-array.c \
@@ -30,5 +35,6 @@ bdwlibsubinclude_HEADERS = \
 	bdw-static-queue.h \
 	bdw-static-stack.h \
 	bdw-string-utils.h \
-	bdw-types.h
+	bdw-types.h \
+	bdw-version.h
 
