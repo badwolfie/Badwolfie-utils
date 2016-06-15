@@ -9,7 +9,7 @@
     </shortdesc>
 
     <description>
-      bdwlib is a general purpose library written in C, it provides some utility
+      BdwLib is a general purpose library written in C, it provides some utility
       functions for strings, files and the most commonly used data structures
       like simple and doubly-linked Lists, Stacks and Queues.
 
