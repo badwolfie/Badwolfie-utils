@@ -1,7 +1,8 @@
 # BdwLib
 BdwLib is a general purpose library written in C, it provides some utility 
-functions for strings, files and the most commonly used data structures like 
-simple and doubly-linked Lists, Stacks and Queues.
+functions and data structures implementations that you might find useful for 
+your projects. For a more detailed list of features you can check the 
+[planed features page](https://github.com/badwolfie/bdwlib/issues/1).
 
 It's partially based on the functions offered by 
 [GLib](https://developer.gnome.org/glib).
