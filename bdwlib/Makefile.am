@@ -11,6 +11,7 @@ AM_CFLAGS = \
 libbdwlib_la_SOURCES = \
 	bdw-array.c \
 	bdw-bytearray.c \
+	bdw-error.c \
 	bdw-file.c \
 	bdw-list.c \
 	bdw-queue.c \
@@ -18,7 +19,9 @@ libbdwlib_la_SOURCES = \
 	bdw-stack.c \
 	bdw-static-queue.c \
 	bdw-static-stack.c \
-	bdw-string-utils.c
+	bdw-string.c \
+	bdw-tcp-client.c \
+	bdw-utils.c
 
 bdwlibincludedir=$(includedir)/bdwlib-1.0
 bdwlibinclude_HEADERS = bdwlib.h
@@ -27,6 +30,7 @@ bdwlibsubincludedir=$(includedir)/bdwlib-1.0/bdwlib
 bdwlibsubinclude_HEADERS = \
 	bdw-array.h \
 	bdw-bytearray.h \
+	bdw-error.h \
 	bdw-file.h \
 	bdw-list.h \
 	bdw-queue.h \
@@ -34,7 +38,9 @@ bdwlibsubinclude_HEADERS = \
 	bdw-stack.h \
 	bdw-static-queue.h \
 	bdw-static-stack.h \
-	bdw-string-utils.h \
+	bdw-string.h \
+	bdw-tcp-client.h \
 	bdw-types.h \
+	bdw-utils.h \
 	bdw-version.h
 

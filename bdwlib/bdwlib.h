@@ -22,6 +22,7 @@
 
 #include <bdwlib/bdw-array.h>
 #include <bdwlib/bdw-bytearray.h>
+#include <bdwlib/bdw-error.h>
 #include <bdwlib/bdw-file.h>
 #include <bdwlib/bdw-list.h>
 #include <bdwlib/bdw-queue.h>
@@ -29,7 +30,8 @@
 #include <bdwlib/bdw-stack.h>
 #include <bdwlib/bdw-static-queue.h>
 #include <bdwlib/bdw-static-stack.h>
-#include <bdwlib/bdw-string-utils.h>
+#include <bdwlib/bdw-string.h>
+#include <bdwlib/bdw-tcp-client.h>
 #include <bdwlib/bdw-types.h>
 #include <bdwlib/bdw-version.h>
 

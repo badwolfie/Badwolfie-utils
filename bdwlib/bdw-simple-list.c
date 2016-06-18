@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdlib.h>
-
 #include "bdw-simple-list.h"
 
 BdwSimpleList *
@@ -28,7 +26,7 @@ bdw_simple_list_new (void)
 BdwSimpleList *
 bdw_simple_list_node_alloc (void)
 {
-  BdwSimpleList * self = (BdwSimpleList *) malloc (sizeof (BdwSimpleList));
+  BdwSimpleList * self = bdw_new (BdwSimpleList);
   self->data = NULL;
   self->next = NULL;
   return self;
@@ -41,7 +39,7 @@ bdw_simple_list_destroy (BdwSimpleList * self)
     return;
 
   bdw_simple_list_destroy (self->next);
-  free (self);
+  bdw_free (self);
 }
 
 void

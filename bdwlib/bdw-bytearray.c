@@ -15,14 +15,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdlib.h>
-
 #include "bdw-bytearray.h"
 
 BdwByteArray *
 bdw_byte_array_new (void)
 {
-  BdwByteArray * self = (BdwByteArray *) malloc (sizeof (BdwByteArray));
+  BdwByteArray * self = bdw_new (BdwByteArray);
   self->data = NULL;
   self->length = 0;
   return self;
@@ -34,8 +32,7 @@ bdw_byte_array_destroy (BdwByteArray * self)
   if (self == NULL)
     return ;
 
-  if (self->data != NULL)
-    free (self->data);
-  free (self);
+  bdw_free (self->data);
+  bdw_free (self);
 }
 

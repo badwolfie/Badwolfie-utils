@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef LIST__H
-#define LIST__H
+#ifndef BDW_LIST__H
+#define BDW_LIST__H
 
 #if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
@@ -434,5 +434,5 @@ conststring bdw_list_node_to_string (const BdwList * self,
 }
 #endif
 
-#endif /* LIST__H */
+#endif /* BDW_LIST__H */
 

@@ -22,6 +22,8 @@
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
+#include <stdlib.h>
+
 /**
  * SECTION:bdw-types
  * @title: BdwLib data-types
@@ -43,6 +45,38 @@
  * Specifies the "true" value for a boolean type.
  **/
 #define TRUE 0x01
+
+/**
+ * bdw_new:
+ * @struct_type: The type of the struct element to allocate.
+ *
+ * Allocates memory for a single element of type @struct_type.
+ *
+ * Returns: A pointer to the allocated memory, cast to a pointer to @struct_type.
+ **/
+#define bdw_new(struct_type) ((struct_type *) malloc (sizeof (struct_type)))
+
+/**
+ * bdw_alloc:
+ * @struct_type: The type of the elements to allocate.
+ * @n_structs: The number of elements to allocate.
+ *
+ * Allocates @n_structs elements of type @struct_type, if @n_structs is equal or
+ * lesser than 0 it returns %NULL.
+ *
+ * Returns: A pointer to the allocated memory, cast to a pointer to @struct_type.
+ **/
+#define bdw_alloc(struct_type, n_structs) ((n_structs > 0)? \
+    (struct_type *) malloc (n_structs * sizeof (struct_type)): NULL \
+)
+
+/**
+ * bdw_free:
+ * @mem: The memory space to free.
+ *
+ * If @mem is different from %NULL, it frees the memory pointed to by it.
+ **/
+#define bdw_free(mem) { if (mem != NULL) { free ((void *) mem); } }
 
 
 /*    Custom data-types    */

@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdlib.h>
-
 #include "bdw-list.h"
 
 BdwList *
@@ -28,7 +26,7 @@ bdw_list_new (void)
 BdwList *
 bdw_list_node_alloc (void)
 {
-  BdwList * self = (BdwList *) malloc (sizeof (BdwList));
+  BdwList * self = bdw_new (BdwList);
   self->data = NULL;
   self->prev = NULL;
   self->next = NULL;
@@ -42,7 +40,7 @@ bdw_list_destroy (BdwList * self)
     return;
 
   bdw_list_destroy (self->next);
-  free (self);
+  bdw_free (self);
 }
 
 void

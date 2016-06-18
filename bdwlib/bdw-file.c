@@ -15,17 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdlib.h>
-
 #include "bdw-file.h"
-#include "bdw-string-utils.h"
+#include "bdw-string.h"
 
 static conststring bdw_file_get_file_args (BdwFileMode mode, BdwFileType type);
 
 BdwFile *
 bdw_file_new (conststring location)
 {
-  BdwFile * self = (BdwFile *) malloc (sizeof (BdwFile));
+  BdwFile * self = bdw_new (BdwFile);
   self->location = bdw_strdup (location);
   self->file = NULL;
   return self;
@@ -40,10 +38,8 @@ bdw_file_destroy (BdwFile * self)
   if (self->file != NULL)
     fclose (self->file);
 
-  if (self->location != NULL)
-    free (self->location);
-
-  free (self);
+  bdw_free (self->location);
+  bdw_free (self);
 }
 
 BdwFileError
@@ -125,7 +121,7 @@ bdw_file_get_file_args (BdwFileMode mode, BdwFileType type)
     file_args = bdw_strconcat (aux, "t");
   }
 
-  free (aux);
+  bdw_free (aux);
   return file_args;
 }
 
