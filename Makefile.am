@@ -10,6 +10,7 @@ EXTRA_DIST = \
   NEWS \
   README \
   README.md \
+  bdwlib-1.0.pc.in \
   gtk-doc.make \
   $(NULL)
 

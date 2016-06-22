@@ -56,6 +56,7 @@ bdwlib_INCLUDES='-I(top_srcdir)/bdwlib -I$(top_srcdir)'
 AC_SUBST(bdwlib_INCLUDES)
 
 AC_CONFIG_FILES([
+  bdwlib-1.0.pc
   Makefile
   bdwlib/Makefile
   docs/Makefile

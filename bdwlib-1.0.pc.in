@@ -1,0 +1,12 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: BdwLib
+Description: A general purpose library written in C
+URL: https://badwolfie.github.io/bdwlib
+Version: @VERSION@
+Cflags: -I${includedir}/bdwlib-1.0
+Libs: -L${libdir} -lbdwlib-1.0
+
