@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<book xmlns="http://www.devhelp.net/book" title="bdwlib Reference Manual" link="index.html" author="" name="bdwlib" version="2" language="c" online="http://[SERVER]/bdwlib/index.html">
+<book xmlns="http://www.devhelp.net/book" title="BdwLib Reference Manual" link="index.html" author="" name="bdwlib" version="2" language="c" online="https://badwolfie.github.io/bdwlib/docs">
   <chapters>
-    <sub name="[Insert title here]" link="ch01.html">
+    <sub name="API Overview" link="ch01.html">
       <sub name="bdw-array" link="bdwlib-bdw-array.html"/>
       <sub name="bdw-bytearray" link="bdwlib-bdw-bytearray.html"/>
+      <sub name="bdw-error" link="bdwlib-bdw-error.html"/>
       <sub name="File utilities" link="bdwlib-File-utilities.html"/>
       <sub name="Doubly-Linked Lists" link="bdwlib-Doubly-Linked-Lists.html"/>
       <sub name="Singly-Linked Lists" link="bdwlib-Singly-Linked-Lists.html"/>
-      <sub name="String utilities" link="bdwlib-String-utilities.html"/>
+      <sub name="bdw-string" link="bdwlib-bdw-string.html"/>
+      <sub name="bdw-tcp-client" link="bdwlib-bdw-tcp-client.html"/>
       <sub name="BdwLib data-types" link="bdwlib-BdwLib-data-types.html"/>
+      <sub name="bdw-utils" link="bdwlib-bdw-utils.html"/>
       <sub name="bdw-version" link="bdwlib-bdw-version.html"/>
     </sub>
     <sub name="Object Hierarchy" link="object-tree.html"/>
@@ -22,6 +25,13 @@
     <keyword type="function" name="bdw_byte_array_new ()" link="bdwlib-bdw-bytearray.html#bdw-byte-array-new"/>
     <keyword type="function" name="bdw_byte_array_destroy ()" link="bdwlib-bdw-bytearray.html#bdw-byte-array-destroy"/>
     <keyword type="struct" name="struct BdwByteArray" link="bdwlib-bdw-bytearray.html#BdwByteArray"/>
+    <keyword type="function" name="bdw_error_new ()" link="bdwlib-bdw-error.html#bdw-error-new"/>
+    <keyword type="function" name="bdw_error_new_no_format ()" link="bdwlib-bdw-error.html#bdw-error-new-no-format"/>
+    <keyword type="function" name="bdw_error_destroy ()" link="bdwlib-bdw-error.html#bdw-error-destroy"/>
+    <keyword type="function" name="bdw_error_report ()" link="bdwlib-bdw-error.html#bdw-error-report"/>
+    <keyword type="function" name="bdw_error_on_code ()" link="bdwlib-bdw-error.html#bdw-error-on-code"/>
+    <keyword type="function" name="bdw_error_on_null ()" link="bdwlib-bdw-error.html#bdw-error-on-null"/>
+    <keyword type="struct" name="struct BdwError" link="bdwlib-bdw-error.html#BdwError"/>
     <keyword type="function" name="bdw_file_new ()" link="bdwlib-File-utilities.html#bdw-file-new"/>
     <keyword type="function" name="bdw_file_destroy ()" link="bdwlib-File-utilities.html#bdw-file-destroy"/>
     <keyword type="function" name="bdw_file_open ()" link="bdwlib-File-utilities.html#bdw-file-open"/>
@@ -92,20 +102,24 @@
     <keyword type="function" name="bdw_simple_list_is_last ()" link="bdwlib-Singly-Linked-Lists.html#bdw-simple-list-is-last"/>
     <keyword type="function" name="bdw_simple_list_node_to_string ()" link="bdwlib-Singly-Linked-Lists.html#bdw-simple-list-node-to-string"/>
     <keyword type="struct" name="struct BdwSimpleList" link="bdwlib-Singly-Linked-Lists.html#BdwSimpleList"/>
-    <keyword type="function" name="bdw_strconcat ()" link="bdwlib-String-utilities.html#bdw-strconcat"/>
-    <keyword type="function" name="bdw_strdup ()" link="bdwlib-String-utilities.html#bdw-strdup"/>
-    <keyword type="function" name="bdw_strequals ()" link="bdwlib-String-utilities.html#bdw-strequals"/>
-    <keyword type="function" name="bdw_str_case_equals ()" link="bdwlib-String-utilities.html#bdw-str-case-equals"/>
-    <keyword type="function" name="bdw_strtrim ()" link="bdwlib-String-utilities.html#bdw-strtrim"/>
-    <keyword type="function" name="bdw_str_append_char ()" link="bdwlib-String-utilities.html#bdw-str-append-char"/>
-    <keyword type="function" name="bdw_strsplit ()" link="bdwlib-String-utilities.html#bdw-strsplit"/>
-    <keyword type="function" name="bdw_strjoin ()" link="bdwlib-String-utilities.html#bdw-strjoin"/>
-    <keyword type="function" name="bdw_str_has_prefix ()" link="bdwlib-String-utilities.html#bdw-str-has-prefix"/>
-    <keyword type="function" name="bdw_str_has_suffix ()" link="bdwlib-String-utilities.html#bdw-str-has-suffix"/>
-    <keyword type="function" name="bdw_strstrip ()" link="bdwlib-String-utilities.html#bdw-strstrip"/>
-    <keyword type="function" name="bdw_strstrip_leading ()" link="bdwlib-String-utilities.html#bdw-strstrip-leading"/>
-    <keyword type="function" name="bdw_strstrip_trailing ()" link="bdwlib-String-utilities.html#bdw-strstrip-trailing"/>
-    <keyword type="function" name="bdw_arraylen ()" link="bdwlib-String-utilities.html#bdw-arraylen"/>
+    <keyword type="function" name="bdw_strconcat ()" link="bdwlib-bdw-string.html#bdw-strconcat"/>
+    <keyword type="function" name="bdw_strdup ()" link="bdwlib-bdw-string.html#bdw-strdup"/>
+    <keyword type="function" name="bdw_strequals ()" link="bdwlib-bdw-string.html#bdw-strequals"/>
+    <keyword type="function" name="bdw_str_case_equals ()" link="bdwlib-bdw-string.html#bdw-str-case-equals"/>
+    <keyword type="function" name="bdw_strtrim ()" link="bdwlib-bdw-string.html#bdw-strtrim"/>
+    <keyword type="function" name="bdw_str_append_char ()" link="bdwlib-bdw-string.html#bdw-str-append-char"/>
+    <keyword type="function" name="bdw_strsplit ()" link="bdwlib-bdw-string.html#bdw-strsplit"/>
+    <keyword type="function" name="bdw_strjoin ()" link="bdwlib-bdw-string.html#bdw-strjoin"/>
+    <keyword type="function" name="bdw_str_has_prefix ()" link="bdwlib-bdw-string.html#bdw-str-has-prefix"/>
+    <keyword type="function" name="bdw_str_has_suffix ()" link="bdwlib-bdw-string.html#bdw-str-has-suffix"/>
+    <keyword type="function" name="bdw_strstrip ()" link="bdwlib-bdw-string.html#bdw-strstrip"/>
+    <keyword type="function" name="bdw_strstrip_leading ()" link="bdwlib-bdw-string.html#bdw-strstrip-leading"/>
+    <keyword type="function" name="bdw_strstrip_trailing ()" link="bdwlib-bdw-string.html#bdw-strstrip-trailing"/>
+    <keyword type="function" name="bdw_strerror ()" link="bdwlib-bdw-string.html#bdw-strerror"/>
+    <keyword type="struct" name="struct BdwTcpClient" link="bdwlib-bdw-tcp-client.html#BdwTcpClient"/>
+    <keyword type="macro" name="bdw_new()" link="bdwlib-BdwLib-data-types.html#bdw-new"/>
+    <keyword type="macro" name="bdw_alloc()" link="bdwlib-BdwLib-data-types.html#bdw-alloc"/>
+    <keyword type="macro" name="bdw_free()" link="bdwlib-BdwLib-data-types.html#bdw-free"/>
     <keyword type="function" name="CompareFunction ()" link="bdwlib-BdwLib-data-types.html#CompareFunction"/>
     <keyword type="function" name="CopyFunction ()" link="bdwlib-BdwLib-data-types.html#CopyFunction"/>
     <keyword type="function" name="ForeachFunction ()" link="bdwlib-BdwLib-data-types.html#ForeachFunction"/>
@@ -130,6 +144,9 @@
     <keyword type="typedef" name="sizetype" link="bdwlib-BdwLib-data-types.html#sizetype"/>
     <keyword type="typedef" name="byte" link="bdwlib-BdwLib-data-types.html#byte"/>
     <keyword type="typedef" name="bool" link="bdwlib-BdwLib-data-types.html#bool"/>
+    <keyword type="function" name="bdw_utils_clear_buffer ()" link="bdwlib-bdw-utils.html#bdw-utils-clear-buffer"/>
+    <keyword type="function" name="bdw_utills_array_get_length ()" link="bdwlib-bdw-utils.html#bdw-utills-array-get-length"/>
+    <keyword type="function" name="bdw_utils_flush_stdin ()" link="bdwlib-bdw-utils.html#bdw-utils-flush-stdin"/>
     <keyword type="macro" name="bdwlib_check_version()" link="bdwlib-bdw-version.html#bdwlib-check-version"/>
     <keyword type="constant" name="BDW_FILE_MODE_NONE" link="bdwlib-File-utilities.html#BDW-FILE-MODE-NONE:CAPS"/>
     <keyword type="constant" name="BDW_FILE_MODE_READ" link="bdwlib-File-utilities.html#BDW-FILE-MODE-READ:CAPS"/>
@@ -151,6 +168,8 @@
     <keyword type="member" name="BdwArray.length" link="bdwlib-bdw-array.html#BdwArray.length"/>
     <keyword type="member" name="BdwByteArray.data" link="bdwlib-bdw-bytearray.html#BdwByteArray.data"/>
     <keyword type="member" name="BdwByteArray.length" link="bdwlib-bdw-bytearray.html#BdwByteArray.length"/>
+    <keyword type="member" name="BdwError.code" link="bdwlib-bdw-error.html#BdwError.code"/>
+    <keyword type="member" name="BdwError.message" link="bdwlib-bdw-error.html#BdwError.message"/>
     <keyword type="member" name="BdwFile.file" link="bdwlib-File-utilities.html#BdwFile.file"/>
     <keyword type="member" name="BdwFile.location" link="bdwlib-File-utilities.html#BdwFile.location"/>
     <keyword type="member" name="BdwList.data" link="bdwlib-Doubly-Linked-Lists.html#BdwList.data"/>

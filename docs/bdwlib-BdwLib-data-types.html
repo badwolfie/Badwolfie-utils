@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BdwLib data-types: bdwlib Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
-<link rel="home" href="index.html" title="bdwlib Reference Manual">
-<link rel="up" href="ch01.html" title="[Insert title here]">
-<link rel="prev" href="bdwlib-String-utilities.html" title="String utilities">
-<link rel="next" href="bdwlib-bdw-version.html" title="bdw-version">
+<title>BdwLib data-types: BdwLib Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="BdwLib Reference Manual">
+<link rel="up" href="ch01.html" title="API Overview">
+<link rel="prev" href="bdwlib-bdw-tcp-client.html" title="bdw-tcp-client">
+<link rel="next" href="bdwlib-bdw-utils.html" title="bdw-utils">
 <meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -19,8 +19,8 @@
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="bdwlib-String-utilities.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
-<td><a accesskey="n" href="bdwlib-bdw-version.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+<td><a accesskey="p" href="bdwlib-bdw-tcp-client.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="bdwlib-bdw-utils.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="bdwlib-BdwLib-data-types"></a><div class="titlepage"></div>
@@ -33,12 +33,30 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="bdwlib-BdwLib-data-types.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
 </colgroup>
 <tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="bdwlib-BdwLib-data-types.html#bdw-new" title="bdw_new()">bdw_new</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="bdwlib-BdwLib-data-types.html#bdw-alloc" title="bdw_alloc()">bdw_alloc</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="bdwlib-BdwLib-data-types.html#bdw-free" title="bdw_free()">bdw_free</a><span class="c_punctuation">()</span>
+</td>
+</tr>
 <tr>
 <td class="function_type">
 <span class="returnvalue">int</span>
@@ -84,7 +102,7 @@
 </div>
 <div class="refsect1">
 <a name="bdwlib-BdwLib-data-types.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -176,6 +194,94 @@
 <div class="refsect1">
 <a name="bdwlib-BdwLib-data-types.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
+<a name="bdw-new"></a><h3>bdw_new()</h3>
+<pre class="programlisting">#define bdw_new(struct_type) ((struct_type *) malloc (sizeof (struct_type)))
+</pre>
+<p>Allocates memory for a single element of type <em class="parameter"><code>struct_type</code></em>
+.</p>
+<div class="refsect3">
+<a name="bdw-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>struct_type</p></td>
+<td class="parameter_description"><p>The type of the struct element to allocate.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-new.returns"></a><h4>Returns</h4>
+<p> A pointer to the allocated memory, cast to a pointer to <em class="parameter"><code>struct_type</code></em>
+.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-alloc"></a><h3>bdw_alloc()</h3>
+<pre class="programlisting">#define             bdw_alloc(struct_type, n_structs)</pre>
+<p>Allocates <em class="parameter"><code>n_structs</code></em>
+ elements of type <em class="parameter"><code>struct_type</code></em>
+, if <em class="parameter"><code>n_structs</code></em>
+ is equal or
+lesser than 0 it returns <code class="literal">NULL</code>.</p>
+<div class="refsect3">
+<a name="bdw-alloc.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>struct_type</p></td>
+<td class="parameter_description"><p>The type of the elements to allocate.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_structs</p></td>
+<td class="parameter_description"><p>The number of elements to allocate.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="bdw-alloc.returns"></a><h4>Returns</h4>
+<p> A pointer to the allocated memory, cast to a pointer to <em class="parameter"><code>struct_type</code></em>
+.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bdw-free"></a><h3>bdw_free()</h3>
+<pre class="programlisting">#define bdw_free(mem) { if (mem != NULL) { free ((void *) mem); } }
+</pre>
+<p>If <em class="parameter"><code>mem</code></em>
+ is different from <code class="literal">NULL</code>, it frees the memory pointed to by it.</p>
+<div class="refsect3">
+<a name="bdw-free.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>mem</p></td>
+<td class="parameter_description"><p>The memory space to free.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
 <a name="CompareFunction"></a><h3>CompareFunction ()</h3>
 <pre class="programlisting"><span class="returnvalue">int</span>
 <span class="c_punctuation">(</span>*CompareFunction<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="bdwlib-BdwLib-data-types.html#constpointer" title="constpointer"><span class="type">constpointer</span></a> a</code></em>,
@@ -187,7 +293,7 @@ the second, 0 if they are equal, or a positive integer if the first value
 comes after the second.</p>
 <div class="refsect3">
 <a name="CompareFunction.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -236,7 +342,7 @@ is needed.</p></td>
 full-copy of a list.</p>
 <div class="refsect3">
 <a name="CopyFunction.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -271,7 +377,7 @@ full-copy of a list.</p>
 the list, it can do anything that the user wants.</p>
 <div class="refsect3">
 <a name="ForeachFunction.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -303,7 +409,7 @@ can be <code class="literal">NULL</code> if none is needed.</p></td>
 creates a printable string from it.</p>
 <div class="refsect3">
 <a name="ToStringFunction.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -339,7 +445,7 @@ destroyed. It is passed the pointer to the data element and should free any
 memory and resources allocated for it.</p>
 <div class="refsect3">
 <a name="DestroyFunction.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">

@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>File utilities: bdwlib Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
-<link rel="home" href="index.html" title="bdwlib Reference Manual">
-<link rel="up" href="ch01.html" title="[Insert title here]">
-<link rel="prev" href="bdwlib-bdw-bytearray.html" title="bdw-bytearray">
+<title>File utilities: BdwLib Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="BdwLib Reference Manual">
+<link rel="up" href="ch01.html" title="API Overview">
+<link rel="prev" href="bdwlib-bdw-error.html" title="bdw-error">
 <link rel="next" href="bdwlib-Doubly-Linked-Lists.html" title="Doubly-Linked Lists">
 <meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -19,7 +19,7 @@
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="bdwlib-bdw-bytearray.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="bdwlib-bdw-error.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="bdwlib-Doubly-Linked-Lists.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -33,7 +33,7 @@
 </tr></table></div>
 <div class="refsect1">
 <a name="bdwlib-File-utilities.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="functions_return">
 <col class="functions_name">
@@ -100,7 +100,7 @@
 </div>
 <div class="refsect1">
 <a name="bdwlib-File-utilities.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -140,7 +140,7 @@ bdw_file_new (<em class="parameter"><code><a class="link" href="bdwlib-BdwLib-da
 <p>Creates and initializes a new <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct.</p>
 <div class="refsect3">
 <a name="bdw-file-new.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -166,7 +166,7 @@ bdw_file_destroy (<em class="parameter"><code><a class="link" href="bdwlib-File-
 <p>Destroys an existing <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct.</p>
 <div class="refsect3">
 <a name="bdw-file-destroy.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -190,7 +190,7 @@ bdw_file_open (<em class="parameter"><code><a class="link" href="bdwlib-File-uti
 <p>Used to open the file stream contained in a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct.</p>
 <div class="refsect3">
 <a name="bdw-file-open.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -229,7 +229,7 @@ bdw_file_getline (<em class="parameter"><code><a class="link" href="bdwlib-File-
 <p>Reads a line from a text file.</p>
 <div class="refsect3">
 <a name="bdw-file-getline.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -255,7 +255,7 @@ bdw_file_getcontent (<em class="parameter"><code><a class="link" href="bdwlib-Fi
 <p>Reads the content from a text file.</p>
 <div class="refsect3">
 <a name="bdw-file-getcontent.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -282,7 +282,7 @@ bdw_file_putline (<em class="parameter"><code><a class="link" href="bdwlib-File-
 <p>Writes a line to a text file.</p>
 <div class="refsect3">
 <a name="bdw-file-putline.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -313,7 +313,7 @@ bdw_file_putcontent (<em class="parameter"><code><a class="link" href="bdwlib-Fi
 <p>Writes the content of a text file.</p>
 <div class="refsect3">
 <a name="bdw-file-putcontent.parameters"></a><h4>Parameters</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
 <col class="parameters_description">
@@ -347,7 +347,7 @@ bdw_file_putcontent (<em class="parameter"><code><a class="link" href="bdwlib-Fi
 <p>The <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a> struct that stores a file's data and auxiliary information.</p>
 <div class="refsect3">
 <a name="BdwFile.members"></a><h4>Members</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="struct_members_name">
 <col class="struct_members_description">
@@ -374,7 +374,7 @@ bdw_file_putcontent (<em class="parameter"><code><a class="link" href="bdwlib-Fi
 <p>Specifies the opening mode for a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a>.</p>
 <div class="refsect3">
 <a name="BdwFileMode.members"></a><h4>Members</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -454,7 +454,7 @@ bdw_file_putcontent (<em class="parameter"><code><a class="link" href="bdwlib-Fi
 <p>Specifies the opening type for a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a>.</p>
 <div class="refsect3">
 <a name="BdwFileType.members"></a><h4>Members</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -493,7 +493,7 @@ bdw_file_putcontent (<em class="parameter"><code><a class="link" href="bdwlib-Fi
 <p>Specifies errors occurring during operations on a <a class="link" href="bdwlib-File-utilities.html#BdwFile" title="struct BdwFile"><span class="type">BdwFile</span></a>.</p>
 <div class="refsect3">
 <a name="BdwFileError.members"></a><h4>Members</h4>
-<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
