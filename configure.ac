@@ -4,8 +4,8 @@ AC_PREREQ([2.62])
 m4_define(bdwlib_configure_ac)
 
 m4_define([bdwlib_major_version], [0])
-m4_define([bdwlib_minor_version], [4])
-m4_define([bdwlib_micro_version], [1])
+m4_define([bdwlib_minor_version], [5])
+m4_define([bdwlib_micro_version], [0])
 m4_define([bdwlib_version],
           [bdwlib_major_version.bdwlib_minor_version.bdwlib_micro_version])
 
