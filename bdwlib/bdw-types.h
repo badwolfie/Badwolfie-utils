@@ -54,7 +54,9 @@
  *
  * Returns: A pointer to the allocated memory, cast to a pointer to @struct_type.
  **/
-#define bdw_new(struct_type) ((struct_type *) malloc (sizeof (struct_type)))
+#define bdw_new(struct_type) ( \
+    (struct_type *) malloc (sizeof (struct_type)) \
+)
 
 /**
  * bdw_alloc:
@@ -66,8 +68,10 @@
  *
  * Returns: A pointer to the allocated memory, cast to a pointer to @struct_type.
  **/
-#define bdw_alloc(struct_type, n_structs) ((n_structs > 0)? \
-    (struct_type *) malloc (n_structs * sizeof (struct_type)): NULL \
+#define bdw_alloc(struct_type, n_structs) ( \
+    (n_structs > 0)? \
+    (struct_type *) malloc (n_structs * sizeof (struct_type)): \
+    NULL \
 )
 
 /**
@@ -76,7 +80,11 @@
  *
  * If @mem is different from %NULL, it frees the memory pointed to by it.
  **/
-#define bdw_free(mem) { if (mem != NULL) { free ((void *) mem); } }
+#define bdw_free(mem) { \
+    if (mem != NULL) { \
+        free ((void *) mem); \
+    } \
+}
 
 
 /*    Custom data-types    */

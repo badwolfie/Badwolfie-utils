@@ -33,10 +33,8 @@ bdw_utills_array_get_length (pointer array)
 {
   sizetype len = 0;
 
-  if (array)
-  {
-    while (((pointer *) array)[len])
-    {
+  if (array) {
+    while (((pointer *) array)[len]) {
       len++;
     }
   }

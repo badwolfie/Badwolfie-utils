@@ -4,14 +4,14 @@ SUBDIRS = docs bdwlib
 
 EXTRA_DIST = \
   autogen.sh \
+  bdwlib-1.0.pc.in \
   bdwlib.doap \
   ChangeLog \
+  gtk-doc.make \
   INSTALL \
   NEWS \
   README \
   README.md \
-  bdwlib-1.0.pc.in \
-  gtk-doc.make \
   $(NULL)
 
 BUILT_EXTRA_DIST = \
@@ -32,6 +32,10 @@ ChangeLog:
 	  (echo A git checkout and git-log is required to generate ChangeLog >&2 && \
 	  echo A git checkout and git-log is required to generate this file >> $@); \
 	fi
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = bdwlib-1.0.pc
+$(pkgconfig_DATA): config.status
 
 # build documentation when doing distcheck
 DISTCHECK_CONFIGURE_FLAGS = --enable-debug --enable-gtk-doc --enable-man --disable-maintainer-mode

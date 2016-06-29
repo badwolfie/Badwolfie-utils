@@ -46,6 +46,8 @@ libtool
 tags
 version.xml
 .libs
+*.pc
+*.bak
 
 confpYjNix
 confXknFxn
