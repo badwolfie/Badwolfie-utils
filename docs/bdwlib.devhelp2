@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<book xmlns="http://www.devhelp.net/book" title="BdwLib Reference Manual" link="index.html" author="" name="bdwlib" version="2" language="c" online="https://badwolfie.github.io/bdwlib/docs">
+<book xmlns="http://www.devhelp.net/book" title="bdwlib Reference Manual" link="index.html" author="" name="bdwlib" version="2" language="c" online="http://[SERVER]/bdwlib/index.html">
   <chapters>
-    <sub name="API Overview" link="ch01.html">
+    <sub name="[Insert title here]" link="ch01.html">
       <sub name="bdw-array" link="bdwlib-bdw-array.html"/>
       <sub name="bdw-bytearray" link="bdwlib-bdw-bytearray.html"/>
       <sub name="bdw-error" link="bdwlib-bdw-error.html"/>
