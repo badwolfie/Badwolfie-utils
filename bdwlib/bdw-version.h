@@ -25,7 +25,8 @@
 #define bdwlib_check_version(major, minor, micro) (\
     (BDWLIB_MAJOR_VERSION > major) || \
     ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION > minor)) || \
-    ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION == minor) && (BDWLIB_MICRO_VERSION >= micro)) \
+    ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION == minor) && \
+        (BDWLIB_MICRO_VERSION >= micro)) \
 )
 
 #endif /* BDW_VERSION__H */
