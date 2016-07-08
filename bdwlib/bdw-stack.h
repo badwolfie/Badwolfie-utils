@@ -22,4 +22,30 @@
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
+#include "bdw-types.h"
+
+typedef struct _BdwStack BdwStack;
+struct _BdwStack
+{
+  pointer * data;
+  sizetype size;
+  int top;
+};
+
+BdwStack * bdw_stack_new (sizetype size);
+
+void bdw_stack_destroy (BdwStack * self);
+
+void bdw_stack_reset (BdwStack * self);
+
+void bdw_stack_push (BdwStack * self, pointer data);
+
+pointer bdw_stack_pop (BdwStack * self);
+
+pointer bdw_stack_get_data_at_top (const BdwStack * self);
+
+bool bdw_stack_is_empty (const BdwStack * self);
+
+bool bdw_stack_is_full (const BdwStack * self);
+
 #endif /* BDW_STACK__H */

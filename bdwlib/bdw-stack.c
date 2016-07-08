@@ -15,4 +15,82 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "bdw-stack.h"
+#include "bdw-error.h"
+
+BdwStack *
+bdw_stack_new (sizetype size)
+{
+  BdwStack * self = bdw_new (BdwStack);
+  self->size = size;
+  self->top = 0;
+
+  self->data = bdw_alloc (pointer, self->size);
+  return self;
+}
+
+void
+bdw_stack_destroy (BdwStack * self)
+{
+  bdw_free (self->data);
+  bdw_free (self);
+}
+
+void
+bdw_stack_reset (BdwStack * self)
+{
+  sizetype size = self->size;
+  bdw_stack_destroy (self);
+  self = bdw_stack_new (size);
+}
+
+void
+bdw_stack_push (BdwStack * self, pointer data)
+{
+  if (bdw_stack_is_full (self)) {
+    bdw_error_report ("ERROR: Stack is full.");
+    return ;
+  }
+
+  self->data[self->top++] = data;
+}
+
+pointer
+bdw_stack_pop (BdwStack * self)
+{
+  if (bdw_stack_is_empty (self)) {
+    bdw_error_report ("ERROR: Stack is empty.");
+    return NULL;
+  }
+
+  pointer data = self->data[self->top--];
+  return data;
+}
+
+pointer
+bdw_stack_get_data_at_top (const BdwStack * self)
+{
+  if (bdw_stack_is_empty (self)) {
+    bdw_error_report ("ERROR: Stack is empty.");
+    return NULL;
+  }
+
+  return self->data[self->top - 1];
+}
+
+bool
+bdw_stack_is_empty (const BdwStack * self)
+{
+  if ((self->data == NULL) || (self->top == 0))
+    return TRUE;
+  return FALSE;
+}
+
+bool
+bdw_stack_is_full (const BdwStack * self)
+{
+  if (self->top == (self->size - 1))
+    return TRUE;
+  return FALSE;
+}
 
