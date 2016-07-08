@@ -22,4 +22,32 @@
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
+#include "bdw-types.h"
+
+typedef struct _BdwQueue BdwQueue;
+struct _BdwQueue
+{
+  pointer * data;
+  sizetype size;
+  int head;
+  int tail;
+};
+
+BdwQueue * bdw_queue_new (sizetype size);
+
+void bdw_queue_destroy (BdwQueue * self);
+
+void bdw_queue_reset (BdwQueue * self);
+
+void bdw_queue_push (BdwQueue * self, pointer data);
+
+pointer bdw_queue_pop (BdwQueue * self);
+
+pointer bdw_queue_get_data_at_front (const BdwQueue * self);
+
+bool bdw_queue_is_empty (const BdwQueue * self);
+
+bool bdw_queue_is_full (const BdwQueue * self);
+
 #endif /* BDW_QUEUE__H */
+
