@@ -17,7 +17,6 @@
  */
 #include <stdarg.h>
 #include <stdio.h>
-#include <errno.h>
 
 #include "bdw-error.h"
 #include "bdw-string.h"
@@ -71,7 +70,6 @@ bdw_error_report (conststring format, ...)
   vsprintf (aux_buffer, format, arglist);
 
   printf ("%s", aux_buffer);
-  exit (1);
 }
 
 void

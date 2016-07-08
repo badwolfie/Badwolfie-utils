@@ -22,6 +22,7 @@
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
+#include <errno.h>
 #include "bdw-types.h"
 
 /**
