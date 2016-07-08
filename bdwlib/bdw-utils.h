@@ -45,7 +45,7 @@ void bdw_utils_clear_buffer (pointer buffer, sizetype size);
  *
  * Returns: The length of the given array.
  **/
-sizetype bdw_utills_array_get_length (pointer array);
+sizetype bdw_utils_array_get_length (pointer array);
 
 /**
  * bdw_utils_flush_stdin:

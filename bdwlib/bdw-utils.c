@@ -29,7 +29,7 @@ bdw_utils_clear_buffer (pointer buffer, sizetype size)
 }
 
 sizetype
-bdw_utills_array_get_length (pointer array)
+bdw_utils_array_get_length (pointer array)
 {
   sizetype len = 0;
 
