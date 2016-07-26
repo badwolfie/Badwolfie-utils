@@ -18,7 +18,7 @@
 #ifndef BDW_QUEUE__H
 #define BDW_QUEUE__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
@@ -50,4 +50,3 @@ bool bdw_queue_is_empty (const BdwQueue * self);
 bool bdw_queue_is_full (const BdwQueue * self);
 
 #endif /* BDW_QUEUE__H */
-

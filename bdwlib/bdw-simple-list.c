@@ -102,8 +102,7 @@ bdw_simple_list_insert (BdwSimpleList * self, pointer node_data, int position)
 }
 
 BdwSimpleList *
-bdw_simple_list_insert_before (BdwSimpleList * self,
-                               BdwSimpleList * node,
+bdw_simple_list_insert_before (BdwSimpleList * self, BdwSimpleList * node,
                                pointer node_data)
 {
   if (self == NULL) {
@@ -139,7 +138,8 @@ bdw_simple_list_insert_before (BdwSimpleList * self,
 }
 
 BdwSimpleList *
-bdw_simple_list_insert_after (BdwSimpleList * self, BdwSimpleList * node, pointer node_data)
+bdw_simple_list_insert_after (BdwSimpleList * self, BdwSimpleList * node,
+                              pointer node_data)
 {
   if (self == NULL) {
     self = bdw_simple_list_node_alloc ();
@@ -260,7 +260,8 @@ bdw_simple_list_find (const BdwSimpleList * self, constpointer node_data)
 }
 
 BdwSimpleList *
-bdw_simple_list_find_custom (const BdwSimpleList * self, constpointer node_data, CompareFunction func)
+bdw_simple_list_find_custom (const BdwSimpleList * self, constpointer node_data,
+                             CompareFunction func)
 {
   if (func == NULL)
     return (BdwSimpleList *) self;
@@ -285,7 +286,8 @@ bdw_simple_list_copy (BdwSimpleList * self)
 }
 
 BdwSimpleList *
-bdw_simple_list_full_copy (BdwSimpleList * self, CopyFunction func, pointer param_data)
+bdw_simple_list_full_copy (BdwSimpleList * self, CopyFunction func,
+                           pointer param_data)
 {
   BdwSimpleList * iterator = self;
   BdwSimpleList * copy = NULL;
@@ -324,7 +326,8 @@ bdw_simple_list_concat (BdwSimpleList * list1, BdwSimpleList * list2)
 }
 
 void
-bdw_simple_list_foreach (const BdwSimpleList * self, ForeachFunction func, pointer param_data)
+bdw_simple_list_foreach (const BdwSimpleList * self, ForeachFunction func,
+                         pointer param_data)
 {
   BdwSimpleList * iterator = (BdwSimpleList *) self;
 
@@ -384,11 +387,11 @@ bdw_simple_list_is_last (const BdwSimpleList * self)
 }
 
 conststring
-bdw_simple_list_node_to_string (const BdwSimpleList * self, ToStringFunction func, pointer param_data)
+bdw_simple_list_node_to_string (const BdwSimpleList * self,
+                                ToStringFunction func, pointer param_data)
 {
   if (self == NULL)
     return NULL;
 
   return func (self->data, param_data);
 }
-

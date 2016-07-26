@@ -18,7 +18,7 @@
 #ifndef BDW_UTILS__H
 #define BDW_UTILS__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
@@ -59,4 +59,3 @@ void bdw_utils_flush_stdin (void);
 #endif
 
 #endif /* BDW_UTILS__H */
-

@@ -18,7 +18,7 @@
 #ifndef BDW_ARRAY__H
 #define BDW_ARRAY__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
@@ -40,7 +40,6 @@ struct _BdwArray
   uint length;
 };
 
-
 /*    Function prototypes    */
 #ifdef __cplusplus /*    C++ support    */
 extern "C" {
@@ -52,7 +51,7 @@ extern "C" {
  * Creates and initializes a new #BdwArray struct.
  *
  * Returns: A pointer to the newly created #BdwArray struct.
- */
+ **/
 BdwArray * bdw_array_new (void);
 
 /**
@@ -60,7 +59,7 @@ BdwArray * bdw_array_new (void);
  * @self: Pointer to the #BdwArray struct to be destroyed.
  *
  * Destroys an existing #BdwArray struct.
- */
+ **/
 void bdw_array_destroy (BdwArray * self);
 
 #ifdef __cplusplus
@@ -68,4 +67,3 @@ void bdw_array_destroy (BdwArray * self);
 #endif
 
 #endif /* BDW_ARRAY__H */
-

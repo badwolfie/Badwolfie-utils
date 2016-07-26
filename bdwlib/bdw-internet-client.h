@@ -18,7 +18,7 @@
 #ifndef BDW_INTERNET_CLIENT__H
 #define BDW_INTERNET_CLIENT__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
@@ -32,8 +32,7 @@ struct _BdwInternetClient
   BdwSocketType socket_type;
 };
 
-BdwInternetClient * bdw_internet_client_new (conststring host,
-                                             uint16 port,
+BdwInternetClient * bdw_internet_client_new (conststring host, uint16 port,
                                              BdwSocketType type);
 
 void bdw_internet_client_destroy (BdwInternetClient * self);
@@ -54,4 +53,3 @@ BdwInternetError bdw_internet_client_receive (const BdwInternetClient * self,
 void bdw_internet_client_shutdown (BdwInternetClient * self);
 
 #endif /* BDW_INTERNET_CLIENT__H */
-

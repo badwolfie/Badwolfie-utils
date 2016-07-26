@@ -18,7 +18,7 @@
 #ifndef SIMPLE_LIST__H
 #define SIMPLE_LIST__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
@@ -52,7 +52,6 @@ struct _BdwSimpleList
   pointer data;
   BdwSimpleList * next;
 };
-
 
 /*    Function prototypes    */
 #ifdef __cplusplus /*    C++ support    */
@@ -142,8 +141,7 @@ BdwSimpleList * bdw_simple_list_prepend (BdwSimpleList * self,
  *
  * Returns: The (possibly changed) start of the #BdwSimpleList.
  **/
-BdwSimpleList * bdw_simple_list_insert (BdwSimpleList * self,
-                                        pointer node_data,
+BdwSimpleList * bdw_simple_list_insert (BdwSimpleList * self, pointer node_data,
                                         int position);
 
 /**
@@ -341,8 +339,7 @@ BdwSimpleList * bdw_simple_list_concat (BdwSimpleList * list1,
  *
  * Calls a function for each element of a #BdwSimpleList.
  **/
-void bdw_simple_list_foreach (const BdwSimpleList * self,
-                              ForeachFunction func,
+void bdw_simple_list_foreach (const BdwSimpleList * self, ForeachFunction func,
                               pointer param_data);
 
 /**
@@ -420,4 +417,3 @@ conststring bdw_simple_list_node_to_string (const BdwSimpleList * self,
 #endif
 
 #endif /* SIMPLE_LIST__H */
-

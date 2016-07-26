@@ -49,7 +49,7 @@ bdw_stack_push (BdwStack * self, pointer data)
 {
   if (bdw_stack_is_full (self)) {
     bdw_error_report ("ERROR: Stack is full.");
-    return ;
+    return;
   }
 
   self->data[self->top++] = data;
@@ -93,4 +93,3 @@ bdw_stack_is_full (const BdwStack * self)
     return TRUE;
   return FALSE;
 }
-

@@ -30,9 +30,8 @@ void
 bdw_byte_array_destroy (BdwByteArray * self)
 {
   if (self == NULL)
-    return ;
+    return;
 
   bdw_free (self->data);
   bdw_free (self);
 }
-

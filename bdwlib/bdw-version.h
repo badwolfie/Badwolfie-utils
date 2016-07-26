@@ -18,16 +18,14 @@
 #ifndef BDW_VERSION__H
 #define BDW_VERSION__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
-#define bdwlib_check_version(major, minor, micro) (\
-    (BDWLIB_MAJOR_VERSION > major) || \
-    ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION > minor)) || \
-    ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION == minor) && \
-        (BDWLIB_MICRO_VERSION >= micro)) \
-)
+#define bdwlib_check_version(major, minor, micro)                              \
+  ((BDWLIB_MAJOR_VERSION > major) ||                                           \
+   ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION > minor)) ||      \
+   ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION == minor) &&      \
+    (BDWLIB_MICRO_VERSION >= micro)))
 
 #endif /* BDW_VERSION__H */
-

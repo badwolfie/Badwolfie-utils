@@ -49,7 +49,7 @@ bdw_queue_push (BdwQueue * self, pointer data)
 {
   if (bdw_queue_is_full (self)) {
     bdw_error_report ("ERROR: Queue is full.");
-    return ;
+    return;
   }
 
   self->tail = (self->tail + 1) % self->size;
@@ -94,4 +94,3 @@ bdw_queue_is_full (const BdwQueue * self)
     return TRUE;
   return FALSE;
 }
-

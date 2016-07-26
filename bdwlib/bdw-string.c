@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <string.h>
 #include <stdarg.h>
+#include <string.h>
 
 #include "bdw-string.h"
 
@@ -149,7 +149,8 @@ bdw_str_has_prefix (conststring str, conststring prefix)
   return TRUE;
 }
 
-bool bdw_str_has_suffix (conststring str, conststring suffix)
+bool
+bdw_str_has_suffix (conststring str, conststring suffix)
 {
   sizetype i, str_len = strlen (str), suffix_len = strlen (suffix);
 
@@ -189,7 +190,7 @@ bdw_strstrip_trailing (string str)
 
   long len = strlen (str) - 1;
   while ((len >= 0) && ((str[len] == ' ') || (str[len] == '\t')))
-      str[len--] = (char) 0;
+    str[len--] = (char) 0;
   return str;
 }
 
@@ -198,4 +199,3 @@ bdw_strerror (int64 error_code)
 {
   return strerror (error_code);
 }
-

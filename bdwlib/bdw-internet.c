@@ -37,15 +37,14 @@ bdw_internet_str_is_ip (conststring str, BdwError ** error)
   result = inet_pton (BDW_INTERNET_DOMAIN, str, &output);
 
   switch (result) {
-  case -1:
-    *error = bdw_error_new (errno,
-                            "ERROR (inet_pton): %s",
-                            bdw_strerror (errno));
-  default:
-  case 0:
-    return FALSE;
-  case 1:
-    return TRUE;
+    case -1:
+      *error =
+          bdw_error_new (errno, "ERROR (inet_pton): %s", bdw_strerror (errno));
+    default:
+    case 0:
+      return FALSE;
+    case 1:
+      return TRUE;
   }
 }
 
@@ -64,8 +63,7 @@ bdw_internet_get_hostname_ip (conststring hostname, BdwError ** error)
 
   host = gethostbyname (hostname);
   if (host == NULL) {
-    *error = bdw_error_new (errno,
-                            "ERROR (gethostbyname): %s",
+    *error = bdw_error_new (errno, "ERROR (gethostbyname): %s",
                             bdw_strerror (errno));
     return NULL;
   }
@@ -80,4 +78,3 @@ bdw_internet_get_hostname_ip (conststring hostname, BdwError ** error)
                                     "ERROR: invalid hostname.");
   return NULL;
 }
-

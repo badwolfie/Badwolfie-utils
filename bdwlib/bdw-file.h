@@ -18,7 +18,7 @@
 #ifndef BDW_FILE__H
 #define BDW_FILE__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
@@ -50,7 +50,6 @@ struct _BdwFile
   string location;
 };
 
-
 /**
  * BdwFileMode:
  * @BDW_FILE_MODE_NONE: Undefined opening mode. Placeholder only, not meant for
@@ -77,8 +76,7 @@ struct _BdwFile
  *
  * Specifies the opening mode for a #BdwFile.
  **/
-typedef enum
-{
+typedef enum {
   BDW_FILE_MODE_NONE = -1,
   BDW_FILE_MODE_READ,
   BDW_FILE_MODE_READ_PLUS,
@@ -97,8 +95,7 @@ typedef enum
  *
  * Specifies the opening type for a #BdwFile.
  **/
-typedef enum
-{
+typedef enum {
   BDW_FILE_TYPE_NONE = -1,
   BDW_FILE_TYPE_BINARY,
   BDW_FILE_TYPE_TEXT
@@ -119,8 +116,7 @@ typedef enum
  *
  * Specifies errors occurring during operations on a #BdwFile.
  **/
-typedef enum
-{
+typedef enum {
   BDW_FILE_ERROR_OK = 0,
   BDW_FILE_ERROR_ALREADY_OPENED,
   BDW_FILE_ERROR_NOT_INITIALIZED,
@@ -128,7 +124,6 @@ typedef enum
   BDW_FILE_ERROR_INVALID_LOCATION,
   BDW_FILE_ERROR_FATAL
 } BdwFileError;
-
 
 /*    Function prototypes    */
 #ifdef __cplusplus /*    C++ support    */
@@ -209,4 +204,3 @@ void bdw_file_putcontent (BdwFile * self, conststring content);
 #endif
 
 #endif /* BDW_FILE__H */
-

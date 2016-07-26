@@ -18,12 +18,12 @@
 #ifndef BDW_ERROR__H
 #define BDW_ERROR__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
-#include <errno.h>
 #include "bdw-types.h"
+#include <errno.h>
 
 /**
  * BdwError:
@@ -98,8 +98,7 @@ void bdw_error_report (conststring format, ...);
  * @expected_error_code.
  * It's treated as a fatal error and the application closes.
  **/
-void bdw_error_on_code (int64 return_value,
-                        int64 expected_error_code,
+void bdw_error_on_code (int64 return_value, int64 expected_error_code,
                         conststring message);
 
 /**

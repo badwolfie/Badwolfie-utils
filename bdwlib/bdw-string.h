@@ -18,7 +18,7 @@
 #ifndef BDW_STRING__H
 #define BDW_STRING__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
@@ -104,7 +104,8 @@ void bdw_str_append_char (string dest, char c);
  * @delim: String used as a delimiter for the tokenization.
  *
  * Used to tokenize (or split) a given string by a given delimiter.
- * Since this function uses [strtok](http://man7.org/linux/man-pages/man3/strtok.3.html)
+ * Since this function uses
+ *[strtok](http://man7.org/linux/man-pages/man3/strtok.3.html)
  * internally to tokenize @str, it has the same limitations:
  *
  * - This function modify their first argument.
@@ -112,7 +113,8 @@ void bdw_str_append_char (string dest, char c);
  * - The identity of the delimiting byte is lost.
  * - Uses a static buffer while parsing, so it's not thread safe.
  *
- * For more information, see the [man pages](http://man7.org/linux/man-pages/man3/strtok.3.html#BUGS).
+ * For more information, see the [man
+ *pages](http://man7.org/linux/man-pages/man3/strtok.3.html#BUGS).
  *
  * Returns: The %NULL-terminated array of strings result of the tokenization.
  **/
@@ -209,4 +211,3 @@ string bdw_strerror (int64 error_code);
 #endif
 
 #endif /* BDW_STRING__H */
-

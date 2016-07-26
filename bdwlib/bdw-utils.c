@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "bdw-utils.h"
 
@@ -24,7 +24,7 @@ void
 bdw_utils_clear_buffer (pointer buffer, sizetype size)
 {
   if (buffer != NULL) {
-      memset (buffer, 0x00, size);
+    memset (buffer, 0x00, size);
   }
 }
 
@@ -46,10 +46,9 @@ void
 bdw_utils_flush_stdin (void)
 {
   int64 d, i;
-	d = stdin->_IO_read_end - stdin->_IO_read_ptr;
+  d = stdin->_IO_read_end - stdin->_IO_read_ptr;
 
-	for(i = 0; i < d; i++) {
-    getchar();
+  for (i = 0; i < d; i++) {
+    getchar ();
   }
 }
-

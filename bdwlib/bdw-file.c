@@ -33,7 +33,7 @@ void
 bdw_file_destroy (BdwFile * self)
 {
   if (self == NULL)
-    return ;
+    return;
 
   if (self->file != NULL)
     fclose (self->file);
@@ -83,45 +83,42 @@ bdw_file_get_file_args (BdwFileMode mode, BdwFileType type)
 {
   string file_args, aux;
 
-  switch (mode)
-  {
-  default:
-  case BDW_FILE_MODE_NONE:
-    return NULL;
-  case BDW_FILE_MODE_READ:
-    file_args = bdw_strdup ("r");
-    break;
-  case BDW_FILE_MODE_READ_PLUS:
-    file_args = bdw_strdup ("r+");
-    break;
-  case BDW_FILE_MODE_WRITE:
-    file_args = bdw_strdup ("w");
-    break;
-  case BDW_FILE_MODE_WRITE_PLUS:
-    file_args = bdw_strdup ("w+");
-    break;
-  case BDW_FILE_MODE_APPEND:
-    file_args = bdw_strdup ("a");
-    break;
-  case BDW_FILE_MODE_APPEND_PLUS:
-    file_args = bdw_strdup ("a+");
-    break;
+  switch (mode) {
+    default:
+    case BDW_FILE_MODE_NONE:
+      return NULL;
+    case BDW_FILE_MODE_READ:
+      file_args = bdw_strdup ("r");
+      break;
+    case BDW_FILE_MODE_READ_PLUS:
+      file_args = bdw_strdup ("r+");
+      break;
+    case BDW_FILE_MODE_WRITE:
+      file_args = bdw_strdup ("w");
+      break;
+    case BDW_FILE_MODE_WRITE_PLUS:
+      file_args = bdw_strdup ("w+");
+      break;
+    case BDW_FILE_MODE_APPEND:
+      file_args = bdw_strdup ("a");
+      break;
+    case BDW_FILE_MODE_APPEND_PLUS:
+      file_args = bdw_strdup ("a+");
+      break;
   }
 
   aux = file_args;
 
-  switch (type)
-  {
-  default:
-  case BDW_FILE_TYPE_NONE:
-    break;
-  case BDW_FILE_TYPE_BINARY:
-    file_args = bdw_strconcat (aux, "b");
-  case BDW_FILE_TYPE_TEXT:
-    file_args = bdw_strconcat (aux, "t");
+  switch (type) {
+    default:
+    case BDW_FILE_TYPE_NONE:
+      break;
+    case BDW_FILE_TYPE_BINARY:
+      file_args = bdw_strconcat (aux, "b");
+    case BDW_FILE_TYPE_TEXT:
+      file_args = bdw_strconcat (aux, "t");
   }
 
   bdw_free (aux);
   return file_args;
 }
-

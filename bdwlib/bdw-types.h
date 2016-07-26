@@ -18,7 +18,7 @@
 #ifndef BDW_TYPES__H
 #define BDW_TYPES__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
@@ -32,32 +32,38 @@
  * BdwLib types and functions.
  **/
 
+#ifndef FALSE
 /**
  * FALSE:
  *
  * Specifies the "false" value for a boolean type.
  **/
 #define FALSE 0x00
+#endif
 
+#ifndef TRUE
 /**
  * TRUE:
  *
  * Specifies the "true" value for a boolean type.
  **/
 #define TRUE 0x01
+#endif
 
+#ifndef bdw_new
 /**
  * bdw_new:
  * @struct_type: The type of the struct element to allocate.
  *
  * Allocates memory for a single element of type @struct_type.
  *
- * Returns: A pointer to the allocated memory, cast to a pointer to @struct_type.
+ * Returns: A pointer to the allocated memory, cast to a pointer to
+ *@struct_type.
  **/
-#define bdw_new(struct_type) ( \
-    (struct_type *) malloc (sizeof (struct_type)) \
-)
+#define bdw_new(struct_type) ((struct_type *) malloc (sizeof (struct_type)))
+#endif
 
+#ifndef bdw_alloc
 /**
  * bdw_alloc:
  * @struct_type: The type of the elements to allocate.
@@ -66,26 +72,29 @@
  * Allocates @n_structs elements of type @struct_type, if @n_structs is equal or
  * lesser than 0 it returns %NULL.
  *
- * Returns: A pointer to the allocated memory, cast to a pointer to @struct_type.
+ * Returns: A pointer to the allocated memory, cast to a pointer to
+ *@struct_type.
  **/
-#define bdw_alloc(struct_type, n_structs) ( \
-    (n_structs > 0)? \
-    (struct_type *) malloc (n_structs * sizeof (struct_type)): \
-    NULL \
-)
+#define bdw_alloc(struct_type, n_structs)                                      \
+  ((n_structs > 0) ?                                                           \
+       (struct_type *) malloc (n_structs * sizeof (struct_type)) :             \
+       NULL)
+#endif
 
+#ifndef bdw_free
 /**
  * bdw_free:
  * @mem: The memory space to free.
  *
  * If @mem is different from %NULL, it frees the memory pointed to by it.
  **/
-#define bdw_free(mem) { \
-    if (mem != NULL) { \
-        free ((void *) mem); \
-    } \
-}
-
+#define bdw_free(mem)                                                          \
+  {                                                                            \
+    if (mem != NULL) {                                                         \
+      free ((void *) mem);                                                     \
+    }                                                                          \
+  }
+#endif
 
 /*    Custom data-types    */
 
@@ -117,7 +126,6 @@ typedef char * string;
  **/
 typedef const char * conststring;
 
-
 /*    Custom function-types    */
 
 /**
@@ -135,8 +143,7 @@ typedef const char * conststring;
  * Returns: A negative value if @a < @b, zero if @a = @b, positive value if
  *          @a > @b.
  **/
-typedef int (*CompareFunction) (constpointer a,
-                                constpointer b,
+typedef int (*CompareFunction) (constpointer a, constpointer b,
                                 pointer param_data);
 
 /**
@@ -184,7 +191,6 @@ typedef conststring (*ToStringFunction) (pointer node_data, pointer param_data);
  * memory and resources allocated for it.
  **/
 typedef void (*DestroyFunction) (pointer node_data);
-
 
 /*    Convenience aliases for existing data-types    */
 
@@ -294,4 +300,3 @@ typedef unsigned char byte;
 typedef unsigned char bool;
 
 #endif /* BDW_TYPES__H */
-

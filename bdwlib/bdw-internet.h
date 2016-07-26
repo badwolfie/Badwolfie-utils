@@ -18,15 +18,15 @@
 #ifndef BDW_INTERNET__H
 #define BDW_INTERNET__H
 
-#if !defined (__BDWLIB_INSIDE__) && !defined (BDWLIB_COMPILATION)
+#if !defined(__BDWLIB_INSIDE__) && !defined(BDWLIB_COMPILATION)
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
-#include <netinet/in.h>
 #include <arpa/inet.h>
+#include <netinet/in.h>
 
-#include "bdw-types.h"
 #include "bdw-error.h"
+#include "bdw-types.h"
 
 #ifdef USING_IPv6
 #define BDW_INTERNET_DOMAIN AF_INET6
@@ -38,10 +38,10 @@
 #define BDW_INTERNET_MAX_CONNECTION_TRIES 3
 #endif
 
-#define bdw_internet_truncate_connection_tries(tries) ( \
-    (tries > BDW_INTERNET_MAX_CONNECTION_TRIES)? \
-        BDW_INTERNET_MAX_CONNECTION_TRIES: tries \
-)
+#define bdw_internet_truncate_connection_tries(tries)                          \
+  ((tries > BDW_INTERNET_MAX_CONNECTION_TRIES) ?                               \
+       BDW_INTERNET_MAX_CONNECTION_TRIES :                                     \
+       tries)
 
 typedef enum {
   BDW_SOCKET_TYPE_UNKOWN,
@@ -75,4 +75,3 @@ conststring bdw_internet_get_hostname_ip (conststring hostname,
                                           BdwError ** error);
 
 #endif /* BDW_INTERNET__H */
-

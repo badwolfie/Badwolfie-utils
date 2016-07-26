@@ -54,7 +54,7 @@ void
 bdw_error_destroy (BdwError * self)
 {
   if (self == NULL)
-    return ;
+    return;
 
   bdw_free (self->message);
   bdw_free (self);
@@ -73,8 +73,7 @@ bdw_error_report (conststring format, ...)
 }
 
 void
-bdw_error_on_code (int64 return_value,
-                   int64 expected_error_code,
+bdw_error_on_code (int64 return_value, int64 expected_error_code,
                    conststring message)
 {
   if (return_value == expected_error_code) {
@@ -91,4 +90,3 @@ bdw_error_on_null (pointer return_value, conststring message)
     exit (1);
   }
 }
-

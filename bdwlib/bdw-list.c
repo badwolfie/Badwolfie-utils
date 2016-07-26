@@ -277,9 +277,8 @@ bdw_list_find (const BdwList * self, constpointer node_data)
 }
 
 BdwList *
-bdw_list_find_custom (const BdwList * self,
-                  constpointer node_data,
-                  CompareFunction func)
+bdw_list_find_custom (const BdwList * self, constpointer node_data,
+                      CompareFunction func)
 {
   if (func == NULL)
     return (BdwList *) self;
@@ -344,7 +343,8 @@ bdw_list_concat (BdwList * list1, BdwList * list2)
 }
 
 void
-bdw_list_foreach (const BdwList * self, ForeachFunction func, pointer param_data)
+bdw_list_foreach (const BdwList * self, ForeachFunction func,
+                  pointer param_data)
 {
   BdwList * iterator = (BdwList *) self;
 
@@ -410,8 +410,7 @@ bdw_list_is_last (const BdwList * self)
 }
 
 conststring
-bdw_list_node_to_string (const BdwList * self,
-                         ToStringFunction func,
+bdw_list_node_to_string (const BdwList * self, ToStringFunction func,
                          pointer param_data)
 {
   if (self == NULL)
@@ -419,4 +418,3 @@ bdw_list_node_to_string (const BdwList * self,
 
   return func (self->data, param_data);
 }
-
