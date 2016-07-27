@@ -30,6 +30,15 @@ extern "C" {
 #include "bdw-types.h"
 
 /**
+ * bdw_utils_truncate:
+ * @num:
+ * @max:
+ *
+ * .
+ **/
+#define bdw_utils_truncate (num, max) (num > max ? max : num)
+
+/**
  * bdw_utils_clear_buffer:
  * @buffer: Character string to be cleared.
  *

@@ -38,11 +38,6 @@
 #define BDW_INTERNET_MAX_CONNECTION_TRIES 3
 #endif
 
-#define bdw_internet_truncate_connection_tries(tries)                          \
-  ((tries > BDW_INTERNET_MAX_CONNECTION_TRIES) ?                               \
-       BDW_INTERNET_MAX_CONNECTION_TRIES :                                     \
-       tries)
-
 typedef enum {
   BDW_SOCKET_TYPE_UNKOWN,
   BDW_SOCKET_TYPE_UDP = SOCK_DGRAM,

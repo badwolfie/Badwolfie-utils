@@ -25,6 +25,7 @@
 #include <bdwlib/bdw-error.h>
 #include <bdwlib/bdw-file.h>
 #include <bdwlib/bdw-internet-client.h>
+#include <bdwlib/bdw-internet-server.h>
 #include <bdwlib/bdw-internet.h>
 #include <bdwlib/bdw-list.h>
 #include <bdwlib/bdw-queue.h>

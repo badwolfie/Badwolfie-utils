@@ -15,10 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <unistd.h>
-
 #include "bdw-internet-client.h"
 #include "bdw-utils.h"
+#include <unistd.h>
 
 BdwInternetClient *
 bdw_internet_client_new (conststring host, uint16 port, BdwSocketType type)
@@ -84,7 +83,8 @@ bdw_internet_client_connect (const BdwInternetClient * self, uint8 tries)
   int8 try_number = 0;
   int64 status = BDW_INTERNET_ERROR_OK;
 
-  while (try_number < bdw_internet_truncate_connection_tries (tries)) {
+  while (try_number <
+         bdw_utils_truncate (tries, BDW_INTERNET_MAX_CONNECTION_TRIES)) {
     status = connect (self->socket_id, (struct sockaddr *) &self->host,
                       sizeof (self->host));
     try_number++;
