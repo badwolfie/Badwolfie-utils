@@ -27,7 +27,7 @@
 typedef struct _BdwInternetClient BdwInternetClient;
 struct _BdwInternetClient
 {
-  int socket_id;
+  socketid socket_id;
   struct sockaddr_in host;
   BdwSocketType socket_type;
 };
@@ -41,14 +41,6 @@ void bdw_internet_client_set_host (BdwInternetClient * self, conststring host);
 
 BdwInternetError bdw_internet_client_connect (const BdwInternetClient * self,
                                               uint8 tries);
-
-BdwInternetError bdw_internet_client_send (const BdwInternetClient * self,
-                                           constpointer buffer,
-                                           sizetype buffer_length);
-
-BdwInternetError bdw_internet_client_receive (const BdwInternetClient * self,
-                                              pointer buffer,
-                                              sizetype buffer_length);
 
 void bdw_internet_client_shutdown (BdwInternetClient * self);
 

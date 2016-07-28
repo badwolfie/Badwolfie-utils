@@ -38,6 +38,8 @@
 #define BDW_INTERNET_MAX_CONNECTION_TRIES 3
 #endif
 
+typedef int socketid;
+
 typedef enum {
   BDW_SOCKET_TYPE_UNKOWN,
   BDW_SOCKET_TYPE_UDP = SOCK_DGRAM,
@@ -68,5 +70,15 @@ bool bdw_internet_str_is_ip (conststring str, BdwError ** error);
 
 conststring bdw_internet_get_hostname_ip (conststring hostname,
                                           BdwError ** error);
+
+BdwInternetError bdw_internet_send_msg (const socketid comm_id,
+                                        const struct sockaddr_in * host,
+                                        constpointer buffer,
+                                        sizetype buffer_length);
+
+BdwInternetError bdw_internet_receive_msg (const socketid comm_id,
+                                           struct sockaddr_in * host,
+                                           pointer buffer,
+                                           sizetype buffer_length);
 
 #endif /* BDW_INTERNET__H */

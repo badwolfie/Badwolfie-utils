@@ -65,33 +65,34 @@ bdw_internet_server_deploy (const BdwInternetServer * self)
                  sizeof (self->host));
   bdw_error_on_code (status, BDW_INTERNET_ERROR_KO, "bind()");
 
+  if (self->socket_type == BDW_SOCKET_TYPE_UDP)
+    return;
+
   status = listen (self->socket_id, self->connection_num);
   bdw_error_on_code (status, BDW_INTERNET_ERROR_KO, "listen()");
 }
 
 int
-bdw_internet_server_wait (const BdwInternetServer * self)
+bdw_internet_server_wait (const BdwInternetServer * self,
+                          struct sockaddr_in * client)
 {
-  struct sockaddr_in client;
-  socklen_t client_len = sizeof (client);
+  if (self->socket_type == BDW_SOCKET_TYPE_UDP) {
+    bdw_error_report ("UDP Servers don't need to wait for connections, proceed "
+                      "to receive messages.");
+    return self->socket_id;
+  }
 
+  socklen_t client_len = sizeof (*client);
   int channel;
-  channel =
-}
 
-BdwInternetError
-bdw_internet_server_send (const BdwInternetServer * self, constpointer buffer,
-                          sizetype buffer_length)
-{
-}
-
-BdwInternetError
-bdw_internet_server_receive (const BdwInternetServer * self, pointer buffer,
-                             sizetype buffer_length)
-{
+  channel = accept (self->socket_id, client, &client_len);
+  bdw_error_on_code (channel, BDW_INTERNET_ERROR_KO, "accept()");
+  return channel;
 }
 
 void
 bdw_internet_server_shutdown (BdwInternetServer * self)
 {
+  bdw_utils_clear_buffer (&self->host, sizeof (self->host));
+  close (self->socket_id);
 }

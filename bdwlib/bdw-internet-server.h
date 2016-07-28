@@ -27,8 +27,8 @@
 typedef struct _BdwInternetServer BdwInternetServer;
 struct _BdwInternetServer
 {
-  int socket_id;
-  int connection_num;
+  socketid socket_id;
+  uint16 connection_num;
   struct sockaddr_in host;
   BdwSocketType socket_type;
 };
@@ -45,14 +45,6 @@ void bdw_internet_server_set_max_connections (BdwInternetServer * self,
 void bdw_internet_server_deploy (const BdwInternetServer * self);
 
 int bdw_internet_server_wait (const BdwInternetServer * self);
-
-BdwInternetError bdw_internet_server_send (const BdwInternetServer * self,
-                                           constpointer buffer,
-                                           sizetype buffer_length);
-
-BdwInternetError bdw_internet_server_receive (const BdwInternetServer * self,
-                                              pointer buffer,
-                                              sizetype buffer_length);
 
 void bdw_internet_server_shutdown (BdwInternetServer * self);
 

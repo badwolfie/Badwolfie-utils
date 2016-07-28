@@ -76,9 +76,8 @@ bdw_internet_client_set_host (BdwInternetClient * self, conststring host)
 BdwInternetError
 bdw_internet_client_connect (const BdwInternetClient * self, uint8 tries)
 {
-  if (self->socket_type == BDW_SOCKET_TYPE_UDP) {
+  if (self->socket_type == BDW_SOCKET_TYPE_UDP)
     return BDW_INTERNET_ERROR_OK;
-  }
 
   int8 try_number = 0;
   int64 status = BDW_INTERNET_ERROR_OK;
@@ -115,114 +114,6 @@ bdw_internet_client_connect (const BdwInternetClient * self, uint8 tries)
 
       case ETIMEDOUT:
         return BDW_INTERNET_ERROR_TIMEOUT;
-
-      default:
-        return BDW_INTERNET_ERROR_UNDEFINED;
-    }
-  }
-
-  return BDW_INTERNET_ERROR_OK;
-}
-
-BdwInternetError
-bdw_internet_client_send (const BdwInternetClient * self, constpointer buffer,
-                          sizetype buffer_length)
-{
-  int64 sent_bytes;
-  sizetype server_size = sizeof (self->host);
-
-  switch (self->socket_type) {
-    case BDW_SOCKET_TYPE_TCP:
-      sent_bytes = send (self->socket_id, buffer, buffer_length, 0);
-      break;
-
-    case BDW_SOCKET_TYPE_UDP:
-      sent_bytes =
-          sendto (self->socket_id, buffer, buffer_length, 0,
-                  (struct sockaddr *) &self->host, (socklen_t) server_size);
-      break;
-
-    default:
-      sent_bytes = BDW_INTERNET_ERROR_KO;
-      break;
-  }
-
-  if (sent_bytes == BDW_INTERNET_ERROR_KO) {
-    switch (errno) {
-      case EINVAL:
-        return BDW_INTERNET_ERROR_INVALID_ARGUMENT;
-
-      case ENOTSOCK:
-        return BDW_INTERNET_ERROR_NOT_A_SOCKET;
-
-      case ENOTCONN:
-        return BDW_INTERNET_ERROR_SOCKET_NOT_CONNECTED;
-
-      case ECONNRESET:
-        return BDW_INTERNET_ERROR_CONNECTION_RESET;
-
-      case EOPNOTSUPP:
-        return BDW_INTERNET_ERROR_NOT_SUPPORTED;
-
-      case ENOMEM:
-        return BDW_INTERNET_ERROR_NO_MEMORY;
-
-      case EBADF:
-        return BDW_INTERNET_ERROR_INVALID_SOCKET;
-
-      default:
-        return BDW_INTERNET_ERROR_UNDEFINED;
-    }
-  }
-
-  return BDW_INTERNET_ERROR_OK;
-}
-
-BdwInternetError
-bdw_internet_client_receive (const BdwInternetClient * self, pointer buffer,
-                             sizetype buffer_length)
-{
-  int64 recv_bytes;
-  sizetype server_size = sizeof (self->host);
-
-  switch (self->socket_type) {
-    case BDW_SOCKET_TYPE_TCP:
-      recv_bytes = recv (self->socket_id, buffer, buffer_length, 0);
-      break;
-
-    case BDW_SOCKET_TYPE_UDP:
-      recv_bytes = recvfrom (self->socket_id, buffer, buffer_length, 0,
-                             (struct sockaddr *) &self->host,
-                             (socklen_t *) &server_size);
-      break;
-
-    default:
-      recv_bytes = BDW_INTERNET_ERROR_KO;
-      break;
-  }
-
-  if (recv_bytes == BDW_INTERNET_ERROR_KO) {
-    switch (errno) {
-      case EINVAL:
-        return BDW_INTERNET_ERROR_INVALID_ARGUMENT;
-
-      case ECONNREFUSED:
-        return BDW_INTERNET_ERROR_CONNECTION_REFUSED;
-
-      case EFAULT:
-        return BDW_INTERNET_ERROR_FAULTY_BUFFER;
-
-      case EBADF:
-        return BDW_INTERNET_ERROR_INVALID_SOCKET;
-
-      case ENOTCONN:
-        return BDW_INTERNET_ERROR_SOCKET_NOT_CONNECTED;
-
-      case ENOMEM:
-        return BDW_INTERNET_ERROR_NO_MEMORY;
-
-      case ENOTSOCK:
-        return BDW_INTERNET_ERROR_NOT_A_SOCKET;
 
       default:
         return BDW_INTERNET_ERROR_UNDEFINED;

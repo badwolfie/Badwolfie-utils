@@ -15,6 +15,7 @@ libbdwlib_la_SOURCES = \
 	bdw-file.c \
 	bdw-internet.c \
 	bdw-internet-client.c \
+	bdw-internet-server.c \
 	bdw-list.c \
 	bdw-queue.c \
 	bdw-simple-list.c \
@@ -33,6 +34,7 @@ bdwlibsubinclude_HEADERS = \
 	bdw-file.h \
 	bdw-internet.h \
 	bdw-internet-client.h \
+	bdw-internet-server.h \
 	bdw-list.h \
 	bdw-queue.h \
 	bdw-simple-list.h \
