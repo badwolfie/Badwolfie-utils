@@ -44,7 +44,8 @@ void bdw_internet_server_set_max_connections (BdwInternetServer * self,
 
 void bdw_internet_server_deploy (const BdwInternetServer * self);
 
-int bdw_internet_server_wait (const BdwInternetServer * self);
+int bdw_internet_server_wait (const BdwInternetServer * self,
+                              struct sockaddr_in * client);
 
 void bdw_internet_server_shutdown (BdwInternetServer * self);
 

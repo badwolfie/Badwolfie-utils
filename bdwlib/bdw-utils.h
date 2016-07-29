@@ -36,7 +36,7 @@ extern "C" {
  *
  * .
  **/
-#define bdw_utils_truncate (num, max) (num > max ? max : num)
+#define bdw_utils_truncate(num, max) (num > max ? max : num)
 
 /**
  * bdw_utils_clear_buffer:

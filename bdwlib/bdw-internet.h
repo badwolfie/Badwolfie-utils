@@ -72,11 +72,13 @@ conststring bdw_internet_get_hostname_ip (conststring hostname,
                                           BdwError ** error);
 
 BdwInternetError bdw_internet_send_msg (const socketid comm_id,
+                                        const BdwSocketType socket_type,
                                         const struct sockaddr_in * host,
                                         constpointer buffer,
                                         sizetype buffer_length);
 
 BdwInternetError bdw_internet_receive_msg (const socketid comm_id,
+                                           const BdwSocketType socket_type,
                                            struct sockaddr_in * host,
                                            pointer buffer,
                                            sizetype buffer_length);

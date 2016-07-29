@@ -80,8 +80,9 @@ bdw_internet_get_hostname_ip (conststring hostname, BdwError ** error)
 }
 
 BdwInternetError
-bdw_internet_send_msg (const int comm_id, const struct sockaddr_in * host,
-                       constpointer buffer, sizetype buffer_length)
+bdw_internet_send_msg (const int comm_id, const BdwSocketType socket_type,
+                       const struct sockaddr_in * host, constpointer buffer,
+                       sizetype buffer_length)
 {
   int64 sent_bytes;
   sizetype host_size = sizeof (*host);
@@ -133,8 +134,9 @@ bdw_internet_send_msg (const int comm_id, const struct sockaddr_in * host,
 }
 
 BdwInternetError
-bdw_internet_receive_msg (const int comm_id, struct sockaddr_in * host,
-                          pointer buffer, sizetype buffer_length)
+bdw_internet_receive_msg (const int comm_id, const BdwSocketType socket_type,
+                          struct sockaddr_in * host, pointer buffer,
+                          sizetype buffer_length)
 {
   int64 recv_bytes;
   sizetype host_size = sizeof (*host);

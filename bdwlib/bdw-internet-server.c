@@ -17,6 +17,7 @@
  */
 #include "bdw-internet-server.h"
 #include "bdw-utils.h"
+#include <unistd.h>
 
 #ifndef BDW_INTERNET_SERVER_MAX_CONNECTIONS
 #define BDW_INTERNET_SERVER_MAX_CONNECTIONS 100
@@ -85,7 +86,7 @@ bdw_internet_server_wait (const BdwInternetServer * self,
   socklen_t client_len = sizeof (*client);
   int channel;
 
-  channel = accept (self->socket_id, client, &client_len);
+  channel = accept (self->socket_id, (struct sockaddr *) client, &client_len);
   bdw_error_on_code (channel, BDW_INTERNET_ERROR_KO, "accept()");
   return channel;
 }
