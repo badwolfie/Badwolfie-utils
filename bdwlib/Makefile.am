@@ -21,7 +21,8 @@ libbdwlib_la_SOURCES = \
 	bdw-simple-list.c \
 	bdw-stack.c \
 	bdw-string.c \
-	bdw-utils.c
+	bdw-utils.c \
+	bdw-version.c
 
 bdwlibincludedir=$(includedir)/bdwlib-1.0
 bdwlibinclude_HEADERS = bdwlib.h

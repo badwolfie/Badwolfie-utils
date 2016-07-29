@@ -22,10 +22,22 @@
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
-#define bdwlib_check_version(major, minor, micro)                              \
-  ((BDWLIB_MAJOR_VERSION > major) ||                                           \
-   ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION > minor)) ||      \
-   ((BDWLIB_MAJOR_VERSION == major) && (BDWLIB_MINOR_VERSION == minor) &&      \
-    (BDWLIB_MICRO_VERSION >= micro)))
+#include "bdw-types.h"
+
+/**
+ **/
+bool bdwlib_check_version (uint64 major, uint64 minor, uint64 micro);
+
+/**
+ **/
+conststring bdwlib_compilation_date (void);
+
+/**
+ **/
+conststring bdwlib_compilation_time (void);
+
+/**
+ **/
+conststring bdwlib_compilation_datetime (void);
 
 #endif /* BDW_VERSION__H */
