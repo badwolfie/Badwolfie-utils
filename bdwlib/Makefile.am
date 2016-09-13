@@ -1,7 +1,28 @@
 lib_LTLIBRARIES = libbdwlib.la
 
 AM_CFLAGS = \
-	-Wall -Werror \
+  -Wall \
+  -Wcast-align \
+  -Wdeclaration-after-statement \
+  -Werror=format-security \
+  -Werror=format=2 \
+  -Wextra \
+  -Wformat-nonliteral \
+  -Wformat-security \
+  -Wmissing-include-dirs \
+  -Wnested-externs \
+  -Wno-missing-field-initializers \
+  -Wno-sign-compare \
+  -Wno-strict-aliasing \
+  -Wno-uninitialized \
+  -Wno-unused-parameter \
+  -Wpointer-arith \
+  -Wredundant-decls \
+  -Wshadow \
+  -Wswitch-default \
+  -Wswitch-enum \
+  -Wundef \
+  -Werror \
 	-DBDWLIB_MAJOR_VERSION=@BDWLIB_MAJOR_VERSION@ \
 	-DBDWLIB_MINOR_VERSION=@BDWLIB_MINOR_VERSION@ \
 	-DBDWLIB_MICRO_VERSION=@BDWLIB_MICRO_VERSION@ \
