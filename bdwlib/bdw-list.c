@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "bdw-list.h"
+#include "bdw-memory.h"
+#include "bdw-string.h"
 
 BdwList *
 bdw_list_new (void)
@@ -26,7 +28,7 @@ bdw_list_new (void)
 BdwList *
 bdw_list_node_alloc (void)
 {
-  BdwList * self = bdw_new (BdwList);
+  BdwList *self = bdw_new (BdwList);
   self->data = NULL;
   self->prev = NULL;
   self->next = NULL;
@@ -34,7 +36,7 @@ bdw_list_node_alloc (void)
 }
 
 void
-bdw_list_destroy (BdwList * self)
+bdw_list_destroy (BdwList *self)
 {
   if (self == NULL)
     return;
@@ -44,22 +46,23 @@ bdw_list_destroy (BdwList * self)
 }
 
 void
-bdw_list_full_destroy (BdwList * self, DestroyFunction free_func)
+bdw_list_full_destroy (BdwList *self, DestroyFunction free_func)
 {
   bdw_list_foreach (self, (ForeachFunction) free_func, NULL);
   bdw_list_destroy (self);
 }
 
 BdwList *
-bdw_list_append (BdwList * self, pointer node_data)
+bdw_list_append (BdwList *self, pointer node_data)
 {
-  BdwList * new_node;
-  BdwList * last_node;
+  BdwList *new_node;
+  BdwList *last_node;
 
   new_node = bdw_list_node_alloc ();
   new_node->data = node_data;
 
-  if (self != NULL) {
+  if (self != NULL)
+  {
     last_node = bdw_list_get_last (self);
     last_node->next = new_node;
     new_node->prev = last_node;
@@ -70,15 +73,16 @@ bdw_list_append (BdwList * self, pointer node_data)
 }
 
 BdwList *
-bdw_list_prepend (BdwList * self, pointer node_data)
+bdw_list_prepend (BdwList *self, pointer node_data)
 {
-  BdwList * new_node;
+  BdwList *new_node;
 
   new_node = bdw_list_node_alloc ();
   new_node->data = node_data;
   new_node->next = self;
 
-  if (self != NULL) {
+  if (self != NULL)
+  {
     self->prev = new_node;
   }
 
@@ -86,10 +90,10 @@ bdw_list_prepend (BdwList * self, pointer node_data)
 }
 
 BdwList *
-bdw_list_insert (BdwList * self, pointer node_data, int position)
+bdw_list_insert (BdwList *self, pointer node_data, int position)
 {
-  BdwList * new_node;
-  BdwList * aux_node;
+  BdwList *new_node;
+  BdwList *aux_node;
 
   if (position < 0)
     return bdw_list_append (self, node_data);
@@ -112,26 +116,30 @@ bdw_list_insert (BdwList * self, pointer node_data, int position)
 }
 
 BdwList *
-bdw_list_insert_before (BdwList * self, BdwList * node, pointer node_data)
+bdw_list_insert_before (BdwList *self, BdwList *node, pointer node_data)
 {
-  if (self == NULL) {
+  BdwList *new_node;
+
+  if (self == NULL)
+  {
     self = bdw_list_node_alloc ();
     self->data = node_data;
     return self;
   }
 
-  if (node == NULL) {
+  if (node == NULL)
+  {
     return bdw_list_append (self, node_data);
   }
 
-  BdwList * new_node;
   new_node = bdw_list_node_alloc ();
   new_node->data = node_data;
   new_node->prev = node->prev;
   new_node->next = node;
 
   node->prev = new_node;
-  if (node->prev != NULL) {
+  if (node->prev != NULL)
+  {
     node->prev->next = new_node;
     return self;
   }
@@ -140,26 +148,30 @@ bdw_list_insert_before (BdwList * self, BdwList * node, pointer node_data)
 }
 
 BdwList *
-bdw_list_insert_after (BdwList * self, BdwList * node, pointer node_data)
+bdw_list_insert_after (BdwList *self, BdwList *node, pointer node_data)
 {
-  if (self == NULL) {
+  BdwList *new_node;
+
+  if (self == NULL)
+  {
     self = bdw_list_node_alloc ();
     self->data = node_data;
     return self;
   }
 
-  if (node == NULL) {
+  if (node == NULL)
+  {
     return bdw_list_prepend (self, node_data);
   }
 
-  BdwList * new_node;
   new_node = bdw_list_node_alloc ();
   new_node->data = node_data;
   new_node->prev = node;
   new_node->next = node->next;
 
   node->next = node;
-  if (node->next != NULL) {
+  if (node->next != NULL)
+  {
     node->next->prev = new_node;
   }
 
@@ -167,10 +179,11 @@ bdw_list_insert_after (BdwList * self, BdwList * node, pointer node_data)
 }
 
 BdwList *
-bdw_list_remove (BdwList * self, constpointer node_data)
+bdw_list_remove (BdwList *self, constpointer node_data)
 {
-  BdwList * tmp = bdw_list_find (self, node_data);
-  if (tmp != NULL) {
+  BdwList *tmp = bdw_list_find (self, node_data);
+  if (tmp != NULL)
+  {
     self = bdw_list_remove_link (self, tmp);
     bdw_list_destroy (tmp);
   }
@@ -179,12 +192,13 @@ bdw_list_remove (BdwList * self, constpointer node_data)
 }
 
 BdwList *
-bdw_list_remove_all (BdwList * self, constpointer node_data)
+bdw_list_remove_all (BdwList *self, constpointer node_data)
 {
-  BdwList * tmp;
+  BdwList *tmp;
   tmp = bdw_list_find (self, node_data);
 
-  while (tmp != NULL) {
+  while (tmp != NULL)
+  {
     self = bdw_list_remove_link (self, tmp);
     bdw_list_destroy (tmp);
 
@@ -195,7 +209,7 @@ bdw_list_remove_all (BdwList * self, constpointer node_data)
 }
 
 BdwList *
-bdw_list_remove_link (BdwList * self, BdwList * link)
+bdw_list_remove_link (BdwList *self, BdwList *link)
 {
   if (self == NULL)
     return NULL;
@@ -216,47 +230,40 @@ bdw_list_remove_link (BdwList * self, BdwList * link)
 }
 
 BdwList *
-bdw_list_get_first (const BdwList * self)
+bdw_list_get_first (const BdwList *self)
 {
+  BdwList *iterator;
+
   if (self == NULL)
     return NULL;
 
-  BdwList * iterator = (BdwList *) self;
+  iterator = (BdwList *) self;
   while (iterator->prev != NULL)
     iterator = iterator->prev;
   return iterator;
 }
 
 BdwList *
-bdw_list_get_last (const BdwList * self)
+bdw_list_get_last (const BdwList *self)
 {
+  BdwList *iterator;
+
   if (self == NULL)
     return NULL;
 
-  BdwList * iterator = (BdwList *) self;
+  iterator = (BdwList *) self;
   while (iterator->next != NULL)
     iterator = iterator->next;
   return iterator;
 }
 
 BdwList *
-bdw_list_get_previous (const BdwList * self)
+bdw_list_get_node_at (const BdwList *self, uint n)
 {
-  return self->prev;
-}
+  BdwList *iterator = (BdwList *) self;
 
-BdwList *
-bdw_list_get_next (const BdwList * self)
-{
-  return self->next;
-}
-
-BdwList *
-bdw_list_get_node_at (const BdwList * self, uint n)
-{
-  BdwList * iterator = (BdwList *) self;
-
-  while (((n--) > 0) && (iterator != NULL)) {
+  while (((n--) > 0) && (iterator != NULL))
+  {
     iterator = iterator->next;
   }
 
@@ -264,10 +271,11 @@ bdw_list_get_node_at (const BdwList * self, uint n)
 }
 
 BdwList *
-bdw_list_find (const BdwList * self, constpointer node_data)
+bdw_list_find (const BdwList *self, constpointer node_data)
 {
-  BdwList * iterator = (BdwList *) self;
-  while (iterator != NULL) {
+  BdwList *iterator = (BdwList *) self;
+  while (iterator != NULL)
+  {
     if (iterator->data == node_data)
       break;
     iterator = iterator->next;
@@ -277,16 +285,20 @@ bdw_list_find (const BdwList * self, constpointer node_data)
 }
 
 BdwList *
-bdw_list_find_custom (const BdwList * self, constpointer node_data,
+bdw_list_find_custom (const BdwList * self,
+                      constpointer    node_data,
                       CompareFunction func)
 {
+  BdwList *iterator;
+  int      comparison;
+
   if (func == NULL)
     return (BdwList *) self;
 
-  BdwList * iterator = (BdwList *) self;
-  int comparison;
+  iterator = (BdwList *) self;
 
-  while (iterator != NULL) {
+  while (iterator != NULL)
+  {
     comparison = func (iterator->data, node_data, NULL);
     if (comparison == 0)
       break;
@@ -297,19 +309,20 @@ bdw_list_find_custom (const BdwList * self, constpointer node_data,
 }
 
 BdwList *
-bdw_list_copy (BdwList * self)
+bdw_list_copy (BdwList *self)
 {
   return bdw_list_full_copy (self, NULL, NULL);
 }
 
 BdwList *
-bdw_list_full_copy (BdwList * self, CopyFunction func, pointer param_data)
+bdw_list_full_copy (BdwList *self, CopyFunction func, pointer param_data)
 {
-  BdwList * iterator = self;
-  BdwList * copy = NULL;
-  BdwList * new_node;
+  BdwList *iterator = self;
+  BdwList *copy = NULL;
+  BdwList *new_node;
 
-  while (iterator != NULL) {
+  while (iterator != NULL)
+  {
     new_node = bdw_list_node_alloc ();
 
     if (func != NULL)
@@ -325,11 +338,12 @@ bdw_list_full_copy (BdwList * self, CopyFunction func, pointer param_data)
 }
 
 BdwList *
-bdw_list_concat (BdwList * list1, BdwList * list2)
+bdw_list_concat (BdwList *list1, BdwList *list2)
 {
-  BdwList * last;
+  BdwList *last;
 
-  if (list2 == NULL) {
+  if (list2 == NULL)
+  {
     last = bdw_list_get_last (list1);
 
     if (last != NULL)
@@ -343,24 +357,25 @@ bdw_list_concat (BdwList * list1, BdwList * list2)
 }
 
 void
-bdw_list_foreach (const BdwList * self, ForeachFunction func,
-                  pointer param_data)
+bdw_list_foreach (const BdwList *self, ForeachFunction func, pointer param_data)
 {
-  BdwList * iterator = (BdwList *) self;
+  BdwList *iterator = (BdwList *) self;
 
-  while (iterator != NULL) {
+  while (iterator != NULL)
+  {
     func (iterator->data, param_data);
     iterator = iterator->next;
   }
 }
 
 int
-bdw_list_get_index (const BdwList * self, constpointer data)
+bdw_list_get_index (const BdwList *self, constpointer data)
 {
-  uint count = 0;
-  BdwList * iterator = (BdwList *) self;
+  uint     count = 0;
+  BdwList *iterator = (BdwList *) self;
 
-  while (iterator != NULL) {
+  while (iterator != NULL)
+  {
     if (iterator->data == data)
       return count;
 
@@ -372,12 +387,13 @@ bdw_list_get_index (const BdwList * self, constpointer data)
 }
 
 uint
-bdw_list_get_length (const BdwList * self)
+bdw_list_get_length (const BdwList *self)
 {
-  uint count = 0;
-  BdwList * iterator = (BdwList *) self;
+  uint     count = 0;
+  BdwList *iterator = (BdwList *) self;
 
-  while (iterator != NULL) {
+  while (iterator != NULL)
+  {
     iterator = iterator->next;
     count += 1;
   }
@@ -385,36 +401,79 @@ bdw_list_get_length (const BdwList * self)
   return count;
 }
 
-pointer
-bdw_list_get_data (const BdwList * self)
-{
-  return self->data;
-}
-
 bool
-bdw_list_is_empty (const BdwList * self)
+bdw_list_is_empty (const BdwList *self)
 {
   return (self == NULL);
 }
 
 bool
-bdw_list_is_first (const BdwList * self)
+bdw_list_is_first (const BdwList *self)
 {
   return (self->prev == NULL);
 }
 
 bool
-bdw_list_is_last (const BdwList * self)
+bdw_list_is_last (const BdwList *self)
 {
   return (self->next == NULL);
 }
 
-conststring
-bdw_list_node_to_string (const BdwList * self, ToStringFunction func,
-                         pointer param_data)
+string
+bdw_list_to_concat_string (const BdwList   *list,
+                           conststring      delim,
+                           ToStringFunction func,
+                           pointer          param_data)
 {
-  if (self == NULL)
+  BdwList *iterator = (BdwList *) list;
+  string   data_string;
+  string   aux;
+
+  data_string = bdw_strdup ("");
+
+  while (iterator != NULL)
+  {
+    aux = data_string;
+    data_string = bdw_strconcat (aux,
+                                 func (iterator->data, param_data),
+                                 delim,
+                                 NULL);
+    bdw_free (aux);
+
+    iterator = bdw_list_get_next (iterator);
+  }
+
+  return data_string;
+}
+
+BdwList *
+bdw_list_from_concat_string (conststring        src,
+                             conststring        delim,
+                             FromStringFunction func,
+                             pointer            param_data)
+{
+  int      counter = 0;
+  BdwList *self = bdw_list_new ();
+
+  string  *data = bdw_strsplit (src, delim);
+  pointer  node_data = NULL;
+
+  if (data == NULL)
     return NULL;
 
-  return func (self->data, param_data);
+  while (data[counter] != NULL)
+  {
+    node_data = func (data[counter], param_data);
+    if (node_data == NULL)
+    {
+      bdw_free (data);
+      return NULL;
+    }
+
+    self = bdw_list_append (self, node_data);
+    counter++;
+  }
+
+  return self;
 }
+

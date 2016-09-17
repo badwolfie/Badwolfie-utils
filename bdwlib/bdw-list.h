@@ -39,6 +39,9 @@
  * this lists in both directions.
  **/
 
+BDW_BEGIN_DECLS
+// clang-format off
+
 /**
  * BdwList:
  * @data: Holds the node's data, which can be a pointer to any kind of data.
@@ -50,15 +53,12 @@
 typedef struct _BdwList BdwList;
 struct _BdwList
 {
-  pointer data;
-  BdwList * prev;
-  BdwList * next;
+  pointer  data;
+  BdwList *prev;
+  BdwList *next;
 };
 
 /*    Function prototypes    */
-#ifdef __cplusplus /*    C++ support    */
-extern "C" {
-#endif
 
 /**
  * bdw_list_new:
@@ -68,7 +68,7 @@ extern "C" {
  *
  * Returns: %NULL
  **/
-BdwList * bdw_list_new (void);
+BdwList   *bdw_list_new                  (void);
 
 /**
  * bdw_list_node_alloc:
@@ -77,7 +77,7 @@ BdwList * bdw_list_new (void);
  *
  * Returns: A pointer to the newly-allocated #BdwList node.
  **/
-BdwList * bdw_list_node_alloc (void);
+BdwList   *bdw_list_node_alloc           (void);
 
 /**
  * bdw_list_destroy:
@@ -87,7 +87,7 @@ BdwList * bdw_list_node_alloc (void);
  * dynamically-allocated memory, you should either use bdw_list_full_destroy()
  * or free them manually first.
  **/
-void bdw_list_destroy (BdwList * self);
+void       bdw_list_destroy              (BdwList           *self);
 
 /**
  * bdw_list_full_destroy:
@@ -97,7 +97,8 @@ void bdw_list_destroy (BdwList * self);
  * Frees all the memory used by a #BdwList, and calls @free_func on every node's
  * data.
  **/
-void bdw_list_full_destroy (BdwList * self, DestroyFunction free_func);
+void       bdw_list_full_destroy         (BdwList           *self,
+                                          DestroyFunction    free_func);
 
 /**
  * bdw_list_append:
@@ -110,7 +111,8 @@ void bdw_list_full_destroy (BdwList * self, DestroyFunction free_func);
  *
  * Returns: Either @self or the new start of the #BdwList if @self was %NULL.
  **/
-BdwList * bdw_list_append (BdwList * self, pointer node_data);
+BdwList   *bdw_list_append               (BdwList           *self,
+                                          pointer            node_data);
 
 /**
  * bdw_list_prepend:
@@ -124,7 +126,8 @@ BdwList * bdw_list_append (BdwList * self, pointer node_data);
  * Returns: A pointer to the newly prepended node, which is the new start of
  *          the #BdwList.
  **/
-BdwList * bdw_list_prepend (BdwList * self, pointer node_data);
+BdwList   *bdw_list_prepend              (BdwList           *self,
+                                          pointer            node_data);
 
 /**
  * bdw_list_insert:
@@ -138,7 +141,9 @@ BdwList * bdw_list_prepend (BdwList * self, pointer node_data);
  *
  * Returns: The (possibly changed) start of the #BdwList.
  **/
-BdwList * bdw_list_insert (BdwList * self, pointer node_data, int position);
+BdwList   *bdw_list_insert               (BdwList           *self,
+                                          pointer            node_data,
+                                          int                position);
 
 /**
  * bdw_list_insert_before:
@@ -151,8 +156,9 @@ BdwList * bdw_list_insert (BdwList * self, pointer node_data, int position);
  *
  * Returns: The (possibly changed) start of the #BdwList.
  **/
-BdwList * bdw_list_insert_before (BdwList * self, BdwList * node,
-                                  pointer node_data);
+BdwList   *bdw_list_insert_before        (BdwList           *self,
+                                          BdwList           *node,
+                                          pointer            node_data);
 
 /**
  * bdw_list_insert_after:
@@ -165,8 +171,9 @@ BdwList * bdw_list_insert_before (BdwList * self, BdwList * node,
  *
  * Returns: The (possibly changed) start of the #BdwList.
  **/
-BdwList * bdw_list_insert_after (BdwList * self, BdwList * node,
-                                 pointer node_data);
+BdwList   *bdw_list_insert_after         (BdwList           *self,
+                                          BdwList           *node,
+                                          pointer            node_data);
 
 /**
  * bdw_list_remove:
@@ -179,7 +186,8 @@ BdwList * bdw_list_insert_after (BdwList * self, BdwList * node,
  *
  * Returns: The (possibly changed) start of the #BdwList.
  **/
-BdwList * bdw_list_remove (BdwList * self, constpointer node_data);
+BdwList   *bdw_list_remove               (BdwList           *self,
+                                          constpointer       node_data);
 
 /**
  * bdw_list_remove_all:
@@ -192,7 +200,8 @@ BdwList * bdw_list_remove (BdwList * self, constpointer node_data);
  *
  * Returns: The (possibly changed) start of the #BdwList.
  **/
-BdwList * bdw_list_remove_all (BdwList * self, constpointer node_data);
+BdwList   *bdw_list_remove_all           (BdwList           *self,
+                                          constpointer       node_data);
 
 /**
  * bdw_list_remove_link:
@@ -205,7 +214,8 @@ BdwList * bdw_list_remove_all (BdwList * self, constpointer node_data);
  *
  * Returns: The (possibly changed) start of the #BdwList.
  **/
-BdwList * bdw_list_remove_link (BdwList * self, BdwList * link);
+BdwList   *bdw_list_remove_link          (BdwList           *self,
+                                          BdwList           *link);
 
 /**
  * bdw_list_get_first:
@@ -216,7 +226,7 @@ BdwList * bdw_list_remove_link (BdwList * self, BdwList * link);
  * Returns: The first node in the #BdwList, or %NULL if the #BdwList has no
  *          nodes.
  **/
-BdwList * bdw_list_get_first (const BdwList * self);
+BdwList   *bdw_list_get_first            (const BdwList     *self);
 
 /**
  * bdw_list_get_last:
@@ -227,7 +237,7 @@ BdwList * bdw_list_get_first (const BdwList * self);
  * Returns: The last node in the #BdwList, or %NULL if the #BdwList has no
  *nodes.
  **/
-BdwList * bdw_list_get_last (const BdwList * self);
+BdwList   *bdw_list_get_last             (const BdwList     *self);
 
 /**
  * bdw_list_get_previous:
@@ -237,7 +247,7 @@ BdwList * bdw_list_get_last (const BdwList * self);
  *
  * Returns: The previous node, or %NULL if there are no previous nodes.
  **/
-BdwList * bdw_list_get_previous (const BdwList * self);
+#define    bdw_list_get_previous(self)   (self->prev)
 
 /**
  * bdw_list_get_next:
@@ -247,7 +257,7 @@ BdwList * bdw_list_get_previous (const BdwList * self);
  *
  * Returns: The next node, or %NULL if there are no more nodes.
  **/
-BdwList * bdw_list_get_next (const BdwList * self);
+#define    bdw_list_get_next(self)       (self->next)
 
 /**
  * bdw_list_get_node_at:
@@ -258,7 +268,8 @@ BdwList * bdw_list_get_next (const BdwList * self);
  *
  * Returns: The node, or %NULL if the position is off the end of the #BdwList.
  **/
-BdwList * bdw_list_get_node_at (const BdwList * self, uint n);
+BdwList   *bdw_list_get_node_at          (const BdwList     *self,
+                                          uint               n);
 
 /**
  * bdw_list_find:
@@ -269,7 +280,8 @@ BdwList * bdw_list_get_node_at (const BdwList * self, uint n);
  *
  * Returns: The found #BdwList node, or %NULL if it's not found.
  **/
-BdwList * bdw_list_find (const BdwList * self, constpointer node_data);
+BdwList   *bdw_list_find                 (const BdwList     *self,
+                                          constpointer       node_data);
 
 /**
  * bdw_list_find_custom:
@@ -285,8 +297,9 @@ BdwList * bdw_list_find (const BdwList * self, constpointer node_data);
  *
  * Returns: The found #BdwList node, or %NULL if it's not found.
  **/
-BdwList * bdw_list_find_custom (const BdwList * self, constpointer node_data,
-                                CompareFunction func);
+BdwList   *bdw_list_find_custom          (const BdwList     *self,
+                                          constpointer       node_data,
+                                          CompareFunction    func);
 
 /**
  * bdw_list_copy:
@@ -299,7 +312,7 @@ BdwList * bdw_list_find_custom (const BdwList * self, constpointer node_data,
  *
  * Returns: The start of the new list that holds the same data as @self.
  **/
-BdwList * bdw_list_copy (BdwList * self);
+BdwList   *bdw_list_copy                 (BdwList           *self);
 
 /**
  * bdw_list_full_copy:
@@ -318,8 +331,9 @@ BdwList * bdw_list_copy (BdwList * self);
  * Returns: The start of the new list that holds a full copy of @self, you
  *          should use bdw_list_full_destroy() to free it.
  **/
-BdwList * bdw_list_full_copy (BdwList * self, CopyFunction func,
-                              pointer param_data);
+BdwList   *bdw_list_full_copy            (BdwList           *self,
+                                          CopyFunction       func,
+                                          pointer            param_data);
 
 /**
  * bdw_list_concat:
@@ -332,7 +346,8 @@ BdwList * bdw_list_full_copy (BdwList * self, CopyFunction func,
  *
  * Returns: The start of the new #BdwList, which equals @list1 if not %NULL.
  **/
-BdwList * bdw_list_concat (BdwList * list1, BdwList * list2);
+BdwList   *bdw_list_concat               (BdwList           *list1,
+                                          BdwList           *list2);
 
 /**
  * bdw_list_foreach:
@@ -342,8 +357,9 @@ BdwList * bdw_list_concat (BdwList * list1, BdwList * list2);
  *
  * Calls a function for each element of a #BdwList.
  **/
-void bdw_list_foreach (const BdwList * self, ForeachFunction func,
-                       pointer param_data);
+void       bdw_list_foreach              (const BdwList     *self,
+                                          ForeachFunction    func,
+                                          pointer            param_data);
 
 /**
  * bdw_list_get_index:
@@ -355,7 +371,8 @@ void bdw_list_foreach (const BdwList * self, ForeachFunction func,
  * Returns: The index of the node containing the data, or -1 if the data is not
  *          found.
  **/
-int bdw_list_get_index (const BdwList * self, constpointer data);
+int        bdw_list_get_index            (const BdwList     *self,
+                                          constpointer       data);
 
 /**
  * bdw_list_get_length:
@@ -365,7 +382,7 @@ int bdw_list_get_index (const BdwList * self, constpointer data);
  *
  * Returns: The number of nodes in the #BdwList.
  **/
-uint bdw_list_get_length (const BdwList * self);
+uint       bdw_list_get_length           (const BdwList     *self);
 
 /**
  * bdw_list_get_data:
@@ -375,7 +392,7 @@ uint bdw_list_get_length (const BdwList * self);
  *
  * Returns: The node's data.
  **/
-pointer bdw_list_get_data (const BdwList * self);
+#define    bdw_list_get_data(self)       (self->data)
 
 /**
  * bdw_list_is_empty:
@@ -386,7 +403,7 @@ pointer bdw_list_get_data (const BdwList * self);
  *
  * Returns: Whether or not the list is empty.
  **/
-bool bdw_list_is_empty (const BdwList * self);
+bool       bdw_list_is_empty             (const BdwList     *self);
 
 /**
  * bdw_list_is_first:
@@ -396,7 +413,7 @@ bool bdw_list_is_empty (const BdwList * self);
  *
  * Returns: Whether or not the node is the first in the list.
  **/
-bool bdw_list_is_first (const BdwList * self);
+bool       bdw_list_is_first             (const BdwList     *self);
 
 /**
  * bdw_list_is_last:
@@ -406,26 +423,47 @@ bool bdw_list_is_first (const BdwList * self);
  *
  * Returns: Whether or not the node is the last in the list.
  **/
-bool bdw_list_is_last (const BdwList * self);
+bool       bdw_list_is_last              (const BdwList     *self);
 
 /**
- * bdw_list_node_to_string:
- * @self: A pointer to a #BdwList node.
+ * bdw_list_to_concat_string:
+ * @self: A pointer to an #BdwList node.
+ * @delim: Delimitation string to separate each node's data.
  * @func: "To-string" function, it must take the data from the node and create a
  *        string representation for it.
  * @param_data: Additional data needed for string formatting, it can be %NULL if
  *              none needed.
  *
- * Gets the string representation of the node's data, it could be used to print
- * the contents of the list nodes for debugging.
+ * Gets the string representation of the @self, useful for storing or
+ * serializing the list contents.
  *
- * Returns: The node's data string representation.
+ * Returns: The list's #string representation.
  **/
-conststring bdw_list_node_to_string (const BdwList * self,
-                                     ToStringFunction func, pointer param_data);
+string     bdw_list_to_concat_string     (const BdwList     *self,
+                                          conststring        delim,
+                                          ToStringFunction   func,
+                                          pointer            param_data);
 
-#ifdef __cplusplus
-}
-#endif
+/**
+ * bdw_list_from_concat_string:
+ * @src: The #string representation of an #BdwList.
+ * @delim: Delimitation string that separates each node's data.
+ * @func: "From-string" function, it must take the data from the node and create
+ *        a string representation for it.
+ * @param_data: Additional data needed for string formatting, it can be %NULL if
+ *              none needed.
+ *
+ * Gets the #BdwList represented by @src.
+ *
+ * Returns: The list represented by @src.
+ **/
+BdwList   *bdw_list_from_concat_string   (conststring        src,
+                                          conststring        delim,
+                                          FromStringFunction func,
+                                          pointer            param_data);
+
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_LIST__H */
+
