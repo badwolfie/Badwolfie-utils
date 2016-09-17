@@ -22,7 +22,10 @@
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
-#include <stdlib.h>
+#include "bdw-macros.h"
+
+BDW_BEGIN_DECLS
+// clang-format off
 
 /**
  * SECTION:bdw-types
@@ -32,99 +35,63 @@
  * BdwLib types and functions.
  **/
 
-#ifndef FALSE
-/**
- * FALSE:
- *
- * Specifies the "false" value for a boolean type.
- **/
-#define FALSE 0x00
-#endif
-
-#ifndef TRUE
-/**
- * TRUE:
- *
- * Specifies the "true" value for a boolean type.
- **/
-#define TRUE 0x01
-#endif
-
-#ifndef bdw_new
-/**
- * bdw_new:
- * @struct_type: The type of the struct element to allocate.
- *
- * Allocates memory for a single element of type @struct_type.
- *
- * Returns: A pointer to the allocated memory, cast to a pointer to
- *@struct_type.
- **/
-#define bdw_new(struct_type) ((struct_type *) malloc (sizeof (struct_type)))
-#endif
-
-#ifndef bdw_alloc
-/**
- * bdw_alloc:
- * @struct_type: The type of the elements to allocate.
- * @n_structs: The number of elements to allocate.
- *
- * Allocates @n_structs elements of type @struct_type, if @n_structs is equal or
- * lesser than 0 it returns %NULL.
- *
- * Returns: A pointer to the allocated memory, cast to a pointer to
- *@struct_type.
- **/
-#define bdw_alloc(struct_type, n_structs)                                      \
-  ((n_structs > 0) ?                                                           \
-       (struct_type *) malloc (n_structs * sizeof (struct_type)) :             \
-       NULL)
-#endif
-
-#ifndef bdw_free
-/**
- * bdw_free:
- * @mem: The memory space to free.
- *
- * If @mem is different from %NULL, it frees the memory pointed to by it.
- **/
-#define bdw_free(mem)                                                          \
-  {                                                                            \
-    if (mem != NULL) {                                                         \
-      free ((void *) mem);                                                     \
-    }                                                                          \
-  }
-#endif
-
 /*    Custom data-types    */
 
-/**
- * pointer:
- *
- * Specifies the data-type for a pointer to any kind of data.
- **/
-typedef void * pointer;
-
-/**
- * constpointer:
- *
- * Specifies the data-type for a pointer to any kind of constant data.
- **/
-typedef const void * constpointer;
+#ifndef STRING
+#  define STRING(x)       ((string)   (x))
+#  define STRING_REF(x)   ((string *) (x))
+#  define STRING_DEF(x)  *((string *) (x))
 
 /**
  * string:
  *
  * Specifies the data-type for a character string.
  **/
-typedef char * string;
+typedef char* string;
+#endif /* STRING */
+
+
+#ifndef CONSTSTRING
+#  define CONSTSTRING(x)       ((conststring)   (x))
+#  define CONSTSTRING_REF(x)   ((conststring *) (x))
+#  define CONSTSTRING_DEF(x)  *((conststring *) (x))
 
 /**
  * conststring:
  *
  * Specifies the data-type for a constant character string.
  **/
-typedef const char * conststring;
+typedef const char* conststring;
+#endif /* CONSTSTRING */
+
+
+#ifndef POINTER
+#  define POINTER(x)       ((pointer)   (x))
+#  define POINTER_REF(x)   ((pointer *) (x))
+#  define POINTER_DEF(x)  *((pointer *) (x))
+
+/**
+ * pointer:
+ *
+ * Specifies the data-type for a pointer to any kind of data.
+ **/
+typedef void* pointer;
+#endif /* POINTER */
+
+
+#ifndef CONSTPOINTER
+#  define CONSTPOINTER(x)       ((constpointer)   (x))
+#  define CONSTPOINTER_REF(x)   ((constpointer *) (x))
+#  define CONSTPOINTER_DEF(x)  *((constpointer *) (x))
+
+/**
+ * constpointer:
+ *
+ * Specifies the data-type for a pointer to any kind of constant data.
+ **/
+typedef const void* constpointer;
+#endif /* CONSTPOINTER */
+
 
 /*    Custom function-types    */
 
@@ -143,8 +110,9 @@ typedef const char * conststring;
  * Returns: A negative value if @a < @b, zero if @a = @b, positive value if
  *          @a > @b.
  **/
-typedef int (*CompareFunction) (constpointer a, constpointer b,
-                                pointer param_data);
+typedef int           (*CompareFunction)      (constpointer a,
+                                               constpointer b,
+                                               pointer      param_data);
 
 /**
  * CopyFunction:
@@ -156,7 +124,8 @@ typedef int (*CompareFunction) (constpointer a, constpointer b,
  *
  * Returns: A pointer to the copy.
  **/
-typedef pointer (*CopyFunction) (constpointer original, pointer param_data);
+typedef pointer       (*CopyFunction)         (constpointer original,
+                                               pointer      param_data);
 
 /**
  * ForeachFunction:
@@ -167,7 +136,8 @@ typedef pointer (*CopyFunction) (constpointer original, pointer param_data);
  * Specifies the type of a function that will be executed once for every node in
  * the list, it can do anything that the user wants.
  **/
-typedef void (*ForeachFunction) (pointer node_data, pointer param_data);
+typedef void          (*ForeachFunction)      (pointer      node_data,
+                                               pointer      param_data);
 
 /**
  * ToStringFunction:
@@ -180,7 +150,22 @@ typedef void (*ForeachFunction) (pointer node_data, pointer param_data);
  *
  * Returns: The list node data string representation.
  **/
-typedef conststring (*ToStringFunction) (pointer node_data, pointer param_data);
+typedef conststring   (*ToStringFunction)     (pointer      node_data,
+                                               pointer      param_data);
+
+/**
+ * FromStringFunction:
+ * @string_data: The string representation of a list node's data.
+ * @param_data: Additional data needed for string formatting, it can be
+ *              %NULL if none is needed.
+ *
+ * Specifies the type of a function that takes the string representation of an
+ * #iList node data and creates an #iList node from it.
+ *
+ * Returns: The list node data that @string_data represents.
+ **/
+typedef pointer       (*FromStringFunction)   (conststring  string_data,
+                                               pointer      param_data);
 
 /**
  * DestroyFunction:
@@ -190,9 +175,29 @@ typedef conststring (*ToStringFunction) (pointer node_data, pointer param_data);
  * destroyed. It is passed the pointer to the data element and should free any
  * memory and resources allocated for it.
  **/
-typedef void (*DestroyFunction) (pointer node_data);
+typedef void          (*DestroyFunction)      (pointer      node_data);
+
 
 /*    Convenience aliases for existing data-types    */
+
+#ifndef BOOL_T
+#  define BOOL_T(x)     ((bool)   (x))
+#  define BOOL_REF(x)   ((bool *) (x))
+#  define BOOL_DEF(x)  *((bool *) (x))
+
+/**
+ * bool:
+ *
+ * Specifies a convenience alias for a boolean data-type.
+ **/
+typedef unsigned char bool;
+#endif /* BOOL */
+
+
+#ifndef UNSIGNED_CHAR_T
+#  define UNSIGNED_CHAR_T(x)     ((unsigned char)   (x))
+#  define UNSIGNED_CHAR_REF(x)   ((unsigned char *) (x))
+#  define UNSIGNED_CHAR_DEF(x)  *((unsigned char *) (x))
 
 /**
  * uchar:
@@ -202,11 +207,74 @@ typedef void (*DestroyFunction) (pointer node_data);
 typedef unsigned char uchar;
 
 /**
+ * uint8:
+ *
+ * Specifies a convenience alias for unsigned 8 bit integer data-type.
+ **/
+typedef unsigned char uint8;
+
+/**
+ * byte:
+ *
+ * Specifies a convenience alias for an unsigned byte (8 bit) data-type.
+ **/
+typedef unsigned char byte;
+#endif /* UNSIGNED_CHAR */
+
+
+#ifndef CHAR_T
+#  define CHAR_T(x)     ((char)   (x))
+#  define CHAR_REF(x)   ((char *) (x))
+#  define CHAR_DEF(x)  *((char *) (x))
+
+/**
+ * int8:
+ *
+ * Specifies a convenience alias for unsigned 8 bit integer data-type.
+ **/
+typedef signed char int8;
+#endif /* CHAR */
+
+
+#ifndef UNSIGNED_SHORT_T
+#  define UNSIGNED_SHORT_T(x)     ((unsigned short)   (x))
+#  define UNSIGNED_SHORT_REF(x)   ((unsigned short *) (x))
+#  define UNSIGNED_SHORT_DEF(x)  *((unsigned short *) (x))
+
+/**
  * ushort:
  *
  * Specifies a convenience alias for unsigned short integer data-type.
  **/
 typedef unsigned short ushort;
+
+/**
+ * uint16:
+ *
+ * Specifies a convenience alias for unsigned 16 bit integer data-type.
+ **/
+typedef unsigned short uint16;
+#endif /* UNSIGNED_SHORT */
+
+
+#ifndef SHORT_T
+#  define SHORT_T(x)     ((short)   (x))
+#  define SHORT_REF(x)   ((short *) (x))
+#  define SHORT_DEF(x)  *((short *) (x))
+
+/**
+ * int16:
+ *
+ * Specifies a convenience alias for unsigned 16 bit integer data-type.
+ **/
+typedef signed short int16;
+#endif /* SHORT */
+
+
+#ifndef UNSIGNED_INT_T
+#  define UNSIGNED_INT_T(x)     ((unsigned int)   (x))
+#  define UNSIGNED_INT_REF(x)   ((unsigned int *) (x))
+#  define UNSIGNED_INT_DEF(x)  *((unsigned int *) (x))
 
 /**
  * uint:
@@ -216,53 +284,18 @@ typedef unsigned short ushort;
 typedef unsigned int uint;
 
 /**
- * ulong:
- *
- * Specifies a convenience alias for unsigned long integer data-type.
- **/
-typedef unsigned long ulong;
-
-/**
- * uint8:
- *
- * Specifies a convenience alias for unsigned 8 bit integer data-type.
- **/
-typedef unsigned char uint8;
-
-/**
- * uint16:
- *
- * Specifies a convenience alias for unsigned 16 bit integer data-type.
- **/
-typedef unsigned short uint16;
-
-/**
  * uint32:
  *
  * Specifies a convenience alias for unsigned 32 bit integer data-type.
  **/
 typedef unsigned int uint32;
+#endif /* UNSIGNED_INT */
 
-/**
- * uint64:
- *
- * Specifies a convenience alias for unsigned 64 bit integer data-type.
- **/
-typedef unsigned long uint64;
 
-/**
- * int8:
- *
- * Specifies a convenience alias for unsigned 8 bit integer data-type.
- **/
-typedef signed char int8;
-
-/**
- * int16:
- *
- * Specifies a convenience alias for unsigned 16 bit integer data-type.
- **/
-typedef signed short int16;
+#ifndef INT_T
+#  define INT_T(x)     ((int)   (x))
+#  define INT_REF(x)   ((int *) (x))
+#  define INT_DEF(x)  *((int *) (x))
 
 /**
  * int32:
@@ -270,6 +303,33 @@ typedef signed short int16;
  * Specifies a convenience alias for unsigned 32 bit integer data-type.
  **/
 typedef signed int int32;
+#endif /* INT */
+
+
+#ifndef UNSIGNED_LONG_T
+#  define UNSIGNED_LONG_T(x)     ((unsigned long)   (x))
+#  define UNSIGNED_LONG_REF(x)   ((unsigned long *) (x))
+#  define UNSIGNED_LONG_DEF(x)  *((unsigned long *) (x))
+
+/**
+ * ulong:
+ *
+ * Specifies a convenience alias for unsigned long integer data-type.
+ **/
+typedef unsigned long ulong;
+/**
+ * uint64:
+ *
+ * Specifies a convenience alias for unsigned 64 bit integer data-type.
+ **/
+typedef unsigned long uint64;
+#endif /* UNSIGNED_LONG */
+
+
+#ifndef LONG_T
+#  define LONG_T(x)     ((long)   (x))
+#  define LONG_REF(x)   ((long *) (x))
+#  define LONG_DEF(x)  *((long *) (x))
 
 /**
  * int64:
@@ -277,26 +337,38 @@ typedef signed int int32;
  * Specifies a convenience alias for unsigned 64 bit integer data-type.
  **/
 typedef signed long int64;
+#endif /* LONG */
+
+
+#ifndef SIZE
+#  define SIZE(x)       ((size)   (x))
+#  define SIZE_REF(x)   ((size *) (x))
+#  define SIZE_DEF(x)  *((size *) (x))
 
 /**
- * sizetype:
+ * size:
  *
  * Specifies a convenience alias for a data-type used for sizes.
  **/
-typedef unsigned long sizetype;
+typedef unsigned long size;
+#endif /* SIZE */
 
-/**
- * byte:
- *
- * Specifies a convenience alias for an unsigned byte (8 bit) data-type.
- **/
-typedef unsigned char byte;
 
-/**
- * bool:
- *
- * Specifies a convenience alias for a boolean data-type.
- **/
-typedef unsigned char bool;
+#ifndef FLOAT_T
+#  define FLOAT_T(x)     ((float)   (x))
+#  define FLOAT_REF(x)   ((float *) (x))
+#  define FLOAT_DEF(x)  *((float *) (x))
+#endif /* FLOAT */
+
+
+#ifndef DOUBLE_T
+#  define DOUBLE_T(x)     ((double)   (x))
+#  define DOUBLE_REF(x)   ((double *) (x))
+#  define DOUBLE_DEF(x)  *((double *) (x))
+#endif /* DOUBLE */
+
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_TYPES__H */
+
