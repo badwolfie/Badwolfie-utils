@@ -24,6 +24,9 @@
 
 #include "bdw-types.h"
 
+BDW_BEGIN_DECLS
+// clang-format off
+
 /**
  * SECTION:bdw-string-utils
  * @title: String utilities
@@ -33,9 +36,6 @@
  **/
 
 /*    Function prototypes    */
-#ifdef __cplusplus /*    C++ support    */
-extern "C" {
-#endif
 
 /**
  * bdw_strconcat:
@@ -46,7 +46,8 @@ extern "C" {
  *
  * Returns: The concatenation of the strings given.
  **/
-string bdw_strconcat (conststring arg, ...);
+string    bdw_strconcat           (conststring arg,
+                                   ...);
 
 /**
  * bdw_strdup:
@@ -56,7 +57,7 @@ string bdw_strconcat (conststring arg, ...);
  *
  * Returns: A duplicate of the given string.
  **/
-string bdw_strdup (conststring original);
+string    bdw_strdup              (conststring original);
 
 /**
  * bdw_strequals:
@@ -67,7 +68,8 @@ string bdw_strdup (conststring original);
  *
  * Returns: %TRUE if the strings are the same, %FALSE otherwise.
  **/
-bool bdw_strequals (conststring arg1, conststring arg2);
+bool      bdw_strequals           (conststring arg1,
+                                   conststring arg2);
 
 /**
  * bdw_str_case_equals:
@@ -78,7 +80,8 @@ bool bdw_strequals (conststring arg1, conststring arg2);
  *
  * Returns: %TRUE if the strings are the same, %FALSE otherwise.
  **/
-bool bdw_str_case_equals (conststring arg1, conststring arg2);
+bool      bdw_str_case_equals     (conststring arg1,
+                                   conststring arg2);
 
 /**
  * bdw_strtrim:
@@ -87,7 +90,8 @@ bool bdw_str_case_equals (conststring arg1, conststring arg2);
  *
  * Trims a string at the first occurrence of a given character.
  **/
-void bdw_strtrim (string str, conststring delim);
+void      bdw_strtrim             (string      str,
+                                   conststring delim);
 
 /**
  * bdw_str_append_char:
@@ -96,7 +100,8 @@ void bdw_strtrim (string str, conststring delim);
  *
  * Appends a character to a given string.
  **/
-void bdw_str_append_char (string dest, char c);
+void      bdw_str_append_char     (string      dest,
+                                   char        c);
 
 /**
  * bdw_strsplit:
@@ -118,7 +123,8 @@ void bdw_str_append_char (string dest, char c);
  *
  * Returns: The %NULL-terminated array of strings result of the tokenization.
  **/
-string * bdw_strsplit (conststring str, conststring delim);
+string   *bdw_strsplit            (conststring str,
+                                   conststring delim);
 
 /**
  * bdw_strjoin:
@@ -132,7 +138,9 @@ string * bdw_strsplit (conststring str, conststring delim);
  * Returns: A newly-allocated string containing all of the strings joined
  *          together with @separator between them.
  **/
-string bdw_strjoin (conststring separator, conststring arg, ...);
+string    bdw_strjoin             (conststring separator,
+                                   conststring arg,
+                                   ...);
 
 /**
  * bdw_str_has_prefix:
@@ -143,7 +151,8 @@ string bdw_strjoin (conststring separator, conststring arg, ...);
  *
  * Returns: %TRUE if @str begins with @prefix, %FALSE otherwise.
  **/
-bool bdw_str_has_prefix (conststring str, conststring prefix);
+bool      bdw_str_has_prefix      (conststring str,
+                                   conststring prefix);
 
 /**
  * bdw_str_has_suffix:
@@ -154,7 +163,8 @@ bool bdw_str_has_prefix (conststring str, conststring prefix);
  *
  * Returns: %TRUE if @str ends with @suffix, %FALSE otherwise
  **/
-bool bdw_str_has_suffix (conststring str, conststring suffix);
+bool      bdw_str_has_suffix      (conststring str,
+                                   conststring suffix);
 
 /**
  * bdw_strstrip:
@@ -164,7 +174,7 @@ bool bdw_str_has_suffix (conststring str, conststring suffix);
  *
  * Returns: @str without leading or trailing whitespace.
  **/
-string bdw_strstrip (string str);
+#define   bdw_strstrip(str)       (bdw_strstrip_leading (bdw_strstrip_trailing (str)))
 
 /**
  * bdw_strstrip_leading:
@@ -178,7 +188,7 @@ string bdw_strstrip (string str);
  *
  * Returns: @str without leading whitespace.
  **/
-string bdw_strstrip_leading (string str);
+string    bdw_strstrip_leading    (string      str);
 
 /**
  * bdw_strstrip_trailing:
@@ -192,7 +202,7 @@ string bdw_strstrip_leading (string str);
  *
  * Returns: @str without trailing whitespace.
  **/
-string bdw_strstrip_trailing (string str);
+string    bdw_strstrip_trailing   (string      str);
 
 /**
  * bdw_strerror:
@@ -204,10 +214,9 @@ string bdw_strstrip_trailing (string str);
  *
  * Returns: Description of @error_code.
  **/
-string bdw_strerror (int64 error_code);
+string    bdw_strerror            (uint64      error_code);
 
-#ifdef __cplusplus
-}
-#endif
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_STRING__H */

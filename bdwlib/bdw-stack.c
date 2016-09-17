@@ -17,37 +17,39 @@
  */
 #include "bdw-stack.h"
 #include "bdw-error.h"
+#include "bdw-memory.h"
 
 BdwStack *
-bdw_stack_new (sizetype size)
+bdw_stack_new (size max_size)
 {
-  BdwStack * self = bdw_new (BdwStack);
-  self->size = size;
+  BdwStack *self = bdw_new (BdwStack);
+  self->max_size = max_size;
   self->top = 0;
 
-  self->data = bdw_alloc (pointer, self->size);
+  self->data = bdw_alloc (pointer, self->max_size);
   return self;
 }
 
 void
-bdw_stack_destroy (BdwStack * self)
+bdw_stack_destroy (BdwStack *self)
 {
   bdw_free (self->data);
   bdw_free (self);
 }
 
 void
-bdw_stack_reset (BdwStack * self)
+bdw_stack_reset (BdwStack *self)
 {
-  sizetype size = self->size;
+  size max_size = self->max_size;
   bdw_stack_destroy (self);
-  self = bdw_stack_new (size);
+  self = bdw_stack_new (max_size);
 }
 
 void
-bdw_stack_push (BdwStack * self, pointer data)
+bdw_stack_push (BdwStack *self, pointer data)
 {
-  if (bdw_stack_is_full (self)) {
+  if (bdw_stack_is_full (self))
+  {
     bdw_error_report ("ERROR: Stack is full.");
     return;
   }
@@ -56,21 +58,25 @@ bdw_stack_push (BdwStack * self, pointer data)
 }
 
 pointer
-bdw_stack_pop (BdwStack * self)
+bdw_stack_pop (BdwStack *self)
 {
-  if (bdw_stack_is_empty (self)) {
+  pointer data;
+
+  if (bdw_stack_is_empty (self))
+  {
     bdw_error_report ("ERROR: Stack is empty.");
     return NULL;
   }
 
-  pointer data = self->data[self->top--];
+  data = self->data[self->top--];
   return data;
 }
 
 pointer
-bdw_stack_get_data_at_top (const BdwStack * self)
+bdw_stack_get_data_at_top (const BdwStack *self)
 {
-  if (bdw_stack_is_empty (self)) {
+  if (bdw_stack_is_empty (self))
+  {
     bdw_error_report ("ERROR: Stack is empty.");
     return NULL;
   }
@@ -79,7 +85,7 @@ bdw_stack_get_data_at_top (const BdwStack * self)
 }
 
 bool
-bdw_stack_is_empty (const BdwStack * self)
+bdw_stack_is_empty (const BdwStack *self)
 {
   if ((self->data == NULL) || (self->top == 0))
     return TRUE;
@@ -87,9 +93,9 @@ bdw_stack_is_empty (const BdwStack * self)
 }
 
 bool
-bdw_stack_is_full (const BdwStack * self)
+bdw_stack_is_full (const BdwStack *self)
 {
-  if (self->top == (self->size - 1))
+  if (self->top == (self->max_size - 1))
     return TRUE;
   return FALSE;
 }

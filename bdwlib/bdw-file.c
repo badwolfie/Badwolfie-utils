@@ -16,21 +16,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "bdw-file.h"
+#include "bdw-memory.h"
 #include "bdw-string.h"
 
-static conststring bdw_file_get_file_args (BdwFileMode mode, BdwFileType type);
+static conststring   bdw_file_get_file_args   (BdwFileMode mode,
+                                               BdwFileType type);
 
 BdwFile *
 bdw_file_new (conststring location)
 {
-  BdwFile * self = bdw_new (BdwFile);
+  BdwFile *self = bdw_new (BdwFile);
   self->location = bdw_strdup (location);
   self->file = NULL;
   return self;
 }
 
 void
-bdw_file_destroy (BdwFile * self)
+bdw_file_destroy (BdwFile *self)
 {
   if (self == NULL)
     return;
@@ -43,8 +45,9 @@ bdw_file_destroy (BdwFile * self)
 }
 
 BdwFileError
-bdw_file_open (BdwFile * self, BdwFileType type, BdwFileMode mode)
+bdw_file_open (BdwFile *self, BdwFileType type, BdwFileMode mode)
 {
+  conststring file_args;
   if (self == NULL)
     return BDW_FILE_ERROR_NOT_INITIALIZED;
 
@@ -54,7 +57,7 @@ bdw_file_open (BdwFile * self, BdwFileType type, BdwFileMode mode)
   if (self->file != NULL)
     return BDW_FILE_ERROR_ALREADY_OPENED;
 
-  conststring file_args = bdw_file_get_file_args (mode, type);
+  file_args = bdw_file_get_file_args (mode, type);
   if (file_args == NULL)
     return BDW_FILE_ERROR_BAD_ARGUMENTS;
 
@@ -65,12 +68,12 @@ bdw_file_open (BdwFile * self, BdwFileType type, BdwFileMode mode)
 }
 
 string
-bdw_file_getline (BdwFile * self)
+bdw_file_getline (BdwFile *self)
 {
-  string str_line = NULL;
-  sizetype size = 0;
+  string   str_line = NULL;
+  size     file_size = 0;
 
-  int status = getline (&str_line, &size, self->file);
+  int status = getline (&str_line, &file_size, self->file);
   if (status == -1)
     return NULL;
 
@@ -83,40 +86,42 @@ bdw_file_get_file_args (BdwFileMode mode, BdwFileType type)
 {
   string file_args, aux;
 
-  switch (mode) {
-    default:
-    case BDW_FILE_MODE_NONE:
-      return NULL;
-    case BDW_FILE_MODE_READ:
-      file_args = bdw_strdup ("r");
-      break;
-    case BDW_FILE_MODE_READ_PLUS:
-      file_args = bdw_strdup ("r+");
-      break;
-    case BDW_FILE_MODE_WRITE:
-      file_args = bdw_strdup ("w");
-      break;
-    case BDW_FILE_MODE_WRITE_PLUS:
-      file_args = bdw_strdup ("w+");
-      break;
-    case BDW_FILE_MODE_APPEND:
-      file_args = bdw_strdup ("a");
-      break;
-    case BDW_FILE_MODE_APPEND_PLUS:
-      file_args = bdw_strdup ("a+");
-      break;
+  switch (mode)
+  {
+  default:
+  case BDW_FILE_MODE_NONE:
+    return NULL;
+  case BDW_FILE_MODE_READ:
+    file_args = bdw_strdup ("r");
+    break;
+  case BDW_FILE_MODE_READ_PLUS:
+    file_args = bdw_strdup ("r+");
+    break;
+  case BDW_FILE_MODE_WRITE:
+    file_args = bdw_strdup ("w");
+    break;
+  case BDW_FILE_MODE_WRITE_PLUS:
+    file_args = bdw_strdup ("w+");
+    break;
+  case BDW_FILE_MODE_APPEND:
+    file_args = bdw_strdup ("a");
+    break;
+  case BDW_FILE_MODE_APPEND_PLUS:
+    file_args = bdw_strdup ("a+");
+    break;
   }
 
   aux = file_args;
 
-  switch (type) {
-    default:
-    case BDW_FILE_TYPE_NONE:
-      break;
-    case BDW_FILE_TYPE_BINARY:
-      file_args = bdw_strconcat (aux, "b");
-    case BDW_FILE_TYPE_TEXT:
-      file_args = bdw_strconcat (aux, "t");
+  switch (type)
+  {
+  default:
+  case BDW_FILE_TYPE_NONE:
+    break;
+  case BDW_FILE_TYPE_BINARY:
+    file_args = bdw_strconcat (aux, "b");
+  case BDW_FILE_TYPE_TEXT:
+    file_args = bdw_strconcat (aux, "t");
   }
 
   bdw_free (aux);

@@ -30,21 +30,13 @@ extern "C" {
 #include "bdw-types.h"
 
 /**
- * bdw_utils_truncate:
- * @num:
- * @max:
- *
- * .
- **/
-#define bdw_utils_truncate(num, max) (num > max ? max : num)
-
-/**
  * bdw_utils_clear_buffer:
  * @buffer: Character string to be cleared.
  *
  * Sets every byte on @buffer to zero, clearing all its data.
  **/
-void bdw_utils_clear_buffer (pointer buffer, sizetype size);
+void   bdw_utils_clear_buffer            (pointer buffer,
+                                          size    buffer_size);
 
 /**
  * bdw_utills_array_get_length:
@@ -54,14 +46,14 @@ void bdw_utils_clear_buffer (pointer buffer, sizetype size);
  *
  * Returns: The length of the given array.
  **/
-sizetype bdw_utils_array_get_length (pointer array);
+size   bdw_utils_null_array_get_length   (pointer array);
 
 /**
  * bdw_utils_flush_stdin:
  *
  * Flushes the stdin buffer so you don't have problems while reading from it.
  **/
-void bdw_utils_flush_stdin (void);
+void   bdw_utils_flush_stdin             (void);
 
 #ifdef __cplusplus
 }

@@ -22,9 +22,9 @@
 #error "Only <bdwlib.h> can be included directly."
 #endif
 
-#include <stdio.h>
-
 #include "bdw-types.h"
+
+#include <stdio.h>
 
 /**
  * SECTION:bdw-file
@@ -36,6 +36,9 @@
  * file and directory operations easier to handle and implement.
  **/
 
+BDW_BEGIN_DECLS
+// clang-format off
+
 /**
  * BdwFile:
  * @file: %FILE pointer that stores the file's data.
@@ -46,7 +49,7 @@
 typedef struct _BdwFile BdwFile;
 struct _BdwFile
 {
-  FILE * file;
+  FILE  *file;
   string location;
 };
 
@@ -76,7 +79,9 @@ struct _BdwFile
  *
  * Specifies the opening mode for a #BdwFile.
  **/
-typedef enum {
+typedef enum eBdwFileMode BdwFileMode;
+enum eBdwFileMode
+{
   BDW_FILE_MODE_NONE = -1,
   BDW_FILE_MODE_READ,
   BDW_FILE_MODE_READ_PLUS,
@@ -84,7 +89,7 @@ typedef enum {
   BDW_FILE_MODE_WRITE_PLUS,
   BDW_FILE_MODE_APPEND,
   BDW_FILE_MODE_APPEND_PLUS
-} BdwFileMode;
+};
 
 /**
  * BdwFileType:
@@ -95,11 +100,13 @@ typedef enum {
  *
  * Specifies the opening type for a #BdwFile.
  **/
-typedef enum {
+typedef enum eBdwFileType BdwFileType;
+enum eBdwFileType
+{
   BDW_FILE_TYPE_NONE = -1,
   BDW_FILE_TYPE_BINARY,
   BDW_FILE_TYPE_TEXT
-} BdwFileType;
+};
 
 /**
  * BdwFileError:
@@ -116,19 +123,17 @@ typedef enum {
  *
  * Specifies errors occurring during operations on a #BdwFile.
  **/
-typedef enum {
+typedef enum eBdwFileError BdwFileError;
+enum eBdwFileError {
   BDW_FILE_ERROR_OK = 0,
   BDW_FILE_ERROR_ALREADY_OPENED,
   BDW_FILE_ERROR_NOT_INITIALIZED,
   BDW_FILE_ERROR_BAD_ARGUMENTS,
   BDW_FILE_ERROR_INVALID_LOCATION,
   BDW_FILE_ERROR_FATAL
-} BdwFileError;
+};
 
 /*    Function prototypes    */
-#ifdef __cplusplus /*    C++ support    */
-extern "C" {
-#endif
 
 /**
  * bdw_file_new:
@@ -138,7 +143,7 @@ extern "C" {
  *
  * Returns: A pointer to the newly created #BdwFile struct.
  **/
-BdwFile * bdw_file_new (conststring location);
+BdwFile       *bdw_file_new          (conststring location);
 
 /**
  * bdw_file_destroy:
@@ -146,7 +151,7 @@ BdwFile * bdw_file_new (conststring location);
  *
  * Destroys an existing #BdwFile struct.
  **/
-void bdw_file_destroy (BdwFile * self);
+void           bdw_file_destroy      (BdwFile    *self);
 
 /**
  * bdw_file_open:
@@ -159,7 +164,9 @@ void bdw_file_destroy (BdwFile * self);
  * Returns: %BDW_FILE_ERROR_OK if the file was opened correctly, any other
  * #BdwFileError value otherwise.
  **/
-BdwFileError bdw_file_open (BdwFile * self, BdwFileType type, BdwFileMode mode);
+BdwFileError   bdw_file_open         (BdwFile    *self,
+                                      BdwFileType type,
+                                      BdwFileMode mode);
 
 /**
  * bdw_file_getline:
@@ -169,7 +176,7 @@ BdwFileError bdw_file_open (BdwFile * self, BdwFileType type, BdwFileMode mode);
  *
  * Returns: The line of text that was read from the file.
  **/
-string bdw_file_getline (BdwFile * self);
+string         bdw_file_getline      (BdwFile    *self);
 
 /**
  * bdw_file_getcontent:
@@ -179,7 +186,7 @@ string bdw_file_getline (BdwFile * self);
  *
  * Returns: The content of the text file.
  **/
-string bdw_file_getcontent (BdwFile * self);
+string         bdw_file_getcontent   (BdwFile    *self);
 
 /**
  * bdw_file_putline:
@@ -188,7 +195,8 @@ string bdw_file_getcontent (BdwFile * self);
  *
  * Writes a line to a text file.
  **/
-void bdw_file_putline (BdwFile * self, conststring line);
+void           bdw_file_putline      (BdwFile    *self,
+                                      conststring line);
 
 /**
  * bdw_file_putcontent:
@@ -197,10 +205,11 @@ void bdw_file_putline (BdwFile * self, conststring line);
  *
  * Writes the content of a text file.
  **/
-void bdw_file_putcontent (BdwFile * self, conststring content);
+void           bdw_file_putcontent   (BdwFile    *self,
+                                      conststring content);
 
-#ifdef __cplusplus
-}
-#endif
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_FILE__H */
+

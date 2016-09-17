@@ -24,20 +24,28 @@
 
 #include "bdw-types.h"
 
-/**
- **/
-bool bdwlib_check_version (uint64 major, uint64 minor, uint64 micro);
+BDW_BEGIN_DECLS
+// clang-format off
 
 /**
  **/
-conststring bdwlib_compilation_date (void);
+bool          bdwlib_check_version          (uint64 major,
+                                             uint64 minor,
+                                             uint64 micro);
 
 /**
  **/
-conststring bdwlib_compilation_time (void);
+conststring   bdwlib_compilation_date       (void);
 
 /**
  **/
-conststring bdwlib_compilation_datetime (void);
+conststring   bdwlib_compilation_time       (void);
+
+/**
+ **/
+conststring   bdwlib_compilation_datetime   (void);
+
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_VERSION__H */

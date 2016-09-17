@@ -24,6 +24,9 @@
 
 #include "bdw-types.h"
 
+BDW_BEGIN_DECLS
+// clang-format off
+
 /**
  * BdwArray:
  * @data: Elements of the array.
@@ -33,17 +36,13 @@
  * elements it holds.
  **/
 typedef struct _BdwArray BdwArray;
-
 struct _BdwArray
 {
   pointer data;
-  uint length;
+  uint    length;
 };
 
 /*    Function prototypes    */
-#ifdef __cplusplus /*    C++ support    */
-extern "C" {
-#endif
 
 /**
  * bdw_array_new:
@@ -52,7 +51,7 @@ extern "C" {
  *
  * Returns: A pointer to the newly created #BdwArray struct.
  **/
-BdwArray * bdw_array_new (void);
+BdwArray   *bdw_array_new       (void);
 
 /**
  * bdw_array_destroy:
@@ -60,10 +59,10 @@ BdwArray * bdw_array_new (void);
  *
  * Destroys an existing #BdwArray struct.
  **/
-void bdw_array_destroy (BdwArray * self);
+void        bdw_array_destroy   (BdwArray *self);
 
-#ifdef __cplusplus
-}
-#endif
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_ARRAY__H */
+

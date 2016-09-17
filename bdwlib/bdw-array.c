@@ -16,18 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "bdw-array.h"
+#include "bdw-memory.h"
 
 BdwArray *
 bdw_array_new (void)
 {
-  BdwArray * self = bdw_new (BdwArray);
+  BdwArray *self = bdw_new (BdwArray);
   self->data = NULL;
   self->length = 0;
   return self;
 }
 
 void
-bdw_array_destroy (BdwArray * self)
+bdw_array_destroy (BdwArray *self)
 {
   if (self == NULL)
     return;

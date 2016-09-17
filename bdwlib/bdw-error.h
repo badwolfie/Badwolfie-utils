@@ -25,6 +25,9 @@
 #include "bdw-types.h"
 #include <errno.h>
 
+BDW_BEGIN_DECLS
+// clang-format off
+
 /**
  * BdwError:
  * @code: Error code, defined by the developer.
@@ -35,14 +38,11 @@
 typedef struct _BdwError BdwError;
 struct _BdwError
 {
-  int64 code;
+  int64       code;
   conststring message;
 };
 
 /*    Function prototypes    */
-#ifdef __cplusplus /*    C++ support    */
-extern "C" {
-#endif
 
 /**
  * bdw_error_new:
@@ -55,7 +55,9 @@ extern "C" {
  *
  * Returns: A newly allocated #BdwError.
  **/
-BdwError * bdw_error_new (int64 code, conststring format, ...);
+BdwError   *bdw_error_new             (int64       code,
+                                       conststring format,
+                                       ...);
 
 /**
  * bdw_error_new_no_format:
@@ -66,7 +68,8 @@ BdwError * bdw_error_new (int64 code, conststring format, ...);
  *
  * Returns: A newly allocated #BdwError.
  **/
-BdwError * bdw_error_new_no_format (int64 code, conststring format);
+BdwError   *bdw_error_new_no_format   (int64       code,
+                                       conststring format);
 
 /**
  * bdw_error_destroy:
@@ -74,7 +77,7 @@ BdwError * bdw_error_new_no_format (int64 code, conststring format);
  *
  * Frees a #BdwError and its internal resources.
  **/
-void bdw_error_destroy (BdwError * self);
+void        bdw_error_destroy         (BdwError   *self);
 
 /**
  * bdw_error_report:
@@ -86,7 +89,8 @@ void bdw_error_destroy (BdwError * self);
  *
  * It's treated as a fatal error and the application closes.
  **/
-void bdw_error_report (conststring format, ...);
+void        bdw_error_report          (conststring format,
+                                       ...);
 
 /**
  * bdw_error_on_code:
@@ -98,8 +102,9 @@ void bdw_error_report (conststring format, ...);
  * @expected_error_code.
  * It's treated as a fatal error and the application closes.
  **/
-void bdw_error_on_code (int64 return_value, int64 expected_error_code,
-                        conststring message);
+void        bdw_error_on_code         (int64       return_value,
+                                       int64       expected_error_code,
+                                       conststring message);
 
 /**
  * bdw_error_on_null:
@@ -109,10 +114,11 @@ void bdw_error_on_code (int64 return_value, int64 expected_error_code,
  * Printfs information about the error if the @return_value is equal to %NULL.
  * It's treated as a fatal error and the application closes.
  **/
-void bdw_error_on_null (pointer return_value, conststring message);
+void        bdw_error_on_null         (pointer     return_value,
+                                       conststring message);
 
-#ifdef __cplusplus
-}
-#endif
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_ERROR__H */
+

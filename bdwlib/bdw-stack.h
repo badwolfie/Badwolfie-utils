@@ -24,28 +24,35 @@
 
 #include "bdw-types.h"
 
+BDW_BEGIN_DECLS
+// clang-format off
+
 typedef struct _BdwStack BdwStack;
 struct _BdwStack
 {
-  pointer * data;
-  sizetype size;
-  int top;
+  pointer *data;
+  size     max_size;
+  int      top;
 };
 
-BdwStack * bdw_stack_new (sizetype size);
+BdwStack   *bdw_stack_new               (size            max_size);
 
-void bdw_stack_destroy (BdwStack * self);
+void        bdw_stack_destroy           (BdwStack       *self);
 
-void bdw_stack_reset (BdwStack * self);
+void        bdw_stack_reset             (BdwStack       *self);
 
-void bdw_stack_push (BdwStack * self, pointer data);
+void        bdw_stack_push              (BdwStack       *self,
+                                         pointer         data);
 
-pointer bdw_stack_pop (BdwStack * self);
+pointer     bdw_stack_pop               (BdwStack       *self);
 
-pointer bdw_stack_get_data_at_top (const BdwStack * self);
+pointer     bdw_stack_get_data_at_top   (const BdwStack *self);
 
-bool bdw_stack_is_empty (const BdwStack * self);
+bool        bdw_stack_is_empty          (const BdwStack *self);
 
-bool bdw_stack_is_full (const BdwStack * self);
+bool        bdw_stack_is_full           (const BdwStack *self);
+
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_STACK__H */

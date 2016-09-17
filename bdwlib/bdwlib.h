@@ -24,10 +24,12 @@
 #include <bdwlib/bdw-bytearray.h>
 #include <bdwlib/bdw-error.h>
 #include <bdwlib/bdw-file.h>
-#include <bdwlib/bdw-internet-client.h>
-#include <bdwlib/bdw-internet-server.h>
-#include <bdwlib/bdw-internet.h>
+#include <bdwlib/bdw-inet-client.h>
+#include <bdwlib/bdw-inet-server.h>
+#include <bdwlib/bdw-inet.h>
 #include <bdwlib/bdw-list.h>
+#include <bdwlib/bdw-macros.h>
+#include <bdwlib/bdw-memory.h>
 #include <bdwlib/bdw-queue.h>
 #include <bdwlib/bdw-simple-list.h>
 #include <bdwlib/bdw-stack.h>
@@ -39,3 +41,4 @@
 #undef __BDWLIB_INSIDE__
 
 #endif /* BDWLIB__H */
+

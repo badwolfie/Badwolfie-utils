@@ -24,29 +24,37 @@
 
 #include "bdw-types.h"
 
+BDW_BEGIN_DECLS
+// clang-format off
+
 typedef struct _BdwQueue BdwQueue;
 struct _BdwQueue
 {
-  pointer * data;
-  sizetype size;
-  int head;
-  int tail;
+  pointer *data;
+  size     max_size;
+  int      head;
+  int      tail;
 };
 
-BdwQueue * bdw_queue_new (sizetype size);
+BdwQueue   *bdw_queue_new                 (size            max_size);
 
-void bdw_queue_destroy (BdwQueue * self);
+void        bdw_queue_destroy             (BdwQueue       *self);
 
-void bdw_queue_reset (BdwQueue * self);
+void        bdw_queue_reset               (BdwQueue       *self);
 
-void bdw_queue_push (BdwQueue * self, pointer data);
+void        bdw_queue_push                (BdwQueue       *self,
+                                           pointer         data);
 
-pointer bdw_queue_pop (BdwQueue * self);
+pointer     bdw_queue_pop                 (BdwQueue       *self);
 
-pointer bdw_queue_get_data_at_front (const BdwQueue * self);
+pointer     bdw_queue_get_data_at_front   (const BdwQueue *self);
 
-bool bdw_queue_is_empty (const BdwQueue * self);
+bool        bdw_queue_is_empty            (const BdwQueue *self);
 
-bool bdw_queue_is_full (const BdwQueue * self);
+bool        bdw_queue_is_full             (const BdwQueue *self);
+
+// clang-format on
+BDW_END_DECLS
 
 #endif /* BDW_QUEUE__H */
+

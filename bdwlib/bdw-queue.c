@@ -17,61 +17,65 @@
  */
 #include "bdw-queue.h"
 #include "bdw-error.h"
+#include "bdw-memory.h"
 
 BdwQueue *
-bdw_queue_new (sizetype size)
+bdw_queue_new (size max_size)
 {
-  BdwQueue * self = bdw_new (BdwQueue);
+  BdwQueue *self = bdw_new (BdwQueue);
   self->head = self->tail = 0;
-  self->size = size;
+  self->max_size = max_size;
 
-  self->data = bdw_alloc (pointer, self->size);
+  self->data = bdw_alloc (pointer, self->max_size);
   return self;
 }
 
 void
-bdw_queue_destroy (BdwQueue * self)
+bdw_queue_destroy (BdwQueue *self)
 {
   bdw_free (self->data);
   bdw_free (self);
 }
 
 void
-bdw_queue_reset (BdwQueue * self)
+bdw_queue_reset (BdwQueue *self)
 {
-  sizetype size = self->size;
+  size max_size = self->max_size;
   bdw_queue_destroy (self);
-  self = bdw_queue_new (size);
+  self = bdw_queue_new (max_size);
 }
 
 void
-bdw_queue_push (BdwQueue * self, pointer data)
+bdw_queue_push (BdwQueue *self, pointer data)
 {
-  if (bdw_queue_is_full (self)) {
+  if (bdw_queue_is_full (self))
+  {
     bdw_error_report ("ERROR: Queue is full.");
     return;
   }
 
-  self->tail = (self->tail + 1) % self->size;
+  self->tail = (self->tail + 1) % self->max_size;
   self->data[self->tail] = data;
 }
 
 pointer
-bdw_queue_pop (BdwQueue * self)
+bdw_queue_pop (BdwQueue *self)
 {
-  if (bdw_queue_is_empty (self)) {
+  if (bdw_queue_is_empty (self))
+  {
     bdw_error_report ("ERROR: Queue is empty.");
     return NULL;
   }
 
-  self->head = (self->head + 1) % self->size;
+  self->head = (self->head + 1) % self->max_size;
   return self->data[self->head];
 }
 
 pointer
-bdw_queue_get_data_at_front (const BdwQueue * self)
+bdw_queue_get_data_at_front (const BdwQueue *self)
 {
-  if (bdw_queue_is_empty (self)) {
+  if (bdw_queue_is_empty (self))
+  {
     bdw_error_report ("ERROR: Queue is empty.");
     return NULL;
   }
@@ -80,7 +84,7 @@ bdw_queue_get_data_at_front (const BdwQueue * self)
 }
 
 bool
-bdw_queue_is_empty (const BdwQueue * self)
+bdw_queue_is_empty (const BdwQueue *self)
 {
   if (self->head == self->tail)
     return TRUE;
@@ -88,9 +92,9 @@ bdw_queue_is_empty (const BdwQueue * self)
 }
 
 bool
-bdw_queue_is_full (const BdwQueue * self)
+bdw_queue_is_full (const BdwQueue *self)
 {
-  if (self->head == ((self->tail + 1) % self->size))
+  if (self->head == ((self->tail + 1) % self->max_size))
     return TRUE;
   return FALSE;
 }

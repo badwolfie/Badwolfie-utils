@@ -15,23 +15,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdarg.h>
-#include <stdio.h>
-
 #include "bdw-error.h"
+#include "bdw-memory.h"
 #include "bdw-string.h"
 #include "bdw-utils.h"
+
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 static char aux_buffer[1024];
 
 BdwError *
 bdw_error_new (int64 code, conststring format, ...)
 {
-  BdwError * self = bdw_new (BdwError);
+  BdwError *self;
+  va_list   arglist;
+
+  self = bdw_new (BdwError);
   self->message = NULL;
   self->code = code;
 
-  va_list arglist;
   va_start (arglist, format);
 
   bdw_utils_clear_buffer (aux_buffer, sizeof (aux_buffer));
@@ -44,14 +48,14 @@ bdw_error_new (int64 code, conststring format, ...)
 BdwError *
 bdw_error_new_no_format (int64 code, conststring format)
 {
-  BdwError * self = bdw_new (BdwError);
+  BdwError *self = bdw_new (BdwError);
   self->message = bdw_strdup (aux_buffer);
   self->code = code;
   return self;
 }
 
 void
-bdw_error_destroy (BdwError * self)
+bdw_error_destroy (BdwError *self)
 {
   if (self == NULL)
     return;
@@ -73,10 +77,12 @@ bdw_error_report (conststring format, ...)
 }
 
 void
-bdw_error_on_code (int64 return_value, int64 expected_error_code,
+bdw_error_on_code (int64       return_value,
+                   int64       expected_error_code,
                    conststring message)
 {
-  if (return_value == expected_error_code) {
+  if (return_value == expected_error_code)
+  {
     printf ("%s \nERROR: %s", message, bdw_strerror (errno));
     exit (1);
   }
@@ -85,7 +91,8 @@ bdw_error_on_code (int64 return_value, int64 expected_error_code,
 void
 bdw_error_on_null (pointer return_value, conststring message)
 {
-  if (return_value == NULL) {
+  if (return_value == NULL)
+  {
     printf ("%s \nERROR: %s", message, bdw_strerror (errno));
     exit (1);
   }
